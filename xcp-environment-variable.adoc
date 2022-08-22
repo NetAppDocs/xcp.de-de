@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: xcp-environment-variable.html 
+keywords: netapp, xcp, configure, configuring, how, performing, tuning, nfs, enviroment, 
+summary: 'Umgebungsvariable (nur NFS)' 
+---
+= Umgebungsvariable
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Optionale Umgebungsvariable Konfiguration für XCP NFS-Systeme.
+
+
+NOTE: Ein nicht-Root-Benutzer kann auch die folgenden Variablen verwenden.
+
+Umgebungsvariable `XCP_CONFIG_DIR` Überschreibt den Standardspeicherort, `/opt/NetApp/xFiles/xcp`. Wenn eingestellt, sollte der Wert ein OS Dateisystem Pfad sein, möglicherweise zu einem gemounteten NFS Verzeichnis. Wenn der `XCP_CONFIG_DIR` Variable wird festgelegt, ein neues Verzeichnis mit dem gleichen Namen wie der Hostname wird innerhalb des benutzerdefinierten Konfigurationverzeichnispfads erstellt, neue Protokolle werden an diesem Speicherort gespeichert.
+
+[listing]
+----
+[root@localhost /]# export XCP_CONFIG_DIR ='/tmp/xcp_config_dir_path'
+----
+Umgebungsvariable `XCP_LOG_DIR` Überschreibt den Standardspeicherort, der das XCP-Protokoll im Konfigurationsverzeichnis speichert. Wenn eingestellt, sollte der Wert ein OS Dateisystem Pfad sein, möglicherweise zu einem gemounteten NFS Verzeichnis. Wenn der  `XCP_LOG_DIR` Variable wird festgelegt, ein neues Verzeichnis mit dem gleichen Namen wie der Hostname wird innerhalb des benutzerdefinierten Protokollverzeichnispfads erstellt, neue Protokolle werden an diesem Speicherort gespeichert.
+
+[listing]
+----
+[root@localhost /]# export XCP_LOG_DIR='/tmp/xcp_log_dir_path'
+----
+Umgebungsvariable `XCP_CATALOG_PATH` Überschreibt die Einstellung in xcp.in Wenn eingestellt, sollte der Wert im xcp-Pfadformat liegen. `server:export[:subdirectory]`.
+
+[listing]
+----
+[root@localhost /]# export XCP_CATALOG_PATH='10.61.82.210:/vol/xcpvol/'
+----
+
+NOTE: Für einen nicht-Root-Benutzer müssen Sie ersetzen `XCP_CATALOG_PATH` Aus dem exportierten Pfad mit dem POSIX-Pfad.

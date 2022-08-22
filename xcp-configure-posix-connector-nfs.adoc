@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: xcp-configure-posix-connector-nfs.html 
+keywords: xcp, configure, nfs, posix, connector 
+summary: Der POSIX-Anschluss ermöglicht XCP den Zugriff auf alle Linux-gemounteten Filesysteme, z. B. NFSv4, XFS und Veritas. 
+---
+= Konfigurieren Sie den POSIX-Anschluss
+:allow-uri-read: 
+
+
+[role="lead"]
+XCP NFS unterstützt jetzt die Verwendung von POSIX-Konnektoren, um Quell- und Zielpfade für die Datenmigration bereitzustellen.
+
+
+
+== Unterstützte Funktionen
+
+Die folgenden Funktionen werden für POSIX-Anschlüsse unterstützt:
+
+* Für POSIX-Dateisysteme, die Nanosekunde unterstützen `atime`, `mtime`, und `ctime`, Das `scan` Befehl ruft die vollen Werte (Sekunden und Nanosekunden) und die ab `copy` Mit dem Befehl werden sie festgelegt
+* POSIX-Anschlüsse sind sicherer als XCP mit NFSv3 TCP-Sockets.
+
+
+
+
+== Pfadsyntax
+
+Die Pfadsyntax für einen POSIX-Konnektor ist `\file://<mounted path on linux>`.
+
+
+
+== Richten Sie einen POSIX-Anschluss ein
+
+Um einen POSIX-Anschluss einzurichten, müssen Sie die folgenden Aufgaben ausführen:
+
+* Mounten Sie einen Quell- und ein Ziel-Volume
+* Vergewissern Sie sich, dass der Zielpfad die erforderliche Berechtigung zum Schreiben der Daten hat
+
+
+Ein Ziel und ein Katalog sind im folgenden Beispiel eingebunden:
+
+[listing]
+----
+root@scspr2395903001 ~]# findmnt -t nfs4
+TARGET SOURCE FSTYPE OPTIONS
+/t/10.237.170.39_src_vol 10.237.170.39:/source_vol nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+/t/10.237.170.53_dest_vol 10.237.170.53:/dest_vol nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+/t/10.237.170.53_catalog_vol 10.237.170.53:/xcp_catalog nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+[root@scspr2395903001 ~]#
+----
+POSIX-Anschlüsse greifen mithilfe der POSIX-Syntax auf ein Quell- und Ziel-Volume zu `file://`. Im obigen Beispiel lautet der Quellpfad `\file:///t/10.237.170.39_src_vol` Und der Zielpfad ist `file:// /t/10.237.170.53_dest_vol`.
+
+Sie können die Beispielkonfiguration eines XCP-Katalogs verwalten, der von nicht-Root-Benutzern gemeinsam genutzt wird, indem Sie eine Linux-Gruppe für XCP-Benutzer erstellen. Für Benutzer ohne Root-Zugriff sind die folgenden Berechtigungen für Benutzer von Linux-Gruppen erforderlich, um Migrationen durchzuführen.
+
+In der folgenden Probenausgabe, `demo` Ist der nicht-Root-Benutzer und `/mnt/xcp-catalog` Ist der Pfad, auf dem Katalog-Volume gemountet wird:
+
+[listing]
+----
+sudo groupadd -g 7711 xcp_users
+sudo usermod -G xcp_users -a demo
+sudo chown -R :xcp_users /mnt/xcp-catalog
+sudo chmod -R g+w /mnt/xcp-catalog
+----
+Der XCP-Katalog speichert keine Daten, speichert aber Scan- und Kopierdateinamen, Verzeichnisnamen und andere Metadaten. Daher wird empfohlen, die Systemberechtigungen für das Katalogdateisystem für zugelassene Benutzer zu konfigurieren, damit diese die Möglichkeit erhalten, die gespeicherten Metadaten zu sichern.
+
+
+
+== Eigentum (UID und GID)
+
+Wenn Sie als regulärer Benutzer eingerichtet sind, ist standardmäßig ein `copy` Der Befehl für ein POSIX- oder NFS3-Ziel versucht nicht, die Eigentümerschaft (Benutzer-ID (UID) und Gruppen-ID (GID) festzulegen. Das Festlegen des Eigentums wird in der Regel von einem Administrator ausgeführt. Wenn Benutzer A Dateien von Benutzer B kopiert, erwartet Benutzer A, dass sie das Ziel besitzen. Dies ist jedoch nicht der Fall, wenn ein Root-Benutzer die Dateien kopiert. Wenn ein Root-Benutzer die Dateien kopiert, wird das verwendet `-chown` Option ändert das Verhalten so, dass ein nicht-root `copy` Befehl mit `-chown` Versucht, die UID und die GID festzulegen.
+
+
+
+== Erhöhen Sie die maximale Anzahl von offenen Dateideskriptoren
+
+Für optimale Performance und Zuverlässigkeit können Sie die maximale Anzahl offener Dateideskriptoren für den XCP-Benutzer auf allen Nodes erhöhen.
+
+.Schritte
+. Öffnen Sie die Datei mit folgendem Befehl:
+`vi /etc/security/limits.conf`
+. Fügen Sie die folgende Zeile zur Datei hinzu:
+`<username> - nofile 999999`
+
+
+*Beispiel*
+
+[listing]
+----
+root - nofile 999999
+----
+Siehe link:https://access.redhat.com/solutions/61334^["Red hat Lösungen"] Finden Sie weitere Informationen.

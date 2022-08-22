@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: xcp-migrate-smb-data.html 
+keywords: netapp, xcp, migrate, data, smb, copy, resume, sync, verify 
+summary: Migrieren von SMB-Daten 
+---
+= Migrieren von SMB-Daten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nach der Planung der Migration mit dem `show` Und `scan` Befehle, Sie können Daten migrieren.
+
+
+
+== Kopieren
+
+Der `copy` Befehl scannt die gesamte Quellverzeichnis-Struktur und kopiert sie auf eine SMB-Zielfreigabe. Der `copy` Befehl erfordert, dass Quell- und Zielpfade als Variablen sind. Die gescannten und kopierten Dateien, Durchsatz/Geschwindigkeit und Details der verstrichenen Zeit werden alle fünf Sekunden auf die Konsole gedruckt.
+
+
+NOTE: Während des Kopiervorgangs können Sie die verwenden `-preserve-atime` Flagge mit dem `copy` Befehl zum Bewahren der Zugriffszeit an der Quelle.
+
+*Beispiel:*
+
+[listing]
+----
+C:\xcp>xcp copy \\<source SMB share> \\<destination SMB share>
+----
+Siehe `xcp help copy` Entnehmen.
+
+
+
+== Synchron
+
+Der `sync` Befehl sucht parallel nach Änderungen und Änderungen in den Quell- und Zielfreigaben und wendet die entsprechenden Aktionen (Entfernen, Ändern, Umbenennen usw.) auf das Ziel an, um sicherzustellen, dass das Ziel identisch mit der Quelle ist.
+
+Mit dem Befehl Sync werden Dateninhalte, Zeitstempel, Dateiattribute, Eigentümerschaft und Sicherheitsinformationen verglichen.
+
+
+NOTE: Während der Synchronisierung können Sie das verwenden `-preserve-atime` Flagge mit dem `sync` Befehl zum Bewahren der Zugriffszeit an der Quelle.
+
+*Beispiel:*
+
+[listing]
+----
+C:\xcp>xcp sync \\<source SMB share> \\<destination SMB share>
+----
+Siehe `xcp help sync` Entnehmen.
+
+
+
+== Verifizieren
+
+Der `verify` Der Befehl liest Quell- und Zielfreigaben und vergleicht sie, indem er Informationen zu den verschiedenen Freigaben bereitstellt. Sie können den Befehl für jede Quelle und jedes Ziel verwenden, unabhängig vom Tool, das zum Durchführen der Kopie oder des Synchronisierungstools verwendet wird.
+
+[NOTE]
+====
+* Während der Überprüfung können Sie das verwenden `-preserve-atime` Flagge mit dem `verify` Befehl zum Bewahren der Zugriffszeit an der Quelle.
+* Während der Überprüfung können Sie das verwenden `-noatime` Flagge mit dem `verify` Befehl zum Ausschließen von Unterschieden bei der Zugriffszeit.
+
+
+====
+*Beispiel:*
+
+[listing]
+----
+C:\xcp>xcp verify \\<source SMB share> \\<destination SMB share>
+----
+Siehe `xcp help verify` Entnehmen.

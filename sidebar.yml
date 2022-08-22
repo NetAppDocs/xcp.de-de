@@ -1,0 +1,87 @@
+---
+entries:
+- title: Zu Hause
+  url: "/home.html"
+- title: Versionshinweise
+  url: "/releasenotes.html"
+- title: Erste Schritte mit XCP
+  url: "/index.html"
+  type: solutions
+  entries:
+  - title: XCP-NFS-Zusatzfunktionen
+    url: "/xcp-nfs-add-ons.html"
+  - title: Nicht unterstützte Funktionen
+    url: "/xcp-unsupported-features.html"
+  - title: Unterstützte Konfigurationen
+    url: "/xcp-supported-configurations.html"
+  - title: Von XCP verwendete Ports
+    url: "/xcp-ports-used.html"
+- title: Installieren Sie XCP
+  url: "/xcp-install-xcp.html"
+  entries:
+  - title: Linux für XCP NFS vorbereiten
+    url: "/xcp-prepare-linux-for-xcp-nfs.html"
+  - title: Windows für XCP SMB vorbereiten
+    url: "/xcp-prepare-windows-for-xcp-smb.html"
+  - title: Dateianalyse Vorbereiten
+    url: "/xcp-prepare-file-analytics.html"
+  - title: Installieren Sie XCP NFS
+    url: "/xcp-install-xcp-nfs.html"
+  - title: Installieren Sie XCP SMB
+    url: "/xcp-install-xcp-smb.html"
+  - title: Installieren Sie File Analytics für NFS
+    url: "/xcp-install-file-analytics-for-nfs.html"
+  - title: Installieren Sie Dateianalysen für SMB
+    url: "/xcp-install-file-analytics-for-smb.html"
+- title: XCP konfigurieren
+  entries:
+  - title: Konfigurieren Sie die INI-Datei für XCP NFS
+    url: "/xcp-configure-the-ini-file-for-xcp-nfs.html"
+  - title: Performance-Optimierung
+    url: "/xcp-performance-tuning.html"
+  - title: Umgebungsvariable
+    url: "/xcp-environment-variable.html"
+  - title: Konfigurieren Sie den POSIX-Anschluss
+    url: "/xcp-configure-posix-connector-nfs.html"
+  - title: Konfigurieren Sie den HDFS-Connector
+    url: "/xcp-configure-hdfs-connector-nfs.html"
+  - title: Konfiguration für horizontale Skalierung mit mehreren Nodes
+    url: "/xcp-configure-multinode-scaleout-nfs.html"
+- title: Planen Sie eine Datenmigration
+  url: "/xcp-plan-data-migration.html"
+  entries:
+  - title: Planen Sie NFS-Datenmigration
+    url: "/xcp-plan-nfs-data-migration.html"
+  - title: Planen Sie die SMB-Datenmigration
+    url: "/xcp-plan-smb-data-migration.html"
+  - title: Planen Sie die Verwendung von Dateianalysen
+    url: "/xcp-using-file-analytics.html"
+    entries:
+    - title: Öffnen Sie Dateianalyse
+      url: "/xcp-access-file-analytics.html"
+    - title: Fügen Sie Dateiserver hinzu
+      url: "/xcp-add-file-servers.html"
+    - title: Führen Sie einen Scan aus
+      url: "/xcp-run-a-scan.html"
+  - title: Filter
+    url: "/xcp-filters.html"
+  - title: Protokollierung für NFS und SMB (optional)
+    url: "/xcp-logging-for-nfs-and-smb.html"
+- title: Datenmigration
+  entries:
+  - title: NFS-Daten migrieren
+    url: "/xcp-migrate-nfs-data.html"
+  - title: Migrieren von SMB-Daten
+    url: "/xcp-migrate-smb-data.html"
+  - title: Zusätzliche NFS-Funktionen
+    url: "/xcp-migrate-nfs-additional-features.html"
+- title: Fehlerbehebung
+  entries:
+  - title: Fehlerbehebung bei XCP-NFS-Fehlern
+    url: "/xcp-troubleshoot-xcp-nfs.html"
+  - title: Fehler bei XCP SMB beheben
+    url: "/xcp-troubleshoot-xcp-smb-errors.html"
+  - title: Fehler bei der XCP-Dateianalyse beheben
+    url: "/xcp-troubleshoot-xcp-file-analytics-errors.html"
+- title: Weitere Informationen
+  url: "/get-more-information.html"

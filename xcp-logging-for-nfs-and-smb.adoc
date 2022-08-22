@@ -1,0 +1,159 @@
+---
+sidebar: sidebar 
+permalink: xcp-logging-for-nfs-and-smb.html 
+keywords: netapp, xcp, configure, configuring, how, performing, tuning, nfs, smb 
+summary: Protokollierung für XCP NFS und SMB 
+---
+= Protokollierung für NFS und SMB (optional)
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Protokollierung für XCP NFS und SMB.
+
+XCP unterstützt die Konfiguration mehrerer optionaler Funktionen mit dem `xcpLogConfig.json` JSON-Konfigurationsdatei Um nur bestimmte Funktionen zu aktivieren, erstellen Sie manuell das `xcpLogConfig.json` Konfigurationsdatei Sie können das verwenden `xcpLogConfig.json` Konfigurationsdatei zum Aktivieren:
+
+* Ereignisprotokollmeldungen
+* Syslog-Client für XCP
+* Benutzerdefinierte XCP-Protokollierung
+
+
+In der Standardkonfiguration sind Ereignisprotokollmeldungen und der syslog-Client deaktiviert. Die Konfiguration ist für NFS und SMB üblich.
+
+|===
+| JSON-Dateispeicherort konfigurieren | NFS | SMB 
+
+
+| Standardspeicherort der Konfigurationsdatei | /Opt/NetApp/Xfiles/xcp/ | C:\NetApp\XCP\ConfigFile 
+
+
+| Benutzerdefinierter Standort erfordert den `XCP_CONFIG_DIR` Umgebungsvariable | Verwenden Sie die Position, die Sie gegen den festgelegt haben `XCP_CONFIG_DIR` Variabel | K. A. 
+|===
+Bei den Optionen der JSON-Konfigurationsdatei wird zwischen Groß- und Kleinschreibung unterschieden. Diese Optionen sind für XCP NFS und XCP SMB identisch.
+
+[cols="20,15,15,50"]
+|===
+| Name der Unteroptionen | JSON-Datentyp | Standard | Beschreibung 
+
+
+| Logkonfig |  |  | Option zum Anpassen der XCP-Protokollierung. 
+
+
+| „Ebene“ | Zeichenfolge | INFO | Filterstufe für Protokollmeldung, Schweregrad XCP-Protokollmeldungen unterstützen fünf Schweregrade in Reihenfolge des Schweregrads für die Verringerung des Schweregrads: KRITISCH, FEHLER, WARNUNG, INFO, DEBUG (NetApp empfiehlt dringend INFORMATIONEN oder DEBUG) 
+
+
+| „MaxBytes“ | Ganzzahl | 52428800 | Größe jeder rotierenden Protokolldatei. Maximal unterstützte Rotationsdateien sind 10. 
+
+
+| „Name“ | Zeichenfolge | xcp.log | Option zum Festlegen des benutzerdefinierten Protokolldateinamens. 
+
+
+| Eventlog |  |  | Option zum Konfigurieren der Ereignisprotokollmeldung. 
+
+
+| „Isenabled“ | Boolesch | Falsch | Diese boolesche Option wird zum Aktivieren der Ereignisnachrichten verwendet. Einstellen auf `false` Werden keine Ereignismeldungen generiert, und es werden keine Ereignisprotokolle in der Ereignis-Log-Datei veröffentlicht. 
+
+
+| „Ebene“ | Zeichenfolge | INFO | Filterebene für Ereignismeldung: Schweregrad Event Messaging unterstützt fünf Schweregrade in der Reihenfolge des abnehmenden Schweregrads: KRITISCH, FEHLER, WARNUNG, INFO, DEBUG 
+
+
+| Syslog |  |  | Option zum Konfigurieren von Syslog-Messaging. 
+
+
+| „Isenabled“ | Boolesch | Falsch | Diese boolesche Option wird verwendet, um Syslog-Client in XCP zu aktivieren. 
+
+
+| „Ebene“ | Zeichenfolge | INFO | Filterstufe für Meldungen mit Schweregrad. XCP-Ereignisprotokollmeldungen unterstützen fünf Schweregrade in der Reihenfolge des Schweregrads: KRITISCH, FEHLER, WARNUNG, INFO, DEBUG 
+
+
+| „ServerIP“ | Zeichenfolge | Keine | IP-Adressen oder Hostname des Remote-Syslog-Servers. 
+
+
+| „Port“ | Ganzzahl | 514 | Remote-Syslog-Empfänger-Port. Syslog-Empfänger, die Syslog-Datagramme auf einem anderen Port akzeptieren, können mit der Port-Option UDP-Port 514 konfiguriert werden, Sie können aber auch an den gewünschten Port konfigurieren. 
+
+
+| „Desinfizieren“ | Boolesch | Falsch  a| 
+Eine allgemeine Option für XCP-Unterstützung; wenn ihr Wert auf „true“ gesetzt wird, werden vertrauliche Informationen (IP und Benutzername) in den zu unterstützenden Meldungen (Protokollierung, Ereignisse, Syslog usw.) verborgen. Zum Beispiel mit `sanitize` Option als `false`: *	`2020-07-17 03:10:23,779 - INFO - 12806 xcp xcp Paths: ['10.234.104.251:/cat_vol']`*	`2020-07-17 03:10:23,778 - INFO - 12806 xcp xcp User Name: root`Mit dem `sanitize` Option als `true`: *	`2020-07-17 03:13:51,596 - INFO - 12859 xcp xcp Paths: ['IP: XX.XX.XX.XX:/cat_vol']`*	`2020-07-17 03:13:51,595 - INFO - 12859 xcp xcp User Name: * * *`
+
+|===
+
+
+== Erstellen Sie die JSON-Konfigurationsdatei
+
+Wenn Sie Ereignisprotokollmeldungen, den Syslog-Client oder die Kundenprotokollierung aktivieren möchten, führen Sie die folgenden Schritte aus.
+
+.Schritte
+. Öffnen Sie einen beliebigen Texteditor, z. B. Editor oder vi.
+. Erstellen Sie eine neue Datei mit der folgenden JSON-Vorlage.
++
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "eventlog": {
+    "isEnabled": false,
+    "level": "INFO"
+  },
+  "syslog": {
+    "isEnabled": false,
+    "level": "INFO",
+    "serverIp": "10.234.219.87",
+    "port": 514
+  },
+  "sanitize": false
+}
+----
+. Ändern Sie für alle Funktionen, die Sie aktivieren möchten `isEnabled` Mehrwert für `true`.
+. Benennen Sie die Datei `xcpLogConfig.json` Und speichern Sie sie am Standardspeicherort: /Opt/NetApp/Xfiles/xcp/
++
+Wenn der `XCP_CONFIG_DIR` Umgebungsvariable ist festgelegt, speichern Sie die `xcpLogConfig.json` Datei an demselben Speicherort, der für das festgelegt ist `XCP_CONFIG_DIR` Variabel.
+
+
+
+|===
+| Standardkonfiguration | Beispiel für eine Json-Konfigurationsdatei 
+
+
+ a| 
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "sanitize": false
+}
+---- a| 
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "eventlog": {
+    "isEnabled": false,
+    "level": "INFO"
+  },
+  "syslog": {
+    "isEnabled": false,
+    "level": "INFO",
+    "serverIp": "10.234.219.87",
+    "port": 514
+  },
+  "sanitize": false
+}
+----
+|===

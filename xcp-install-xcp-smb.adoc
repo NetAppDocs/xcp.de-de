@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: xcp-install-xcp-smb.html 
+keywords: netapp, xcp, install, smb 
+summary: Installieren von XCP SMB 
+---
+= Installieren Sie XCP SMB
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+In diesem Abschnitt werden die Systemanforderungen und das Verfahren für die weiterverteilbare VC+-Installation sowie die Ersteinrichtung von XCP auf einem Windows-Client erläutert.
+
+
+NOTE: Es besteht keine Möglichkeit zum Aktualisieren. Installieren Sie XCP neu, um vorhandene Versionen zu ersetzen.
+
+*Systemanforderungen*
+
+[cols="35,65"]
+|===
+| Element | Anforderungen 
+
+
+| System | 64-Bit Intel- oder AMD-Server, mindestens 4 Kerne und 32 GB RAM 
+
+
+| Betriebssystem Und Software | Windows 2012 R2 oder höher. Informationen zu unterstützten Microsoft-Betriebssystemversionen finden Sie im link:https://mysupport.netapp.com/matrix/#welcome["Interoperabilitäts-Matrix-Tool"^]. Visual C++ 2017 Redistributable muss auf dem XCP-Host installiert sein. 
+
+
+| Besondere Anforderungen | Das Quell-Speichersystem, der XCP-Host und das Ziel-ONTAP-System müssen Teil derselben Active Directory-Domäne sein 
+
+
+| Storage | 20 MB Festplattenspeicher für die XCP-Binärdatei und mindestens 50 MB Festplattenspeicher für die Protokolle, die im Verzeichnis C:\NetApp\XCP gespeichert sind 
+
+
+| Unterstützte Protokollversion | Alle SMB-Protokollversionen 
+
+
+| Unterstützter Browser (nur Dateianalyse) | XCP-Dateianalysen unterstützt Google Chrome Version 76 und höher. In der IMT-Matrix finden Sie alle unterstützten Versionen des Browsers 
+|===
+
+
+== XCP SMB Microsoft VC++ Redistributable Installation
+
+Befolgen Sie diese Schritte für die weiterverteilbare VC+-Installation.
+
+.Schritte
+. Klicken Sie Auf link:https://go.microsoft.com/fwlink/?LinkId=746572["VC++ 2017 weiterverteilbar"^] So laden Sie die ausführbare Datei in Ihren Standard-Download-Ordner herunter.
+. Um die Installation zu starten, doppelklicken Sie auf das Installationsprogramm. Akzeptieren Sie die Bedingungen und wählen Sie *Installieren*.
+. Starten Sie nach Abschluss der Installation den Windows-Client neu.
+
+
+
+
+== XCP SMB – Initial Setup Procedure
+
+Führen Sie die folgenden Schritte aus, um die Ersteinrichtung von XCP SMB durchzuführen.
+
+.Schritte
+. Laden Sie die Lizenz und die XCP SMB-Binärdatei herunter `NETAPP_XCP_<version>.tgz` Auf einem Windows-Client.
+. Extrahieren Sie die `NETAPP_XCP_<version>.tgz` Datei:
+. Kopieren Sie die `xcp.exe` Datei zu Ihrem Windows C: Laufwerk, diese Binärdatei ist im Inneren verfügbar `NETAPP_XCP_1.8\NETAPP_XCP_1.8\xcp\windows` Nach dem Extrahieren der `tgz` Datei:
+. Überprüfen Sie das `C:\NetApp\XCP` Pfad ist auf dem System aus einer früheren Version von XCP verfügbar. Wenn `C:\NetApp\XCP` Ist verfügbar, aktivieren Sie XCP mit dem `xcp.exe activate` Führen Sie einen Befehl aus, und fahren Sie mit der Datenmigration fort.
++
+Wenn `C:\NetApp\XCP` Ist nicht verfügbar, erstellt das System das XCP-Host-Konfigurationsverzeichnis und Dateien es unter `C:\NetApp\XCP` Wenn Sie den ausführen `xcp.exe activate` Befehl zum ersten Mal. Der `xcp.exe activate` Befehl schlägt fehl und erzeugt eine Fehlermeldung, in der Sie nach einer neuen Lizenz fragen.
+
++
+[listing]
+----
+C:\>xcp.exe activate
+(c) yyyy NetApp, Inc.
+
+License file C:\NetApp\XCP\license not found.
+Register for a license at https://xcp.netapp.com
+----
+. Kopieren Sie die Lizenz in den neu erstellten Ordner `C:\NetApp\XCP:`
++
+[listing]
+----
+C:\>copy license c:\NetApp\XCP
+        1 file(s) copied.
+----
+. XCP aktivieren:
++
+[listing]
+----
+C:\>xcp.exe activate
+XCP SMB; (c) yyyy NetApp, Inc.;
+
+XCP activated
+
+C:\>
+----
+

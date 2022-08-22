@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: xcp-create-the-json-configuration-file.html 
+keywords: netapp, xcp, create, json, configuration, file 
+summary: Erstellen Sie die JSON-Konfigurationsdatei 
+---
+= Erstellen Sie die JSON-Konfigurationsdatei
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Erstellen Sie die JSON-Konfigurationsdatei.
+
+Wenn Sie Ereignisprotokollmeldungen, den Syslog-Client oder die Kundenprotokollierung aktivieren möchten, führen Sie die folgenden Schritte aus.
+
+*Schritte*
+
+. Öffnen Sie einen beliebigen Texteditor, z. B. Editor oder vi.
+. Erstellen Sie eine neue Datei mit der folgenden JSON-Vorlage.
++
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "eventlog": {
+    "isEnabled": false,
+    "level": "INFO"
+  },
+  "syslog": {
+    "isEnabled": false,
+    "level": "INFO",
+    "serverIp": "10.234.219.87",
+    "port": 514
+  },
+  "sanitize": false
+}
+----
+. Ändern Sie für alle Funktionen, die Sie aktivieren möchten `isEnabled` Mehrwert für `true`.
+. Benennen Sie die Datei `xcpLogConfig.json` Und sae es an den Dateispeicherort, der in *Error! Referenzquelle nicht gefunden.*
+
+
+|===
+| Standardkonfiguration | Beispiel für eine Json-Konfigurationsdatei 
+
+
+ a| 
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "sanitize": false
+}
+---- a| 
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "eventlog": {
+    "isEnabled": false,
+    "level": "INFO"
+  },
+  "syslog": {
+    "isEnabled": false,
+    "level": "INFO",
+    "serverIp": "10.234.219.87",
+    "port": 514
+  },
+  "sanitize": false
+}
+----
+|===

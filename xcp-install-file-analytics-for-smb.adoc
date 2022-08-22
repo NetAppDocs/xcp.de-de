@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: xcp-install-file-analytics-for-smb.html 
+keywords: netapp, xcp, install, installing, file, analytics, smb, upgrade, upgrading 
+summary: Dateianalyse für SMB installieren oder aktualisieren 
+---
+= Installieren Sie Dateianalysen für SMB
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dateianalyse für SMB installieren oder aktualisieren
+
+Die Systemanforderungen für SMB finden Sie unter link:xcp-install-xcp-smb.html["Installieren Sie XCP SMB"].
+
+*Bevor Sie beginnen*
+
+* Sie müssen XCP-Dateianalysen für NFS auf einem Linux-Rechner konfigurieren, um den XCP-SMB-Dienst verwenden zu können.
+* Stellen Sie sicher, dass der XCP-Dienst auf Ihrem Linux-Computer ausgeführt wird, bevor Sie mit der Konfiguration von XCP-Dateianalysen auf einem Windows-Rechner beginnen.
+
+
+
+
+== Neue Installation von Dateianalysen für SMB
+
+Führen Sie die folgenden Schritte aus, um eine Neuinstallation von Dateianalysen für SMB durchzuführen.
+
+.Schritte
+. Kopieren Sie die `xcp.exe` Datei auf Ihre Windows `C:` Laufwerk, dieser Binär ist im Inneren verfügbar `/xcp/windows` Nach dir entar den Tgz.
+. Laden Sie die XCP-Lizenzdatei vom herunter link:https://xcp.netapp.com/["XCP-Standort"^].
+. Erstellen Sie den Ordner `C:\\NetApp\XCP` Und kopieren Sie die XCP-Lizenz an diesen Speicherort.
+. Aktivieren Sie die XCP-Lizenz mit dem folgenden Befehl an der Eingabeaufforderung:  `xcp.exe activate`
+. Kopieren Sie die `server.key` Und `server.crt` Dateien von `/opt/NetApp/xFiles/xcp/` (Im Linux-Feld, in dem XCP-Dateianalyse bereits konfiguriert ist) zu `C:\NetApp\XCP`Optional: Wenn Sie ein CA-Zertifikat besitzen, platzieren Sie das Zertifikat an diesem Ort mit dem gleichen Namen und den gleichen Erweiterungen.
+. Führen Sie in der Windows-CLI-Eingabeaufforderung den Befehl aus `xcp configure`.
+. Geben Sie bei entsprechender Aufforderung die IP-Adresse des Linux-Rechners ein, auf dem der XCP-Dateianalyseserver konfiguriert ist.
+. Geben Sie bei entsprechender Aufforderung das Kennwort für die Datenbank ein, die während der XCP Linux-Dateianalyse-Konfiguration eingegeben wurde.
+. Gehen Sie zum Linux-Rechner und starten Sie `./configure.sh`.
+. Wählen Sie `option 4 (Update XCP windows agent IP)` Geben Sie im Hauptmenü die IP-Adresse für den Windows-Computer an.
+. Gehen Sie zu Ihrem Windows-Rechner und starten Sie `xcp listen`, Jetzt ist XCP File Analytics für SMB konfiguriert. Halten Sie das Fenster in einem offenen Zustand, um den Dienst kontinuierlich auszuführen.
+. Starten Sie die Dateianalyse im Google Chrome-Browser und aktualisieren Sie die Seite: `\https://<ip address of linux>/xcp`
+. Wählen Sie `OK` Wenn das Dialogfeld angezeigt wird. Es wird eine neue Registerkarte geöffnet. Bitte aktivieren Sie Pop-ups im Browser, wenn sie blockiert sind. Akzeptieren Sie die Datenschutzrichtlinie für die URL, und die folgende Meldung wird angezeigt: `SMB agent is ready to use. Please refresh the analytics page`
+. Kehren Sie zur Registerkarte Original zurück, auf der die XCP-Dateianalyse-GUI gehostet wird, und aktualisieren Sie die Seite. Auf diese Weise wird der SMB-Agent unter der Karte „Agents“ angezeigt.
+
+
+
+
+== Upgrade von Dateianalysen für SMB
+
+Führen Sie die folgenden Schritte aus, um die vorhandene Dateianalyse für SMB zu aktualisieren.
+
+. Bevor Sie die Dateianalyse ausführen, stellen Sie sicher, dass der Linux-Server, auf dem die Dateianalyse ausgeführt wird, ebenfalls aktualisiert wird und der Dienst ausgeführt wird.
+. Stoppen Sie unter Windows den vorhandenen XCP-Dienst, indem Sie eingeben `CTRL-C` In der Kommandozeile.
+. Austausch `xcp.exe` Mit der neuesten Binärdatei.
+. Gehen Sie zum Linux-Rechner und starten Sie `./configure.sh`.
+. Wählen Sie `option 4 (Update XCP windows agent IP)` Geben Sie im Hauptmenü die IP-Adresse für den Windows-Computer an.
+. Gehen Sie zu Ihrem Windows-Rechner und starten Sie `xcp listen`, Jetzt ist XCP File Analytics für SMB konfiguriert. Halten Sie das Fenster in einem offenen Zustand, um den Dienst kontinuierlich auszuführen.
+. Starten Sie die Dateianalyse im Google Chrome-Browser und aktualisieren Sie die Seite: `\https://<ip address of linux>/xcp`
+. Wählen Sie `OK` Wenn das Dialogfeld angezeigt wird. Es wird eine neue Registerkarte geöffnet. Bitte aktivieren Sie Pop-ups im Browser, wenn sie blockiert sind. Akzeptieren Sie die Datenschutzrichtlinie für die URL, und die folgende Meldung wird angezeigt: `SMB agent is ready to use. Please refresh the analytics page`
+. Kehren Sie zur Registerkarte Original zurück, auf der die XCP-Dateianalyse-GUI gehostet wird, und aktualisieren Sie die Seite. Auf diese Weise wird der SMB-Agent unter der Karte „Agents“ angezeigt.
+

@@ -1,0 +1,84 @@
+---
+sidebar: sidebar 
+permalink: xcp-troubleshoot-xcp-file-analytics-errors.html 
+keywords: netapp, xcp, troubleshoot, troubleshooting, errors, file, anyalytics 
+summary: Fehlerbehebung bei XCP-Dateianalysefehlern 
+---
+= Fehler bei der XCP-Dateianalyse beheben
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Lesen Sie die Lösungen zur Fehlerbehebung durch.
+
+[cols="40,60"]
+|===
+| Problem | Nutzen 
+
+
+| PostgreSQL-Dienst fehlgeschlagen  a| 
+Führen Sie erneut die Option Konfigurieren aus, und wählen Sie die Option Installation aus. Wenn die vorherige Installation erfolgreich war, können Sie die Reparaturoption auswählen. Wenn Sie immer noch die Fehlermeldung erhalten, versuchen Sie die manuellen Schritte wie folgt:
+
+. Starten Sie den PostgreSQL-Dienst neu:
++
+`sudo systemctl restart postgresql.service`
+
+. Überprüfen Sie den Servicestatus:
++
+`sudo systemctl status postgresql.service | grep Active`
+
+
+
+
+
+| DIENST HTTPD fehlgeschlagen  a| 
+Führen Sie erneut die Option Konfigurieren aus, und wählen Sie die Option Installation aus. Wenn die vorherige Installation erfolgreich war, können Sie die Reparaturoption auswählen. Wenn Sie immer noch die Fehlermeldung erhalten, versuchen Sie die manuellen Schritte wie folgt:
+
+. Starten Sie DIE DIENSTE VON HTTPD neu:
++
+`sudo systemctl restart httpd`
+
+. Prüfen Sie den SERVICE-Status VON HTTPD:
++
+`sudo systemctl status httpd | grep Active`
+
+
+
+
+
+| Anmeldeseite konnte nach erfolgreicher Installation nicht geöffnet werden | Überprüfen Sie, ob Ihr System den Linux-Rechner anpingen kann, auf dem XCP File Analytics installiert ist und HTTPD ausgeführt wird. Wenn die Dienste nicht ausgeführt werden, führen Sie aus `configure` Und wählen Sie die Reparatur Option. Vergewissern Sie sich, dass Sie eine unterstützte Browser-Version verwenden. Siehe link:https://mysupport.netapp.com/matrix/["IMT"^]. 
+
+
+| Benutzeranmeldung fehlgeschlagen  a| 
+* Vergewissern Sie sich, dass Sie eine unterstützte Browser-Version verwenden. Siehe link:https://mysupport.netapp.com/matrix/["IMT"^].
+* Vergewissern Sie sich, dass der Benutzer „admin“ und das Passwort korrekt ist.
+* Stellen Sie sicher, dass der XCP-Dienst durch Ausgabe ausgeführt wird `xcp service status`.
+* Vergewissern Sie sich, dass Port 5030 unter Linux geöffnet ist. Öffnen Sie die Anwendung unter *https:// <linux ip> :5030/API/xcp*, und bestätigen Sie, dass die messagereads msg: `Missing Authorization Header`.
+* Überprüfen Sie, ob der `xcp.ini` Die Datei ist im vorhanden `/opt/NetApp/xFiles/xcp/` Standort. Um den zurückzusetzen `xcp.ini` Führen Sie das Konfigurationsskript aus und wählen Sie die Option *Reparatur* aus. Wählen Sie als nächstes die Menüoption für *Rebuild xcp.ini Datei*.
+* Führen Sie den manuell aus `xcp --listen` Befehl über die CLI und versuchen Sie, sich anzumelden. Wenn Sie keine Anfrage auf dem Server erhalten, überprüfen Sie die Installation und die Anschlüsse, die für die Kommunikation mit dem Server verwendet werden. Führen Sie das aus, nachdem Sie die korrekte Installation überprüft haben `service xcp start` Befehl zum Neustart des Dienstes.
+
+
+
+
+| Die XCP-GUI zeigt keine aktualisierten Seiten an | Löschen Sie den Cache, und versuchen Sie es erneut 
+
+
+| XCP-Dienst wird nicht gestartet | Um die auszuführen `xcp` Verwenden Sie den `sudo systemctl start xcp` Befehl. Alternativ können Sie das Konfigurationsskript ausführen und die Option *Reparatur* wählen, um die Dienste zu starten, die angehalten werden. 
+
+
+| Die Dateifreigabe konnte nicht gescannt werden | Dateifreigabe/Volume kann nicht lesbar sein. Überprüfen Sie manuell, ob die Dateifreigabe zugänglich/lesbar ist, indem Sie den ausführen `xcp show` Befehl. Überprüfen Sie auch, ob die `xcp.ini` Datei wurde gelöscht. Wenn sie gelöscht wird, bauen Sie den neu aus `xcp.ini` Datei mit der Option configure.sh Skript Reparatur. 
+
+
+| Dateiserver konnten nicht geladen werden | Versuchen Sie, eine Seite zu aktualisieren. Wenn das Problem weiterhin besteht, führen Sie das manuell aus `xcp show` Befehl an der Eingabeaufforderung und überprüfen, ob Sie den Dateiserver scannen können. Wenn der Erfolg abgeschlossen ist, kann ein Ticket beim NetApp Kunden-Support erhöht werden. Wenn der Dateiserver nicht erfolgreich ist, überprüfen Sie, ob er aktiv ist, indem Sie eine manuelle Prüfung durchführen. Überprüfen Sie, ob der `xcp.ini` Datei- und Lizenzdateien befinden sich am richtigen Speicherort. Um den zurückzusetzen `xcp.ini` Führen Sie das Konfigurationsskript aus und wählen Sie die Option *Reparatur* aus. Wählen Sie dann die Menüoption *Rebuild xcp.ini Datei.* Überprüfen Sie die `xcpfalogs` Logs, um zu sehen, ob die Lizenz erneuert werden muss. 
+
+
+| Die Seite XCP-Dateianalyse wird nach dem Systemneustart nicht angezeigt | XCP-Dienste sind möglicherweise nicht verfügbar. Führen Sie das Konfigurationsskript aus und wählen Sie die Option *Reparieren* aus. Dadurch werden alle Services neu gestartet, die angehalten wurden. 
+
+
+| Der gesamte Speicherplatz eines exportierten Filesystems auf einem bestimmten Dateiserver kann mehr Speicherplatz im Vergleich zum zugewiesenen physischen Speicher anzeigen. | Dies kann passieren, wenn es qtree-Ebene-Exporte innerhalb des Volumes gibt. Beispiel: Wenn die Volume-Größe, die als exportiert wird `/vol1` Ist 10 GB und es gibt einen qtree innerhalb des Volumes `/vol1/qtree1`, Dann der `xcp show` Mit dem Befehl wird das angezeigt `vol1` Größe als `10 GB` Und das `qtree1` Größe als `10 GB`. XCP-Dateianalysen fasst den Speicherplatz beider Exporte zusammen und gibt den gesamten Speicherplatz an, in diesem Fall `20 GB`. Das versteht es nicht `qtree1` Ist ein logischer Speicherplatz. 
+|===

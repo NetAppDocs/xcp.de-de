@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-add-ons.html 
+keywords: xcp, nfs, hdfs, connector, configure, security 
+summary: Die XCP-NFS-Zusatzfunktionen unterstützen den Einsatz von POSIX- und HDFS-Anschlüssen, verbessern die Sicherheit und unterstützen den Einsatz von Scale-out-Architekturen zur Beschleunigung von Datenmigrationen. 
+---
+= XCP-NFS-Zusatzfunktionen
+:allow-uri-read: 
+
+
+[role="lead"]
+Die XCP-NFS-Zusatzfunktionen unterstützen den Einsatz von POSIX- und HDFS-Anschlüssen, verbessern die Sicherheit und unterstützen den Einsatz von Scale-out-Architekturen zur Beschleunigung von Datenmigrationen.
+
+
+
+== Unterstützung von NFSv4
+
+Wenn Sie NFSv4 nur auf Quell-, Ziel- und Katalog-Volumes im Datacenter aktivieren, können Sie den POSIX-Pfad anstelle des Exportpfads verwenden, um Ihre Daten zu migrieren. Um den POSIX-Pfad zu verwenden, müssen Sie zuerst die Quell-, Ziel- und Katalogvolumes auf dem Hostsystem mounten, auf dem XCP ausgeführt wird, und dann den POSIX-Dateipfad verwenden, um XCP die Quelle und das Ziel bereitzustellen. Siehe link:xcp-configure-posix-connector-nfs.html["Konfigurieren Sie den POSIX-Anschluss"].
+
+[NOTE]
+====
+* Die Unterstützung für NFSv4 ist auf den POSIX-Pfad und auf der beschränkt `copy` Betrieb, das `sync` Vorgang wird nicht unterstützt.
+* Der POSIX-Anschluss ist möglicherweise langsamer, wenn er mit der XCP NFSv3 TCP-Socket-Client-Engine verglichen wird.
+
+
+====
+
+
+== POSIX-Anschlüsse
+
+XCP 1.8 unterstützt die Verwendung von POSIX-Konnektoren, um Quell-, Ziel- und Katalogpfade für die Datenmigration bereitzustellen. Der POSIX-Anschluss (Datei://) ermöglicht XCP den Zugriff auf alle Linux-gemounteten Filesysteme, z. B. NFSv4, XFS und Veritas. Für nicht-Root-Benutzer kann der Systemadministrator das Dateisystem mounten und jedem nicht-Root-Benutzer die Möglichkeit geben, auf das Dateisystem zuzugreifen, indem er einen POSIX-Konnektor mit der Datei:// Präfix verwendet.
+
+Sie können POSIX-Anschlüsse verwenden, wenn Sie nicht über ausreichende Berechtigungen zum Mounten der Datei verfügen oder wenn die Unterstützung in den Rechenzentren auf NFSv4 beschränkt ist. In diesen Fällen kann jeder Root-Benutzer die Quelle und das Ziel mounten und dann über einen POSIX-Connector auf den Pfad zugreifen. Wenn Sie POSIX-Anschlüsse verwenden, können Sie nur die ausführen `xcp copy` Betrieb.
+
+
+
+== XCP-Sicherheit
+
+Mit der XCP-Sicherheitsfunktion können Sie eine Migration als nicht-Root-Benutzer auf einem Linux-Hostcomputer ausführen. In früheren XCP-Versionen führen Sie als Root-Benutzer auf der Linux-Maschine eine Migration mit allen Berechtigungen für Quell-, Ziel- und Katalogvolumes durch, und der Mount wird durch die XCP-Operationen abgeschlossen.
+
+Wenn Sie Datenmigrationen vorab durchführen, deaktivieren Sie häufig die Sicherheit und lassen einen Administrator so schnell wie möglich alles kopieren. Für laufende Übergänge in Produktionsumgebungen, in denen XCP seit mehreren Jahren im Einsatz ist, ist die Ausführung als Administrator (oder Root) nicht sicher. Da XCP nicht mehr als Root-Benutzer ausgeführt werden muss, können Sie XCP in sicheren Umgebungen verwenden. Wenn ein normaler nicht-Root-Benutzer XCP-Operationen ausführt, hat der nicht-Root-Benutzer dieselben Zugriffsrechte und -Grenzen wie der Benutzer.
+
+In dieser sicheren Umgebung kann ein Root-Benutzer das Quell-, Ziel- und Katalogvolume auf dem Hostcomputer mounten und die erforderlichen Berechtigungen für Ziel- und Katalogvolumes bereitstellen, damit ein nicht-Root-Benutzer die Daten schreibt. Dadurch kann der nicht-Root-Benutzer eine Migration mithilfe der XCP POSIX-Konnektor-Funktion durchführen.
+
+
+
+== XCP-Scale-out
+
+Bisher war die Datenmigration mit XCP auf einen einzigen Host mit mehr RAM und CPU beschränkt. Um die Migration zu beschleunigen, wurden Arbeitsspeicher und Kerne auf einem einzelnen Host erhöht. Es konnte jedoch immer noch sehr viel Zeit zum Kopieren von Petabyte an Daten benötigen. Mit der Scale-out-Architektur von XCP können Unternehmen diverse Hosts für eine Datenmigration verwenden. Mit dieser Funktion können Sie mehrere Linux-Hosts verwenden, um Ihren Workload zu verteilen und die Migrationsdauer zu verkürzen.
+
+Die horizontale Skalierung mit mehreren Nodes ist in jeder Umgebung möglich, in der die Performance eines einzelnen Systems nicht ausreicht. Um die Performance-Grenzen eines einzelnen Nodes zu überwinden, können Sie eine einzelne Node verwenden `copy` (Oder `scan -md5`) Befehl zum Ausführen von Mitarbeitern auf mehreren Linux-Systemen oder Hadoop-Cluster-Knoten. Derzeit wird XCP Scale-out nur für unterstützt `copy` Befehlsvorgänge
+
+
+
+== Hadoop Distributed File System Connector
+
+XCP unterstützt die Migration von Daten von einem Hadoop Distributed File System (HDFS) Filesystem zu einem NetApp Filesystem und umgekehrt. In einer Hadoop Umgebung mit aktivierter Sicherheit kann ein Benutzer ohne Root-Benutzer in einem Hadoop Cluster die Migration auf ein von NetApp NFSv4 exportiertes Filesystem durchführen. Der HDFS-Connector (hdfs://) bietet XCP die Möglichkeit, auf jedes HDFS-Dateisystem zuzugreifen, das bei verschiedenen Anbietern zur Verfügung steht. Ein nicht-Root-Benutzer kann XCP verwenden, um Migrationen mithilfe von HDFS- oder POSIX-Konnektoren durchzuführen.
+
+Sie können HDFS-Cluster in eine XCP-Scale-out-Konfiguration integrieren, da sie mehrere High-End-Linux-Rechner verwenden. Auf diese Weise sind weniger zusätzliche XCP-Worker-Nodes erforderlich. Für die Datenmigration können die HDFS-Cluster-Nodes wiederverwendet oder separate Hosts verwendet werden.
+
+
+NOTE: HDFS-Connector werden für MapR und Cloudera Cluster qualifiziert und unterstützt, können aber nur eine Baseline ausführen `copy` Betrieb.

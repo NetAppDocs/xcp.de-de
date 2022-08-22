@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: xcp-install-file-analytics-for-nfs.html 
+keywords: netapp, xcp, install, installing, file, analytics, nfs, upgrade, upgrading 
+summary: Installation oder Upgrade der Dateianalyse für NFS 
+---
+= Installieren Sie File Analytics für NFS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Installation oder Upgrade der Dateianalyse für NFS
+
+Die Systemanforderungen für NFS finden Sie unter link:xcp-install-xcp-nfs.html["Installieren Sie XCP NFS"]. Der `configure.sh` Skript installiert und ermöglicht die Standardkonfigurationen VON HTTPD und PostgreSQL, die für Linux Server verfügbar sind. Sie können je nach Bedarf eine aktuellere Version ändern oder aktualisieren und die Sicherheitsrichtlinien einhalten.
+
+.Bevor Sie beginnen
+* Sie können die XCP-Anwendung und den XCP-Dienst nicht gleichzeitig auf demselben Host ausführen. Wenn XCP-Vorgänge ausgeführt werden, führen Sie die Vorgänge aus, bevor Sie mit der Konfiguration beginnen.
+* Ihr Linux-Rechner muss mit dem Yum-Repository-Server oder dem Internet verbunden sein.
+* Wenn eine Firewall auf dem Linux-Rechner konfiguriert ist, müssen Sie die Firewall-Einstellungen ändern, um die von XCP, dem XCP-Dienst und den von XCP-Dateianalysen verwendeten Ports zu aktivieren. Weitere Informationen finden Sie unter xref:xcp-ports-used.html[Von XCP verwendete Ports].
+
+
+.Schritte
+. Gehen Sie zu Ihrem XCP-Ordner, und führen Sie den aus `./configure.sh` Skript: Das Skript dauert drei bis zehn Minuten, um die Linux-Maschine zu konfigurieren und die folgenden Aufgaben auszuführen:
++
+.. PostgreSQL-Pakete herunterladen
+.. Installieren Sie den PostgreSQL-Server
+.. DEN HTTPD einbauen
+.. Verwenden Sie das offene SSL, um ein selbstsigniertes Zertifikat zu erstellen (`server.key and server.crt`)
+.. Erstellen Sie die XCP-Dateianalyse-Datenbank
+
+
+. Wählen Sie `option 1 Configure client system` Über das XCP-Konfigurationsmenü.
+. Aktualisieren Sie bei einer neuen Installation das Kennwort für den Administrator und die Datenbankbenutzer. Für ein Upgrade werden Sie aufgefordert, den XCP-Dienst zu beenden. Wenn Sie fertig sind, wählen Sie `option 0`.
+. Starten Sie den XCP-Dienst. Überprüfen Sie mit dem folgenden Befehl, ob der XCP-Dienst ausgeführt wird: Service xcp-Status
+. Starten Sie die Dateianalyse im Browser: *\https://<ip Adresse von linux>/xcp*.
+

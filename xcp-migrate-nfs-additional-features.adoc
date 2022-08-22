@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: xcp-migrate-nfs-additional-features.html 
+keywords: xcp, nfs, chomod, chown, posix, ownership, change, file, path, directory, command, scan 
+summary: XCP enthält einige zusätzliche NFS-Funktionen, durch die das Ändern von Eigentümerschaft und Berechtigungen von Dateien und Verzeichnissen für jede NFS-Freigabe oder POSIX-Pfad leicht gemacht werden kann. 
+---
+= Zusätzliche NFS-Funktionen
+:allow-uri-read: 
+
+
+[role="lead"]
+XCP umfasst einige zusätzliche NFS-Funktionen.
+
+
+
+== Chown und chmod
+
+Sie können das XCP verwenden `chown` Und `chmod` Befehle, um rekursiv alle Dateien und Verzeichnisse für eine bestimmte NFS-Freigabe oder POSIX-Pfad zu ändern. Somit wird die Performance von Millionen von Dateien gesteigert.
+
+
+NOTE: Bevor Sie das Eigentum der Dateien ändern, müssen Sie den neuen Eigentümer konfigurieren. Andernfalls schlägt der Befehl fehl. Das XCP `chown` Und `chmod` Befehle funktionieren ähnlich wie Linux `chown` Und `chmod` Befehle.
+
+
+
+=== Chmod
+
+Der `chmod` Befehl scannt und ändert die Dateiberechtigung aller Dateien in der ausgewählten Verzeichnisstruktur. Der `chmod` Befehl erfordert einen Modus oder Referenz und eine NFS-Freigabe oder POSIX-Pfad als Variablen. XCP `chmod` Rekursiv ändert die Berechtigungen für einen angegebenen Pfad. Sie können das verwenden `chmod` Befehl zum Anzeigen der gesamten gescannten Dateien und der Berechtigungen, die in der Ausgabe geändert wurden.
+
+*Beispiel:*
+
+....
+xcp chmod -mode 777 NFS [server:/export path | file://<NFS mounted path>]
+xcp chmod -mode 707 nfs_server01.netapp.com:/export1
+xcp chmod -reference nfs_server01.netapp.com:/export/dir1/file.txt  nfs_server02.netapp.com: export1
+xcp chmod -match “fnm(‘file.txt’)” -mode 111 file:///mnt/nfs_mount_point/
+xcp chmod -exclude “fnm(‘file.txt’)” -mode 111 file:///demo/user1/
+....
+Führen Sie die aus `xcp help chmod` Befehl für weitere Informationen.
+
+
+
+=== Chown
+
+Sie können das XCP verwenden `chown` Befehl zum rekursiven Ändern aller Dateien und Verzeichnisse für eine bestimmte NFS-Freigabe oder POSIX-Pfad. Somit wird die Performance von Millionen von Dateien gesteigert.
+
+Der `chown` Befehl scannt und ändert den Besitz aller Dateien in der ausgewählten Verzeichnisstruktur. Der `chown` Befehl erfordert eine NFS-Freigabe oder POSIX-Pfad als Variablen. XCP `chown` Rekursiv ändert das Eigentum für einen gegebenen Pfad.
+
+*Beispiel*
+
+....
+xcp chown -user user1 NFS [server:/export path | file://<NFS mounted path>
+xcp chown -user user1 nfs_server01.netapp.com:/export1
+xcp chown -user user1 -group group1 nfs_server01.netapp.com:/export1/dir1/
+xcp chown  -reference nfs_server01.netapp.com:/export/dir1/file.txt  nfs_server02.netapp.com:/export1
+xcp chown -match “fnm(‘file.txt’)” -user user1 file:///mnt/nfs_mount_point/
+xcp chown -exclude “fnm(‘file.txt’)” -user user1 -group group1
+xcp chown -user-from user1 -user user2 file:///mnt/nfs_mount_point/
+xcp chown -group-from group1 -group group2 nfs_server01.netapp.com:/export1/
+....
+Führen Sie die aus `xcp help chown` Befehl für weitere Informationen.

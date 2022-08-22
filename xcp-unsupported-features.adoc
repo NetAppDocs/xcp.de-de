@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: xcp-unsupported-features.html 
+keywords: xcp, nfs, smb, features, unsupported, configuration 
+summary: Einige Funktionen werden von XCP NFS oder XCP SMB nicht unterstützt. 
+---
+= Nicht unterstützte Funktionen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Die folgenden Funktionen werden von XCP NFS nicht unterstützt:
+
+[cols="40,60"]
+|===
+| Funktionsname | Beschreibung 
+
+
+| IPv6 | Unterstützt IP-Version 6 (IPv6) nicht 
+
+
+| NFSv4-Zugriffssteuerungslisten (ACLs) (Drittanbieter) | Keine Unterstützung von Drittanbieter für NetApp NFSv4 ACLs 
+
+
+| POSIX-Anschluss  a| 
+* Der `sync` Der Befehl unterstützt den POSIX-Anschluss nicht
+* Sie sollten den nicht verwenden `copy` Befehl, wenn die Quelle aktiv ist
+
+
+
+
+| Hadoop Distributed File System (HDFS)-Connector  a| 
+* Der `sync` Der Befehl unterstützt den HDFS-Connector nicht
+* Das HDFS-Dateisystem unterstützt keine symbolischen Links (Symlinks), Festplatten oder Spezialdateien
+* Sie sollten den nicht verwenden `copy` Befehl, wenn die Quelle aktiv ist
+
+
+
+
+| ACLs | Wenn es sich bei der Quelle um ein System handelt, das nicht von NetApp stammt, kopiert XCP keine ACLs. 
+
+
+| Linux | XCP wird nicht mehr auf früheren Linux-Distributionen unterstützt, die von XCP 1.6.3 unterstützt wurden. 
+|===
+Die folgenden Funktionen werden von XCP SMB nicht unterstützt:
+
+[cols="40,60"]
+|===
+| Funktionsname | Beschreibung 
+
+
+| Symbolischer NFS-Link (Symlink) | NFS-Symlink wird in XCP SMB nicht unterstützt 
+
+
+| ACL-Option zum Scannen | ACLs werden für die Scanoption nicht unterstützt 
+
+
+| IPv6 | Unterstützt IP-Version 6 (IPv6) nicht 
+
+
+| NTFS Alternative Datenströme | XCP unterstützt derzeit keine alternativen Datenströme 
+
+
+| XCP-Filter | Die Option XCP SMB exclude schließt momentan Verzeichnisse aus, die auf ihrem Muster im Filter basieren, und durchquert das Dateisystem dieser Verzeichnisse. 
+
+
+| Unterstützung von aktiver Quelle | XCP unterstützt keine Basis- oder inkrementelle Snapshot-Kopie, gefolgt von einer Live-Quellmigration für eine inkrementelle Synchronisierung. 
+|===
+Die folgenden gemeinsamen Funktionen stehen für XCP NFS und SMB nicht zur Verfügung:
+
+* *XCP mehrere Instanzen auf demselben Host*: Wenn mehrere Instanzen von XCP auf demselben Host ausgeführt werden, kann es zu unvorhersehbaren Ergebnissen kommen.
+* *Zeit bis zur Durchführung der Migration*: XCP im Vorfeld bietet weder den Zeitaufwand für die Durchführung der Migration noch den Zeitpunkt, um jeden für die Migration verwendeten Befehl abzuschließen. Wenn Sie die letzte Umstellung durchführen, bestätigen Sie, dass die Datenabwanderung auf dem Quell-Volume gering ist.
+* *Erneute Ausführung der Kopie auf einem nicht bereinigten Ziel*: XCP-Basiskopie schlägt fehl, wenn Teildaten auf dem Zielziel vorhanden sind. Für eine erfolgreiche XCP-Basiskopie und eine XCP-Überprüfung muss das Ziel sauber sein.
+* *Live-Ziel*: XCP unterstützt das Ändern von Daten auf dem Zielvolume während einer Migration oder während einer inkrementellen Synchronisierung nicht.
+* *Nicht-Root-Benutzer für die Dateianalyse*: XCP unterstützt keine Installationen und Konfigurationen, die von einem nicht-Root-Benutzer oder einem Sudo-Benutzer durchgeführt werden.
+

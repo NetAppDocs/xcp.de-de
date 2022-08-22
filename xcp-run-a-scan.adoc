@@ -1,0 +1,130 @@
+---
+sidebar: sidebar 
+permalink: xcp-run-a-scan.html 
+keywords: netapp, xcp, run, scan, 
+summary: Ausführen eines Scans 
+---
+= Führen Sie einen Scan aus
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Wenn das NFS/SMB-Dateisystem zur XCP-Dateianalyse-GUI hinzugefügt wird, können Sie einen Dateisystemscan starten, um die Daten zu analysieren und darzustellen.
+
+.Schritte
+. Wählen Sie den Pfeil auf der hinzugefügten Dateiserverkarte aus, um die Dateifreigaben auf dem Dateiserver anzuzeigen.
++
+image:xcp_image4.png["Ansicht von Dateifreigaben"]
+
+. Wählen Sie aus der Liste der Dateifreigaben den Namen der zu scannenden Dateifreigabe aus.
+. Wählen Sie *Scannen*, um den Scan zu starten.
++
+XCP zeigt eine Statusleiste für den Scan an.
+
+. Wenn der Scan abgeschlossen ist, sind die Registerkarten *stat view* und *file Distribution* aktiviert, damit Sie Diagramme anzeigen können.
+
+
+image:xcp_image5.png["Vollständiges Bild scannen"]
+
+
+
+== Erfahren Sie mehr über Diagramme
+
+Über das GUI-Dashboard von Dateianalysen werden mehrere Diagramme zur Visualisierung von Dateianalysen angezeigt.
+
+
+
+=== Diagramm „Heiße Kalte Daten“
+
+XCP File Analytics kategorisiert Dateien, auf die 90 Tage lang nicht zugegriffen wird, als kalte Daten. Dateien, auf die in den letzten 90 Tagen zugegriffen wird, sind wichtige Daten. Die Definition wichtiger und „kalter“ Daten basiert ausschließlich auf der Zugriffszeit.
+
+image:xcp_image6.png["Diagramm „Heiße Kalte Daten“"]
+
+Im Diagramm „Hot Cold Count“ wird die Anzahl der Inodes (in Millionen) angezeigt, die im XCP NFS heiß oder kalt sind. In XCP SMB gibt dieses Diagramm die Anzahl der Dateien an, die heiß oder kalt sind. Der farbige Balken stellt die heißen Daten dar und zeigt den Prozentsatz der Dateien an, auf die innerhalb von 90 Tagen zugegriffen wird.
+
+
+
+=== Diagramm „Heiße Kalte“ Größe
+
+image:xcp_image7.png["Diagramm „Heiße Kalte“ Größe"]
+
+Das Diagramm „heiße kalte Größe“ zeigt den Prozentsatz der Dateien an, die heiß und kalt sind, und die Gesamtgröße der Dateien in jeder Kategorie. Der farbige Balken stellt die heißen Daten dar und der unfarbige Teil stellt die kalten Daten dar. Die Definition wichtiger und „kalter“ Daten basiert ausschließlich auf der Zugriffszeit.
+
+
+
+=== Einträge im Verzeichnisdiagramm
+
+image:xcp_image8.png["Einträge im Verzeichnisdiagramm"]
+
+Die Einträge im Diagramm Verzeichnisse zeigen die Anzahl der Einträge in Verzeichnissen an. Die Spalte Tiefe enthält unterschiedliche Verzeichnisgrößen und die Spalte Anzahl gibt die Anzahl der Einträge in jeder Verzeichnistiefe an.
+
+
+
+=== Dateiverteilung nach Größendiagramm
+
+image:xcp_image9.png["Dateiverteilung nach Größendiagramm"]
+
+Im Diagramm Dateiverteilung nach Größe wird die Anzahl der Dateien angezeigt, die unter den angegebenen Dateigrößen liegen. Die Spalte Dateigröße enthält die Kategorien der Dateigröße und die Spalte Anzahl gibt die Verteilung der Anzahl der Dateien an.
+
+
+
+=== Diagramm Für Die Verzeichnistiefe
+
+image:xcp_image10.png["Diagramm Für Die Verzeichnistiefe"]
+
+Das Diagramm Verzeichnistiefe stellt die Verteilung der Anzahl der Verzeichnisse in verschiedenen Verzeichnis-Tiefenbereichen dar. Die Spalte Tiefe enthält verschiedene Verzeichnistiefen, und die Spalte Anzahl enthält die Anzahl der einzelnen Verzeichnistiefen in der Dateifreigabe.
+
+
+
+=== Nach Größendiagramm verwendeter Dateiraum
+
+image:xcp_image11.png["Nach Größendiagramm verwendeter Dateiraum"]
+
+Im Diagramm „Dateibereich“ wird die Anzahl der Dateien in unterschiedlichen Dateigrößen angezeigt. Die Spalte Dateigröße enthält unterschiedliche Dateigrößen, und in der Spalte „verwendeter Speicherplatz“ wird der Speicherplatz angegeben, der von jedem Dateigrößenbereich verwendet wird.
+
+
+
+=== Speicherplatz belegt durch Benutzer Diagramm
+
+image:xcp_image12.png["Speicherplatz belegt durch Benutzer Diagramm"]
+
+Das Diagramm „von Benutzern belegter Speicherplatz“ zeigt den von Benutzern verwendeten Speicherplatz an. Die Spalte Benutzername enthält die Namen von Benutzern (UID, wenn Benutzernamen nicht abgerufen werden können) und die Spalte „verwendeter Raum“ gibt den von jedem Benutzernamen verwendeten Platz an.
+
+
+
+=== Dateien, Auf Die Zugegriffen Wurde/Geändert/Erstellt Wurde
+
+image:xcp_image13.png["Dateien, Auf Die Zugegriffen Wurde/Geändert/Erstellt Wurde"]
+
+Das Diagramm Dateien, auf die zugegriffen wurde/geändert/erstellt wurde, zeigt die Anzahl der Dateien an, die Überstunden geändert haben. Die X-Achse stellt den Zeitraum dar, in dem Änderungen vorgenommen wurden, und die y-Achse repräsentiert die Anzahl der geänderten Dateien.
+
+
+NOTE: Um das Diagramm für die Zugriffszeit (Atime) in SMB-Scans anzuzeigen, aktivieren Sie das Kontrollkästchen, um vor dem Ausführen eines Scans eine Zeitdauer zu erhalten.
+
+
+
+=== Dateiverteilung durch Extension Graphic
+
+image:xcp_image14.png["Dateiverteilung durch Extension Graphic"]
+
+Das Diagramm Dateiverteilung nach Erweiterung stellt die Anzahl der verschiedenen Dateierweiterungen in einer Dateifreigabe dar. Die Größe der Divisionen, die die Erweiterungen darstellen, basiert auf der Anzahl der Dateien mit jeder Erweiterung.
+
+
+
+=== Dateiverteilung nach Typ Diagramm
+
+image:xcp_image15.png["Dateiverteilung durch Extension Graphic"]
+
+Das Diagramm Verteilung nach Typ stellt die Anzahl der folgenden Dateitypen dar:
+
+* REG: Normale Dateien
+* LNK: Dateien mit Links
+* Specials: Dateien mit Gerätedateien und Zeichendateien.
+* DIR: Dateien mit Verzeichnissen
+* Verbindung: Nur in SMB verfügbar
+

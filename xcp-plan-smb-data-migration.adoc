@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: xcp-plan-smb-data-migration.html 
+keywords: netapp, xcp, plan, planning, data, migration, migrate, migrating, smb, file, analytics, 
+summary: Planen Sie die SMB-Datenmigration 
+---
+= Planen Sie die SMB-Datenmigration
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Planen Sie Ihre SMB-Datenmigrationen.
+
+
+
+== Anzeigen
+
+Der `show` Der Befehl zeigt alle auf dem Server verfügbaren SMB-Freigaben mit den verfügbaren Berechtigungen und dem verfügbaren Speicherplatz an. Beispiel:
+
+* `xcp show \\<SMB file server IP/FQDN>`
+* `xcp show smb_server01.netapp.com`
+
+
+Laufen `xcp help show` Entnehmen.
+
+
+
+== Scannen
+
+Der `scan` Befehl scannt rekursiv die gesamte SMB-Freigabe und listet alle Dateien am Ende des Scans auf.
+
+
+NOTE: Während des Scanvorgangs können Sie das verwenden `-preserve-atime` Flagge mit dem `scan` Befehl zum Erhalt der Zugriffszeit an der Quelle .
+
+*Beispiel:*
+
+* `xcp scan \\SMB server\share1`
+* `xcp scan smb_server01.netapp.com:/share1`
+
+
+Laufen `xcp help scan` Entnehmen.
+
+Verwenden Sie optional die Dateianalyse, um die Ergebnisse grafisch anzuzeigen.

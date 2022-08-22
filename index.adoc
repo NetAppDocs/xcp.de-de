@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: index.html 
+keywords: netapp, xcp, about, migration, file analytics, nfs, smb 
+summary: NetApp XCP ermöglicht skalierbare und hochperformante Datenmigrationen 
+---
+= Erste Schritte mit XCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp XCP ermöglicht skalierbare und hochperformante Datenmigrationen.
+
+
+
+== Weitere Informationen zu XCP
+
+Bei NetApp XCP handelt es sich um eine Client-basierte Software für Datenmigration und Dateianalysen zwischen NetApp und NetApp zu NetApp. XCP wurde für Skalierung entwickelt und erzielt eine höhere Performance, da alle verfügbaren Systemressourcen zum Management von großen Datensätzen und hochperformanten Migrationen genutzt werden. XCP bietet Ihnen die Möglichkeit, Kundenberichte zu erstellen, um vollständige Einblicke in das Dateisystem zu erhalten. Dank der Matching- und Formatierungsfunktionen können Sie die Berichte an jeden Bedarf anpassen.
+
+Verwenden Sie XCP für NFS- oder SMB-Systeme als eine der folgenden Lösungen:
+
+* Migrationslösung
+* Dateianalyselösung
+
+
+XCP ist eine Befehlszeilensoftware, die in einem einzigen Paket verfügbar ist und NFS- und SMB-Protokolle unterstützt. XCP ist als Linux-Binärdatei für NFS-Datensätze verfügbar und steht als Windows ausführbare Datei für SMB-Datensätze zur Verfügung.
+
+XCP File Analytics ist eine hostbasierte Software, die Dateifreigaben erkennt, Scans im Filesystem ausführt und ein Dashboard für Dateianalysen bereitstellt. XCP-Dateianalysen können sowohl für Systeme von NetApp als auch für Systeme von Drittanbietern verwendet werden. Sie können auf Linux- oder Windows-Hosts Analysen für NFS- und SMB-exportierte Filesysteme ausführen. Die Binärdateien für die Dateianalyse-GUI sind in dem Einzelpaket enthalten, das NFS- und SMB-Protokolle unterstützt.
+
+
+NOTE: Die XCP-Binärdatei ist Code signiert. Weitere Informationen finden Sie im README in `NETAPP_XCP_<version>.tgz`.
+
+Die XCP-CLI ist robust. Laden Sie _XCP Reference_ für weitere Informationen auf dem herunter link:https://xcp.netapp.com/["XCP-Standort"^].
+
+*XCP-Workflow*
+
+image:xcp_image1.png["XCP-Workflow-Bild"]

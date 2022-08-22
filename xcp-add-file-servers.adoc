@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: xcp-add-file-servers.html 
+keywords: netapp, xcp, file, servers, access, analytics, learn, about, graphs, hot, cold, count, size, entries in directory, distribution by size, directory depth, file space used by size 
+summary: Dateiserver werden hinzugefügt 
+---
+= Fügen Sie Dateiserver hinzu
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können in der XCP Dateianalyse-GUI NFS- und SMB-exportierte Dateisysteme konfigurieren.
+
+So kann die XCP-Dateianalyse Daten im Dateisystem scannen und analysieren. Gehen Sie wie folgt vor, um NFS- oder SMB-Dateiserver hinzuzufügen.
+
+.Schritt
+. Um Dateiserver hinzuzufügen, wählen Sie *Add File Server*.
+
+
+image:xcp_image3.png["Bildschirm Dateiserver hinzufügen"]
+
+Fügen Sie die IP-Adresse des Dateiservers hinzu, wählen Sie die NFS- oder SMB-Option aus und klicken Sie auf *Hinzufügen*.
+
+
+NOTE: Wenn ein SMB-Agent in der GUI nicht angezeigt wird, können Sie keinen SMB-Server hinzufügen.
+
+Nach dem Hinzufügen des Dateiservers wird XCP angezeigt:
+
+* Insgesamt verfügbare Dateifreigaben
+* Dateifreigaben mit Analysedaten (die anfängliche Anzahl ist „0“, diese wird aktualisiert, wenn Sie einen erfolgreichen Scan ausführen)
+* Gesamte Speicherplatzauslastung: Die Summe des von allen Exporten belegten Speicherplatzes
+* Die Daten für Dateifreigaben und die Speicherplatzauslastung sind Echtzeitdaten direkt vom NFS/SMB-Server. Das Erfassen und Verarbeiten der Daten dauert mehrere Sekunden.
+
+
+
+NOTE: Der in der Dateianalyse verwendete Speicherplatz im Vergleich zum verfügbaren Speicherplatz wird aus jedem über NFS verfügbaren exportierten File-System berechnet. Wenn beispielsweise die Volumes aus qtrees bestehen und die Exporte über einen qtree erstellt werden, ist der Gesamtspeicherplatz der kumulative Speicherplatz der Volume-Größe und der qtree-Größe.

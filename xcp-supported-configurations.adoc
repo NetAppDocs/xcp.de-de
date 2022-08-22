@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: xcp-supported-configurations.html 
+keywords: xcp, configurations, supported, supported, hosts 
+summary: Von XCP unterstützte Konfigurationen wie Hosts, ONTAP-Versionen und unterstützte Browser sind im IMT aufgeführt. 
+---
+= Unterstützte Konfigurationen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Alle von XCP unterstützten Konfigurationen, wie Hosts, ONTAP-Versionen und unterstützte Browser, werden im aufgeführt link:https://mysupport.netapp.com/matrix/["Interoperabilitäts-Matrix-Tool (IMT)"^].

@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: xcp-plan-data-migration.html 
+keywords: netapp, xcp, plan, planning, data, migration, migrate, migrating, nfs, smb, file, analytics 
+summary: Planen Sie eine Datenmigration 
+---
+= Planen Sie eine Datenmigration
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Die Migration kann über die Befehlszeilenschnittstelle oder die GUI von Dateianalysen geplant werden.
+
+Planen Sie die Migration mit folgenden Befehlen:
+
+* Anzeigen
+* Scannen
+
+
+Verwenden Sie die Dateianalyse, um die Statistiken für Exporte und Freigaben zu visualisieren.

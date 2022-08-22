@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: xcp-prepare-file-analytics.html 
+keywords: netapp, xcp, prepare, preparing, preparation, file analytics 
+summary: Die Datenmigration mit Dateianalysen vorbereiten 
+---
+= Dateianalyse Vorbereiten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Die Datenmigration mit Dateianalysen vorbereiten
+
+Die Dateianalyse umfasst zwei Teile:
+
+* File Analytics Server auf Linux ausgeführt
+* XCP SMB-Service läuft unter Windows
+
+
+Die Installation von Dateianalysen umfasst folgende Anforderungen:
+
+* Die unterstützten Betriebssystem- und Systemanforderungen entsprechen den Anforderungen für eine NFS- und SMB-Installation. Da sich die Datenbank auf einem Linux-Feld befindet, müssen Sie sicherstellen, dass Sie mindestens 10 GB freien Speicherplatz haben.
+* Der Linux-Rechner, auf dem der Datei-Analytics-Server installiert ist, muss mit dem Internet oder dem yum-Repository verbunden sein. Das Installationsskript spricht mit dem yum Repository, um die benötigten Pakete wie PostgreSQL, HTTP und SSL herunterzuladen.
+* Die Dateianalyse-GUI kann nur auf einem Linux-Rechner zusammen mit XCP-Diensten für Linux gehostet werden, die auf derselben Box ausgeführt werden.
+* Gehen Sie bei der Ausführung von SMB-Services wie folgt vor:
++
+** Stellen Sie sicher, dass Ihr Windows-Feld den Linux-Rechner anpingen kann, auf dem der Datei-Analytics-Server ausgeführt wird.
+** Wenn Sie sich innerhalb einer Firewall befinden, überprüfen Sie, ob die Ports 5030 und 5432 geöffnet sind. Port 5030 wird verwendet, um DEN REST an Windows zu rufen. Port 5432 wird für die PostgreSQL-Verbindung verwendet.
+
+
+
+
+
+NOTE: Der XCP-Dateianalyseserver wird immer auf einem Linux-Rechner ausgeführt. Für SMB File Analytics ist keine separate Installation verfügbar. Wenn Sie ein Windows-Benutzer sind und Dateianalysen für SMB-Freigabe ausführen möchten, müssen Sie Dateianalysen für Linux installieren und die Windows-Box mit einer Linux-Datenbank verbinden. Wenn Sie nur XCP-Dateianalysen verwenden, müssen Sie den XCP-Katalog für NFS nicht konfigurieren.

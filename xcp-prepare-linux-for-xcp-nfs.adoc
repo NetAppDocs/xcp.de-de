@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: xcp-prepare-linux-for-xcp-nfs.html 
+keywords: netapp, xcp, prepare, preparing, preparation, linux, nfs, configure, configuring, catalog, storage, 
+summary: Linux für XCP NFS vorbereiten 
+---
+= Linux für XCP NFS vorbereiten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP NFS nutzt Linux-Client-Hostsysteme zur Generierung paralleler I/O-Streams und zur vollständigen Nutzung der verfügbaren Netzwerk- und Speicherleistung.
+
+Sie können Ihr Setup für einen Root- und einen nicht-Root-Benutzer konfigurieren und dann, je nach Konfiguration, können Sie einen Benutzer auswählen.
+
+
+
+== Katalog konfigurieren
+
+XCP speichert Betriebsberichte und Metadaten in einem über NFSv3 zugänglichen Katalogverzeichnis oder auf einem POSIX-Pfad mit den erforderlichen Berechtigungen.
+
+* Die Bereitstellung des Katalogs erfolgt einmalig vor der Installation.
+* Für alle 10 Millionen Objekte wird etwa 1 GB Speicherplatz indiziert (Verzeichnisse plus Dateien und Festplatten), jede Kopie, die wiederaufgenommen oder synchronisiert werden kann und für jeden Offline-durchsuchbaren Scan ein Index erforderlich ist.
+* Im Aggregat, das das Exportverzeichnis enthält, sind mindestens zehn Festplatten oder SSDs erforderlich, um die Performance zu unterstützen.
+
+
+
+NOTE: Sie müssen XCP-Kataloge separat aufbewahren. Sie dürfen sich weder auf dem Quell- noch auf dem Ziel-NFS-Exportverzeichnis befinden. XCP speichert die Metadaten, d. h. die Berichte am Speicherort des Katalogs, der während der Ersteinrichtung angegeben wurde. Bevor Sie einen Vorgang mit XCP ausführen, müssen Sie den Speicherort für die Berichte angeben und aktualisieren.
+
+
+
+== Speicher konfigurieren
+
+XCP NFS-Transition und Migrationen haben die folgenden Quell- und Ziel-Storage-Anforderungen:
+
+* Auf Quell- und Ziel-Servern muss der NFSv3 oder NFS v4.0-Protokollservice aktiviert sein
++
+** Für die NFSv4-ACL-Migration müssen Sie den NFSv4-Protokollservice und die NFSv4-ACL auf dem Zielserver aktivieren
+
+
+* Quell- und Ziel-Volumes müssen mit exportiert werden `root` Zugriff auf den XCP Linux-Client-Host
+* Für die NFSv4-ACL-Migration muss für NFSv4 die Kodierungssprache UTF-8 für Volumes verwendet werden, für die eine ACL-Migration erforderlich ist.
+
+
+[NOTE]
+====
+* Um zu verhindern, dass Administratoren das Quell-Volume versehentlich ändern, sollten Sie das Quell-Volume für die Exportverzeichnisse NFSv3 und NFSv4 als schreibgeschützt konfigurieren.
+* In ONTAP können Sie die Diagnose verwenden `-atime-update` Option zum Erhalt von atime auf Quellobjekten. Diese Funktion ist nur in ONTAP verfügbar und ist hilfreich, wenn Sie eine Zeitangabe in Quellobjekten während der Ausführung von XCP beibehalten möchten.
+* In XCP können Sie den verwenden `-preserve-atime` Option zum Erhalt von atime auf Quellobjekten. Diese Option ist für alle Befehle verfügbar, die auf Quellobjekte zugreifen.
+
+
+====
+
+
+== Root-Benutzer
+
+Ein Root-Benutzer auf einer Linux-Maschine verfügt über die Berechtigungen zum Mounten der Quell-, Ziel- und Katalogvolumes.
+
+
+
+== Nicht-Root-Benutzer
+
+Ein nicht-Root-Benutzer verfügt über die folgenden Berechtigungen auf einem gemounteten Volume:
+
+* Lesezugriff auf das Quell-Volume
+* Lese-/Schreibzugriff auf das gemountete Ziel-Volume
+* Lese-/Schreibzugriff auf das Katalogvolume
+

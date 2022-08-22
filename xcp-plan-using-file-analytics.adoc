@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: xcp-using-file-analytics.html 
+keywords: netapp, xcp, plan, planning, data, migration, migrate, migrating, file, analytics 
+summary: Planen Sie die Verwendung von Dateianalysen 
+---
+= Planen Sie die Verwendung von Dateianalysen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Planen Sie die Datenmigration mit Dateianalysen.
+
+
+NOTE: XCP ist eine CLI, während File Analytics eine GUI hat.
+
+*Übersicht*
+
+XCP-Dateianalysen erfasst Daten von NFS- oder SMB-Hosts über die XCP-Scan-API. Diese Daten werden dann in der XCP-Dateianalyse-GUI angezeigt. An der XCP-Dateianalyse sind drei Hauptkomponenten beteiligt:
+
+* XCP-Dienst
+* Dateianalyse-Datenbank
+* Dateianalyse-GUI zum Managen und Anzeigen von Daten
+
+
+Die Bereitstellungsmethode für XCP-Dateianalyselösungen hängt von der erforderlichen Lösung ab:
+
+* Bereitstellung von XCP-Dateianalyselösungen für NFS-Dateisysteme:
++
+** Sie können die GUI, die Datenbank und den XCP-Service für Dateianalysen auf demselben Linux-Host bereitstellen.
+
+
+* Bereitstellen von XCP-Dateianalyselösungen für SMB-Dateisysteme: Sie müssen die GUI und die Datenbank der Dateianalyse auf einem Linux-Host bereitstellen und den XCP-Dienst auf einem Windows-Host bereitstellen.
+

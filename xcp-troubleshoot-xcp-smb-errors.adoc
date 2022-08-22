@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: xcp-troubleshoot-xcp-smb-errors.html 
+keywords: netapp, xcp, troubleshoot, troubleshooting, smb, 
+summary: Fehlerbehebung bei XCP SMB-Fehlern 
+---
+= Fehler bei XCP SMB beheben
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Lesen Sie die Lösungen zur Fehlerbehebung durch.
+
+|===
+| Problem | Nutzen 
+
+
+| `xcp: ERROR`: Diese Lizenz ist abgelaufen | Verlängern oder beziehen Sie die neue XCP-Lizenz vom link:https://xcp.netapp.com/["XCP-Standort"^]. 
+
+
+| Diese Kopie ist nicht lizenziert | Holen Sie sich die entsprechende XCP-Lizenzdatei. Kopieren Sie die XCP-Lizenz in das `c:\netapp\xcp` Ordner auf dem XCP-Host. Führen Sie die aus `xcp activate` Befehl zum Aktivieren der Lizenz 
+
+
+| `xcp: ERROR`: XCP nicht aktiviert, zuerst 'Aktivieren' ausführen | Laden Sie die XCP-Lizenz von der herunter link:https://xcp.netapp.com/["XCP-Standort"^]. Kopieren Sie die Datei auf dem XCP Linux-Client-Host unter `c:\netapp\xcp` Auf dem XCP-Host. Führen Sie die aus `xcp activate` Befehl zum Aktivieren der Lizenz. 
+
+
+| `xcp: ERROR`: Lizenzdatei C:\NetApp\XCP\Lizenz nicht gefunden | Registrieren Sie sich für die XCP-Lizenz auf dem link:https://xcp.netapp.com/["XCP-Standort"^]. Laden Sie die Lizenzdatei herunter und kopieren Sie sie in `C:\NetApp\XCP\` Auf dem XCP Windows-Client-Host. 
+
+
+| xcp-Scanfehler: Der Netzwerkname wurde nicht gefunden | Führen Sie den Befehl mit dem richtigen Freigabenamen erneut aus 
+
+
+| xcp Copy Error: FEHLER beim Abrufen von Fallback Security Principal Fehlermeldung, die in der Datei xcp.log angemeldet ist:
+`pywintypes.error: (1722, 'LookupAccountName', 'The RPC server is unavailable.')` | Fügen Sie das Zielfeld in der Hosts-Datei hinzu (`C:\Windows\System32\drivers\etc\hosts`). Der Eintrag für das NetApp Storage-Ziel-Feld muss im folgenden Format angegeben werden:
+`<data vserver data interface ip>` 1 oder mehr weiße Räume `<cifs server name>` 
+
+
+| `xcp copy: ERROR` Fehler beim Abrufen von Fallback-Sicherheitprincipal (Post Adding Destination box Entry in the Hosts-Dateien) Fehler in der in xcp.log-Datei protokollierten Datei:
+`'No mapping between account names and security IDs was done'` | Der Fallback-Benutzer/die Fallback-Gruppe ist im Zielsystem (Zielfeld) oder im aktiven Verzeichnis nicht vorhanden. Führen Sie den Befehl mit den richtigen Fallback-Benutzer/Gruppen-Optionen erneut aus 
+
+
+| `xcp copy: ERROR` Fehler beim Abrufen von Fallback-Sicherheitprincipal (Post Adding Destination box Entry in the Hosts-Dateien) Fehler in der in xcp.log-Datei protokollierten Datei:
+`pywintypes.error: (87, 'LookupAccountName', 'The parameter is incorrect.')` | Falscher Parameter für die Option Fallback-Benutzer/Gruppe. Führen Sie den Befehl mit der richtigen Syntax für Fallback-Benutzer/Gruppen-Optionen erneut aus 
+
+
+| `xcp copy` Bei acl Migration Fehlermeldung in xcp.log-Datei angemeldet:
+`pywintypes.error`: `(1314, 'GetNamedSecurityInfo', 'A required privilege is not held by the client.')` | Ein Benutzer hat ein Problem mit Sicherheitsdeskriptoren, weil XCP mit den Berechtigungen, die der Benutzer für Migrationen besitzt, nur Eigentümer, Gruppe und DACL abrufen kann, keine SACL abrufen kann. Fügen Sie Ihren Migrationsbenutzer zur Richtlinie „Audit and Security Log“ in Ihrem Active Directory hinzu. Referenz: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953%28v%3Dws.11%29["Management von Audits und Sicherheitsprotokolls"^] 
+|===

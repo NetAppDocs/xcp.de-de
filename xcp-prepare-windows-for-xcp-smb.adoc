@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: xcp-prepare-windows-for-xcp-smb.html 
+keywords: netapp, xcp, prepare, preparing, preparation, windows, 
+summary: Windows für XCP SMB vorbereiten 
+---
+= Windows für XCP SMB vorbereiten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP SMB verwendet Windows-Client-Host-Systeme zur Generierung paralleler I/O-Streams und zur vollständigen Nutzung der verfügbaren Netzwerk- und Storage-Performance.
+
+
+
+== Speicher konfigurieren
+
+XCP SMB-Übergänge und -Migrationen haben die folgenden Anforderungen an Benutzeranmeldedaten:
+
+* XCP-Hostsystem: Ein XCP-Hostbenutzer muss über Administratorrechte verfügen (der Benutzer muss Teil der Gruppe "BUILTIN\Administrators" auf dem XCP-SMB-Hostsystem sein).
+* Fügen Sie den Migrations- oder XCP-Hostbenutzer zur Richtlinie für das Audit- und Sicherheitsprotokoll für Active Directory hinzu. Gehen Sie wie folgt vor, um die „Management Auditing and Security Log“-Richtlinie unter Windows 10 zu finden:
++
+.Schritte
+.. Öffnen Sie das Dialogfeld *Group Policy Editor*.
+.. Gehen Sie zu *Computerkonfiguration > Windows-Einstellungen > Sicherheitseinstellungen > Lokale Richtlinien > Zuweisen von Benutzerrechten*.
+.. Wählen Sie *Prüfung und Sicherheitsprotokoll verwalten*.
+.. Um einen XCP-Hostbenutzer hinzuzufügen, wählen Sie *Benutzer oder Gruppe hinzufügen*.
++
+Weitere Informationen finden Sie unter: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953(v%3Dws.11)["Management von Audits und Sicherheitsprotokolls"^].
+
+
+
+* Zielspeichersystem: XCP-Hostbenutzer müssen Lese- und Schreibzugriff haben.
+* Quell-Storage-System:
++
+** Wenn der Benutzer Teil der Gruppe „Sicherungsoperatoren“ im Quellspeichersystem ist, können die Mitglieder dieser Gruppe Dateien lesen und dabei die Sicherheitsregeln umgehen, unabhängig von allen Berechtigungen, die diese Dateien schützen.
+** Wenn der Benutzer nicht Teil der Gruppe „Sicherungsoperatoren“ im Quellsystem ist, muss der Benutzer Lesezugriff haben.
+
+
+
+
+
+NOTE: Für die Unterstützung der XCP-Option ist im Quell-Speichersystem eine Schreibberechtigung erforderlich `- preserve-atime`.
+
+
+
+== Konfigurieren Sie einen Windows-Client
+
+* Fügen Sie der Host-Datei das Feld Zielspeicher und das Feld Quell-Speicher hinzu:
++
+.. Navigieren Sie zu folgendem Speicherort: `(C:\Windows\System32\drivers\etc\hosts)`
+.. Geben Sie die folgenden Host-Einträge in das folgende Format ein:
++
+`<Source data vserver data interface ip>   <Source cifs server name>
+<Destination data vserver data interface ip>   <Destination cifs server name>`
+
++
+*Beispiel*
+
++
+image:xcp_image17.png["Beispiel für eine Host-Datei"]
+
+
+
+
