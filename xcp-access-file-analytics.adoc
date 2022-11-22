@@ -28,10 +28,81 @@ NOTE: Informationen zum Überprüfen der unterstützten Browser für den Zugriff
 .. Wählen Sie Weiter mit `<IP address of linux machine>` Verlinken:
 
 
-. Melden Sie sich mit dem Benutzernamen „admin“ und dem Passwort an, das Sie während der Konfiguration festgelegt haben
+. Melden Sie sich in der GUI für Dateianalysen an.
++
+Es gibt zwei Möglichkeiten, sich bei der GUI für Dateianalysen anzumelden:
+
++
+.. Verwenden Sie den Benutzernamen „admin“ und das Passwort, das Sie während der Konfiguration festgelegt haben.
 +
 image:xcp_image2.png["XCP-Datei-Analyse-Anmeldebildschirm"]
 
-. Beim Anmelden sehen Sie, dass der NFS-Agent hinzugefügt wird: Ein grünes Häkchen ist vorhanden, das die minimale Systemkonfiguration des Linux-Systems und XCP-Version zeigt.
+.. Konfiguration und Aktivierung der SSO-Funktionalität (Single Sign On) für den gesamten Unternehmen
++
+Mit dieser Anmeldefunktion können Sie XCP-Dateianalysen auf einem bestimmten Rechner einrichten und die Web-UI-URL unternehmensweit freigeben, sodass sich Benutzer mit ihren SSO-Anmeldedaten an der UI anmelden können.
+
++
+
+NOTE: Die SSO-Anmeldung ist optional und kann dauerhaft konfiguriert und aktiviert werden. Informationen zum Einrichten von SSO-basierten SSO-Anmeldedaten für die Security Assertion Markup Language (SAML) finden Sie unter  SSO credentials.
+
+
+
+. Nach der Anmeldung sehen Sie, dass der NFS-Agent. Ein grünes Häkchen zeigt die minimale Systemkonfiguration des Linux-Systems und XCP-Version an.
 . Wenn Sie einen SMB-Agent konfiguriert haben, wird der SMB-Agent, der in derselben Agent-Karte hinzugefügt wurde, angezeigt.
+
+
+
+
+== Konfigurieren Sie SSO-Anmeldedaten
+
+Die SSO-Anmeldefunktion wird in XCP File Analytics mithilfe von SAML implementiert und wird vom Active Directory Federation Services (ADFS) Identity Provider unterstützt. SAML verlagert die Authentifizierungsaufgabe an den Drittanbieter-Identitäts-Provider (IdP) für Ihr Unternehmen, der eine Vielzahl von Ansätzen für MFA (Multi-Faktor-Authentifizierung) nutzen kann.
+
+.Schritte
+. Registrieren Sie die XCP-Dateianalyse-Anwendung beim Identitätsanbieter Ihres Unternehmens.
++
+Dateianalysen wird jetzt als Service-Provider ausgeführt und muss daher bei Ihrem Identitätsanbieter registriert werden. Im Allgemeinen gibt es im Unternehmen ein Team, das für diesen SSO-Integrationsprozess zuständig ist. Im ersten Schritt können Sie sich an das entsprechende Team wenden und die Metadaten der Dateianalyse-Anwendung mit ihnen teilen.
+
++
+Im Folgenden sind die obligatorischen Angaben aufgeführt, die Sie für die Registrierung bei Ihrem Identitätsanbieter freigeben müssen:
+
++
+** *Dienstanbieter Entity ID:* `\https://<IP address of linux machine>/xcp`
+** *Service Provider Assertion Consumer Service (ACS) URL:* `\https://<IP address of linux machine>:5030/api/xcp/SAML/sp`
++
+Sie können diese Details auch überprüfen, indem Sie sich in der Benutzeroberfläche für Dateianalysen anmelden:
+
++
+... Melden Sie sich bei der UI mit dem Benutzernamen „admin“ und dem Passwort an, das während der Installation eingerichtet wurde.
+... Wählen Sie oben rechts auf der Seite das Symbol *Benutzer* und dann *SAML-Einstellungen* aus.
++
+Wählen Sie im angezeigten Dropdown-Menü die Option *Service Provider-Einstellungen* aus.
+
++
+image:xcp_image18.png["Beispiel für SAML-Einstellungen"]
+
++
+Nach der Registrierung erhalten Sie die IdP-Endpunktangaben für Ihr Unternehmen. Sie müssen die Metadaten des IdP-Endpunktes für die Dateianalyse-UI bereitstellen.
+
+
+
+
+
+. Geben Sie die IdP-Details an:
++
+.. Gehen Sie zu *Dashboard*. Wählen Sie oben rechts auf der Seite das Symbol *Benutzer* aus und wählen Sie *SAML-Einstellungen*.
+.. Geben Sie die IdP-Details ein, die Sie nach der Registrierung erhalten haben.
++
+*Beispiel*
+
++
+image:xcp_image19.png["Beispiel für IDP-Einstellung"]
+
+.. Aktivieren Sie das Kontrollkästchen *SAML* aktivieren, um SAML-basiertes SSO dauerhaft zu aktivieren.
+.. Wählen Sie *Speichern*.
+.. Melden Sie sich von der Dateianalyse ab, und melden Sie sich erneut an.
++
+Sie werden zur SSO-Seite Ihres Unternehmens umgeleitet.
+
+
+
 

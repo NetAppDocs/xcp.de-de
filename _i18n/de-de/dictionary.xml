@@ -22,13 +22,9 @@
   <block id="4f6cea84c64bcd2cbef1950791410c78" category="list-text">Starten Sie den XCP-Dienst. Überprüfen Sie mit dem folgenden Befehl, ob der XCP-Dienst ausgeführt wird: Service xcp-Status</block>
   <block id="e58e3ebc6749ebd9f5c6ca3564e928e8" category="list-text">Starten Sie die Dateianalyse im Browser: *\https://&lt;ip Adresse von linux&gt;/xcp*.</block>
   <block id="9d1854a18d1a1a9b0aad19c89b6a15b0" category="summary">Erstellen Sie die JSON-Konfigurationsdatei</block>
-  <block id="eb498a91409025b6f7459d1487819ac5" category="paragraph">Erstellen Sie die JSON-Konfigurationsdatei.</block>
   <block id="71067d2da44f21581259461be89d2c5b" category="paragraph">Wenn Sie Ereignisprotokollmeldungen, den Syslog-Client oder die Kundenprotokollierung aktivieren möchten, führen Sie die folgenden Schritte aus.</block>
-  <block id="4839d2f25cc35b249d5db15efa1afd75" category="paragraph">*Schritte*</block>
   <block id="d4f0fd36ab870ee5b451ed975a3b840d" category="list-text">Öffnen Sie einen beliebigen Texteditor, z. B. Editor oder vi.</block>
   <block id="d4b54477c37b7ad7e878a796746f262b" category="list-text">Erstellen Sie eine neue Datei mit der folgenden JSON-Vorlage.</block>
-  <block id="4c38ab1ef38cac28ef430c2be0673437" category="list-text">Ändern Sie für alle Funktionen, die Sie aktivieren möchten<block ref="d97a94e6c10d324fbb3c5f3a1c4a12d5" prefix=" " category="inline-code"></block> Mehrwert für<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>.</block>
-  <block id="6bdc741a35e3429fb316e331210901e8" category="list-text">Benennen Sie die Datei<block ref="f12496f8d8c39c37c0c4cdbe57540599" prefix=" " category="inline-code"></block> Und sae es an den Dateispeicherort, der in *Error! Referenzquelle nicht gefunden.*</block>
   <block id="7c584a16cbf4210dc0a344179e274e09" category="cell">Standardkonfiguration</block>
   <block id="a2f0a9650b74152ef4105d29bb0e92f0" category="cell">Beispiel für eine Json-Konfigurationsdatei</block>
   <block id="d41d8cd98f00b204e9800998ecf8427e" category="doc"></block>
@@ -38,7 +34,6 @@
   <block id="5477a542a80c11f2da04e8a045970ccc" category="section-title">XCP-Probleme und -Lösungen</block>
   <block id="ef8fd37900d2911bb2ff728bb4f9ec8b" category="cell">XCP-Problem</block>
   <block id="49b21ad0d38942f635877e7bbc5d7a1e" category="cell">Nutzen</block>
-  <block id="2c21e7858fb5fc86fe2510cb996c6926" category="cell"><block ref="ad3b549c4b03e0598dee96d17d3ccc66" prefix="" category="inline-code"></block>: Inkompatible Indexdatei. Verwenden Sie bitte nur die Indexdatei, die mit der aktuellen Version von XCP erstellt wurde. Alternativ können Sie ältere XCP-Binärdateien von xcp.netapp.com herunterladen.</block>
   <block id="ee919e739e668a270db61ab6e8e94e16" category="cell">Sie versuchen, Operationen an einem Index durchzuführen, der mit einer XCP-Version, die älter als XCP 1.9 ist, generiert wurde. Dies wird nicht unterstützt. Es wird empfohlen, alle laufenden Migrationen abzuschließen und dann auf diese Version von XCP zu wechseln. Alternativ können Sie den erneut ausführen<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block>,<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> Oder<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> Befehle zum Generieren eines neuen Index mit XCP 1.9.</block>
   <block id="a7cf2676d276e4fe420000595e3443d2" category="cell"><block ref="ad3b549c4b03e0598dee96d17d3ccc66" prefix="" category="inline-code"></block>: Muss als Wurzel laufen</block>
   <block id="2a90812fc13c49a77254684c5a3b5cb8" category="cell">Führen Sie XCP-Befehle als Root-Benutzer aus</block>
@@ -115,8 +110,6 @@
   <block id="cb86540892d12e21880b91e51aae8225" category="inline-image-macro">XCP-Workflow-Bild</block>
   <block id="33fed185b714f317f622abebb7d8d09e" category="paragraph"><block ref="33fed185b714f317f622abebb7d8d09e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a3100bf3334206028c894a5568ddcf09" category="summary">Beschreibt neue Funktionen, Upgrade-Hinweise, feste Probleme, bekannte Einschränkungen und bekannte Probleme.</block>
-  <block id="539be75a76dadebbca3424b2f7b46bde" category="doc">Versionshinweise zu XCP v1.9</block>
-  <block id="0bd1668ea08c54bc067675d64e6f83a4" category="paragraph">Der <block ref="08ad1ee2f6369863d444accaa8181f3c" category="inline-link-macro-rx"></block> Beschreiben Sie neue Funktionen, Upgrade-Hinweise, feste Probleme, bekannte Einschränkungen und bekannte Probleme.</block>
   <block id="dbd469acdcbd52648cb242bcfda6add3" category="paragraph">Sie müssen sich auf der NetApp Support-Website anmelden, um auf die Versionshinweise zuzugreifen.</block>
   <block id="8c1d67b3b1e3cf97c5f054bf8d66089c" category="summary">Planen Sie die SMB-Datenmigration</block>
   <block id="f4eb381e275885c806213db1203bf102" category="paragraph">Planen Sie Ihre SMB-Datenmigrationen.</block>
@@ -377,10 +370,8 @@
   <block id="42f425824cc531c78175d67346f8f124" category="list-text">Verwenden Sie den Link<block ref="e1fe6adfd56c8994795ceb238170e3b4" prefix=" " category="inline-code"></block> Um auf die GUI zur Dateianalyse zuzugreifen. Akzeptieren Sie bei entsprechender Aufforderung das Sicherheitszertifikat:</block>
   <block id="d1b673b157daeb18c4d73618946f7ef4" category="list-text">Wählen Sie unter der Datenschutzerklärung „Erweitert“ aus.</block>
   <block id="d6d3a57c5e8a09cb5cc8bf5e2c0810ce" category="list-text">Wählen Sie Weiter mit<block ref="c40442705fd05f103d7897f22b0b9d54" prefix=" " category="inline-code"></block> Verlinken:</block>
-  <block id="d92966d58b78d88161004cfe9020ede8" category="list-text">Melden Sie sich mit dem Benutzernamen „admin“ und dem Passwort an, das Sie während der Konfiguration festgelegt haben</block>
   <block id="2ffe186b43f4d120ec24b17fcb23452a" category="inline-image-macro">XCP-Datei-Analyse-Anmeldebildschirm</block>
   <block id="289a5bc6b34705c66837c45715417ecd" category="paragraph"><block ref="289a5bc6b34705c66837c45715417ecd" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fefbdb3c0131ccf14272f959d23390d5" category="list-text">Beim Anmelden sehen Sie, dass der NFS-Agent hinzugefügt wird: Ein grünes Häkchen ist vorhanden, das die minimale Systemkonfiguration des Linux-Systems und XCP-Version zeigt.</block>
   <block id="dcc65cd71fd805adc9f9914a4cf41d78" category="list-text">Wenn Sie einen SMB-Agent konfiguriert haben, wird der SMB-Agent, der in derselben Agent-Karte hinzugefügt wurde, angezeigt.</block>
   <block id="c3a8cc04b10d225329206c08b5a0ebfd" category="summary">Dateiserver werden hinzugefügt</block>
   <block id="0560ad7866ecc9115ae23021d424dbdf" category="doc">Fügen Sie Dateiserver hinzu</block>
@@ -752,4 +743,39 @@
   <block id="ef8cdecd9388166741c6ddeb9e648a30" category="sidebar">XCP konfigurieren</block>
   <block id="43f3f6a392074dfc63604c7b136e457f" category="sidebar">Konfigurieren Sie die INI-Datei für XCP NFS</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="sidebar">Fehlerbehebung</block>
+  <block id="bfccbf3e891050373f71f1230130222b" category="cell"><block ref="ad3b549c4b03e0598dee96d17d3ccc66" prefix="" category="inline-code"></block>: Stapel vergleichen: Inkompatible Indexdatei. Verwenden Sie bitte nur die Indexdatei, die mit der aktuellen Version von XCP erstellt wurde. Alternativ können Sie eine ältere XCP-Binärdatei von xcp.netapp.com herunterladen.</block>
+  <block id="481da41cf08734ac99d07aca58644781" category="cell"><block ref="6d7d8e19dacf4142870d92b873503ded" prefix="" category="inline-code"></block></block>
+  <block id="2dc9d74fea656209a3e6734b2bd09c40" category="cell">Wenn im Dateipfad ein Doppelpunkt (:) vorhanden ist, verwenden Sie stattdessen drei Doppelpunkte (::).</block>
+  <block id="e9bef9a5a04a193f8f77a5867e82c24b" category="doc">Versionshinweise zu XCP v1.9.1</block>
+  <block id="a76dc4faed369cb6713d049dbc0ca400" category="paragraph">Der <block ref="5a4a1c694a80c57bbface50f0a4d4a69" category="inline-link-macro-rx"></block> Beschreiben Sie neue Funktionen, Upgrade-Hinweise, feste Probleme, bekannte Einschränkungen und bekannte Probleme.</block>
+  <block id="410bc026d79ee8d7b9f82dd6b03feb98" category="list-text">Melden Sie sich in der GUI für Dateianalysen an.</block>
+  <block id="fce3933747223b348680fa7fa109330b" category="paragraph">Es gibt zwei Möglichkeiten, sich bei der GUI für Dateianalysen anzumelden:</block>
+  <block id="f54b0f1d442f1ec5a7de065a3541d957" category="list-text">Verwenden Sie den Benutzernamen „admin“ und das Passwort, das Sie während der Konfiguration festgelegt haben.</block>
+  <block id="9232193990a75b1e49392f2b2617103d" category="list-text">Konfiguration und Aktivierung der SSO-Funktionalität (Single Sign On) für den gesamten Unternehmen</block>
+  <block id="2e3c9f20aee1951e2d90c60c3895ab58" category="paragraph">Mit dieser Anmeldefunktion können Sie XCP-Dateianalysen auf einem bestimmten Rechner einrichten und die Web-UI-URL unternehmensweit freigeben, sodass sich Benutzer mit ihren SSO-Anmeldedaten an der UI anmelden können.</block>
+  <block id="69bb9c4e14480c847abc95d5c42499ad" category="admonition">Die SSO-Anmeldung ist optional und kann dauerhaft konfiguriert und aktiviert werden. Informationen zum Einrichten von SSO-basierten SSO-Anmeldedaten für die Security Assertion Markup Language (SAML) finden Sie unter <block ref="24bd22f7d0a05b19a03434bac975689d" category="inline-xref-macro-rx"></block>.</block>
+  <block id="5011fee80695c860b0a39f97d0dcb95c" category="list-text">Nach der Anmeldung sehen Sie, dass der NFS-Agent. Ein grünes Häkchen zeigt die minimale Systemkonfiguration des Linux-Systems und XCP-Version an.</block>
+  <block id="bb589a1b8201c2239ba76232e361cafc" category="section-title">Konfigurieren Sie SSO-Anmeldedaten</block>
+  <block id="fffd3dfdf9fa53044cdb134dcc69c528" category="paragraph">Die SSO-Anmeldefunktion wird in XCP File Analytics mithilfe von SAML implementiert und wird vom Active Directory Federation Services (ADFS) Identity Provider unterstützt. SAML verlagert die Authentifizierungsaufgabe an den Drittanbieter-Identitäts-Provider (IdP) für Ihr Unternehmen, der eine Vielzahl von Ansätzen für MFA (Multi-Faktor-Authentifizierung) nutzen kann.</block>
+  <block id="f2d88d647c936a165a3e77edcbea1d96" category="list-text">Registrieren Sie die XCP-Dateianalyse-Anwendung beim Identitätsanbieter Ihres Unternehmens.</block>
+  <block id="1f93f245c9251dd40bbdd43eacc5372c" category="paragraph">Dateianalysen wird jetzt als Service-Provider ausgeführt und muss daher bei Ihrem Identitätsanbieter registriert werden. Im Allgemeinen gibt es im Unternehmen ein Team, das für diesen SSO-Integrationsprozess zuständig ist. Im ersten Schritt können Sie sich an das entsprechende Team wenden und die Metadaten der Dateianalyse-Anwendung mit ihnen teilen.</block>
+  <block id="2fa5a2b9e39c8c52b4712c4defadf219" category="paragraph">Im Folgenden sind die obligatorischen Angaben aufgeführt, die Sie für die Registrierung bei Ihrem Identitätsanbieter freigeben müssen:</block>
+  <block id="9563382993688c51fdc3a46e81eb172f" category="list-text">*Dienstanbieter Entity ID:*<block ref="e1fe6adfd56c8994795ceb238170e3b4" prefix=" " category="inline-code"></block></block>
+  <block id="bf1e51171726684d1ee1b309557acd01" category="list-text">*Service Provider Assertion Consumer Service (ACS) URL:*<block ref="21d0fedea22f326cba161956dc12f67c" prefix=" " category="inline-code"></block></block>
+  <block id="f57c5b8986c37b4a0952ba786b74f802" category="paragraph">Sie können diese Details auch überprüfen, indem Sie sich in der Benutzeroberfläche für Dateianalysen anmelden:</block>
+  <block id="80dae1bc5036b7e9bda13b9e72ac846e" category="list-text">Melden Sie sich bei der UI mit dem Benutzernamen „admin“ und dem Passwort an, das während der Installation eingerichtet wurde.</block>
+  <block id="ccd1f9a4a3996dec7dcc1222859ee8f1" category="list-text">Wählen Sie oben rechts auf der Seite das Symbol *Benutzer* und dann *SAML-Einstellungen* aus.</block>
+  <block id="363cae04551b1b1a61f8792a42d5332c" category="paragraph">Wählen Sie im angezeigten Dropdown-Menü die Option *Service Provider-Einstellungen* aus.</block>
+  <block id="957c109b84ab3a9745776f942062afea" category="inline-image-macro">Beispiel für SAML-Einstellungen</block>
+  <block id="82d38923543ba21104350ca2e054aed6" category="paragraph"><block ref="82d38923543ba21104350ca2e054aed6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="231aa7872617b02f47d61c8a448d71d3" category="paragraph">Nach der Registrierung erhalten Sie die IdP-Endpunktangaben für Ihr Unternehmen. Sie müssen die Metadaten des IdP-Endpunktes für die Dateianalyse-UI bereitstellen.</block>
+  <block id="0fabd32fee9ac3582435784332323cf0" category="list-text">Geben Sie die IdP-Details an:</block>
+  <block id="13cdf4657d47700947243dc2788b7179" category="list-text">Gehen Sie zu *Dashboard*. Wählen Sie oben rechts auf der Seite das Symbol *Benutzer* aus und wählen Sie *SAML-Einstellungen*.</block>
+  <block id="d8adeda321a41aaa17a27edc3b9f91af" category="list-text">Geben Sie die IdP-Details ein, die Sie nach der Registrierung erhalten haben.</block>
+  <block id="632a19fe4f9dbcb608d0fc15adce1abd" category="inline-image-macro">Beispiel für IDP-Einstellung</block>
+  <block id="d9f5a9253d4897150b89f01bd1fff5b8" category="paragraph"><block ref="d9f5a9253d4897150b89f01bd1fff5b8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="52a2204afc476b63dc6724a5bd0b634b" category="list-text">Aktivieren Sie das Kontrollkästchen *SAML* aktivieren, um SAML-basiertes SSO dauerhaft zu aktivieren.</block>
+  <block id="10492389e94efdebbb66f7b0cd8a1324" category="list-text">Wählen Sie *Speichern*.</block>
+  <block id="280adca2af76ab2f6d95dd020df20c76" category="list-text">Melden Sie sich von der Dateianalyse ab, und melden Sie sich erneut an.</block>
+  <block id="26fe07940d9a7bac7605ee7fc243d89a" category="paragraph">Sie werden zur SSO-Seite Ihres Unternehmens umgeleitet.</block>
 </blocks>

@@ -24,7 +24,7 @@ Lesen Sie die Lösungen zur Fehlerbehebung durch.
 | XCP-Problem | Nutzen 
 
 
-| `xcp: ERROR`: Inkompatible Indexdatei. Verwenden Sie bitte nur die Indexdatei, die mit der aktuellen Version von XCP erstellt wurde. Alternativ können Sie ältere XCP-Binärdateien von xcp.netapp.com herunterladen. | Sie versuchen, Operationen an einem Index durchzuführen, der mit einer XCP-Version, die älter als XCP 1.9 ist, generiert wurde. Dies wird nicht unterstützt. Es wird empfohlen, alle laufenden Migrationen abzuschließen und dann auf diese Version von XCP zu wechseln. Alternativ können Sie den erneut ausführen `scan`, `copy` Oder `verify` Befehle zum Generieren eines neuen Index mit XCP 1.9. 
+| `xcp: ERROR`: Stapel vergleichen: Inkompatible Indexdatei. Verwenden Sie bitte nur die Indexdatei, die mit der aktuellen Version von XCP erstellt wurde. Alternativ können Sie eine ältere XCP-Binärdatei von xcp.netapp.com herunterladen. | Sie versuchen, Operationen an einem Index durchzuführen, der mit einer XCP-Version, die älter als XCP 1.9 ist, generiert wurde. Dies wird nicht unterstützt. Es wird empfohlen, alle laufenden Migrationen abzuschließen und dann auf diese Version von XCP zu wechseln. Alternativ können Sie den erneut ausführen `scan`, `copy` Oder `verify` Befehle zum Generieren eines neuen Index mit XCP 1.9. 
 
 
 | `xcp: ERROR`: Muss als Wurzel laufen | Führen Sie XCP-Befehle als Root-Benutzer aus 
@@ -112,6 +112,9 @@ Lesen Sie die Lösungen zur Fehlerbehebung durch.
 
 
 | `xcp: ERROR: batch 2: child process failed (exit code -6): recv <type 'exceptions.EOFError'>:` | Erhöhen Sie den Systemspeicher, und führen Sie den Test erneut aus. 
+
+
+| `xcp:ERROR: invalid path 'IP:/users009/user1/2022-07-01_04:36:52_1489367` | Wenn im Dateipfad ein Doppelpunkt (:) vorhanden ist, verwenden Sie stattdessen drei Doppelpunkte (::). 
 |===
 
 
