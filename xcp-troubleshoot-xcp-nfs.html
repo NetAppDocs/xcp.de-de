@@ -974,7 +974,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-17 06:48:01 +0000">11/17/2022</time>
+    <time datetime="2022-11-22 08:09:17 +0000">11/22/2022</time>
     
   
 
@@ -1007,7 +1007,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xcp: ERROR</code>: Inkompatible Indexdatei. Verwenden Sie bitte nur die Indexdatei, die mit der aktuellen Version von XCP erstellt wurde. Alternativ können Sie ältere XCP-Binärdateien von xcp.netapp.com herunterladen.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xcp: ERROR</code>: Stapel vergleichen: Inkompatible Indexdatei. Verwenden Sie bitte nur die Indexdatei, die mit der aktuellen Version von XCP erstellt wurde. Alternativ können Sie eine ältere XCP-Binärdatei von xcp.netapp.com herunterladen.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sie versuchen, Operationen an einem Index durchzuführen, der mit einer XCP-Version, die älter als XCP 1.9 ist, generiert wurde. Dies wird nicht unterstützt. Es wird empfohlen, alle laufenden Migrationen abzuschließen und dann auf diese Version von XCP zu wechseln. Alternativ können Sie den erneut ausführen <code>scan</code>, <code>copy</code> Oder <code>verify</code> Befehle zum Generieren eines neuen Index mit XCP 1.9.</p></td>
 </tr>
 <tr>
@@ -1123,6 +1123,10 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>xcp: ERROR: batch 2: child process failed (exit code -6): recv &lt;type 'exceptions.EOFError'&gt;:</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Erhöhen Sie den Systemspeicher, und führen Sie den Test erneut aus.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xcp:ERROR: invalid path 'IP:/users009/user1/2022-07-01_04:36:52_1489367</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wenn im Dateipfad ein Doppelpunkt (:) vorhanden ist, verwenden Sie stattdessen drei Doppelpunkte (::).</p></td>
 </tr>
 </tbody>
 </table>
