@@ -11,6 +11,7 @@ summary: Um die Leistungsgrenzen eines einzelnen Knotens zu überwinden, können
 [role="lead"]
 Bei XCP NFS lassen sich die Performance-Grenzen eines einzelnen Node mit nur einem einzigen Node überwinden `copy` (Oder `scan -md5`) Befehl zum Ausführen von Arbeitern auf mehreren Linux-Systemen oder Cluster-Knoten.
 
+.Unterstützte Funktionen
 Scale-out mit mehreren Nodes ist in Umgebungen hilfreich, in denen die Performance eines einzelnen Systems zum Beispiel in den folgenden Szenarien nicht ausreicht:
 
 * Wenn ein einzelner Node Monate dauert, bis mehrere Petabyte an Daten kopiert werden
@@ -18,8 +19,10 @@ Scale-out mit mehreren Nodes ist in Umgebungen hilfreich, in denen die Performan
 * In großen HDFS-Cluster-Farmen, bei denen eine sehr große Anzahl von I/O-Vorgängen ausgeführt wird
 
 
+.Pfadsyntax
 Die Pfadsyntax für Scale-out mit mehreren Nodes ist `--nodes worker1,worker2,worker3`.
 
+.Richten Sie Scale-out für mehrere Nodes ein
 Erwägen Sie eine Einrichtung mit vier Linux-Hosts mit ähnlichen CPU- und RAM-Konfigurationen. Sie können alle vier Hosts für die Migration verwenden, da XCP die Kopiervorgänge über alle Host-Nodes hinweg koordinieren kann. Um diese Nodes in einer Scale-out-Umgebung nutzen zu können, müssen Sie einen der vier Nodes als Master Node und andere Nodes als „Worker“-Nodes identifizieren. Bei einem Linux-Setup mit vier Knoten beispielsweise die Knoten „Master“, „Worker1“, „Worker2“ und „Worker3“ benennen und dann die Konfiguration auf dem Hauptknoten einrichten:
 
 . Kopieren Sie XCP in das Home-Verzeichnis.
@@ -41,6 +44,7 @@ Erwägen Sie eine Einrichtung mit vier Linux-Hosts mit ähnlichen CPU- und RAM-K
 
 Der XCP-Hauptknoten verwendet SSH, um Mitarbeiter auf anderen Knoten auszuführen. Sie müssen die Worker-Nodes so konfigurieren, dass der Benutzer, der XCP auf dem Master-Node ausführt, den passwortlosen SSH-Zugriff ermöglicht. Um beispielsweise eine Benutzerdemonstration auf einem Master-Knoten für die Verwendung von Node „worker1“ als XCP-Worker-Node zu aktivieren, müssen Sie XCP-Binärdateien vom Master-Node auf alle Worker-Knoten im Home-Verzeichnis kopieren.
 
+.MaxStartups
 Wenn Sie mehrere XCP-Mitarbeiter gleichzeitig starten, um Fehler zu vermeiden, sollten Sie den erhöhen `sshd MaxStartups` Parameter auf jedem Worker-Node, wie im folgenden Beispiel gezeigt:
 
 [listing]
@@ -48,6 +52,7 @@ Wenn Sie mehrere XCP-Mitarbeiter gleichzeitig starten, um Fehler zu vermeiden, s
 echo "MaxStartups 100" | sudo tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd
 ----
+.Die Datei „nodes.ini"“
 Wenn XCP einen Worker auf einem Cluster-Node ausführt, übernimmt der Worker-Prozess die Umgebungsvariablen aus dem Haupt-XCP-Prozess auf dem Master-Knoten. Um eine bestimmte Node-Umgebung anzupassen, müssen Sie die Variablen in festlegen `nodes.ini` Datei im Konfigurationsverzeichnis nur auf dem Master-Knoten (Worker-Knoten verfügen nicht über ein Konfigurationsverzeichnis oder einen Katalog). Zum Beispiel für einen ubuntu-Server mars, der seine hat `libjvm.so` In einem anderen Speicherort für den Master-Knoten, wie Wave (das ist CentOS), erfordert es ein Konfigurationsverzeichnis, damit ein Mitarbeiter auf mars den HDFS-Connector verwenden kann. Dieses Setup wird im folgenden Beispiel dargestellt:
 
 [listing]
@@ -60,6 +65,7 @@ Wenn Sie eine Multisession mit POSIX- und HDFS-Dateipfaden verwenden, müssen Si
 
 Wenn XCP auf einem Worker-Node ausgeführt wird, verfügt der Worker-Node über keine lokale Konfiguration (keine Lizenz, keine Protokolldateien oder keinen Katalog). XCP-Binärdateien sind nur auf dem System in Ihrem Home-Verzeichnis erforderlich. Zum Beispiel, um die auszuführen `copy` Der Befehl, der Master-Node und alle Worker-Nodes benötigen Zugriff auf die Quelle und das Ziel. Für `xcp copy --nodes linux1,linux2 hdfs:///user/demo/test \file:///mnt/ontap`, Das `linux1` Und `linux2` Hosts müssen die HDFS-Client-Software konfiguriert sein und der NFS-Export auf /mnt/ontap gemountet sein. Außerdem muss, wie bereits erwähnt, eine Kopie der XCP-Binärdatei im Home-Verzeichnis abgelegt sein.
 
+.Kombinieren Sie POSIX- und HDFS-Anschlüsse, Scale-out-Funktionen mit mehreren Nodes und Sicherheitsfunktionen
 Sie können die POSIX- und HDFS-Anschlüsse, die horizontale Skalierbarkeit mit mehreren Knoten sowie Sicherheitsfunktionen in Kombination verwenden. Beispiel: Das folgende `copy` Und `verify` Befehle kombinieren POSIX- und HDFS-Anschlüsse mit den Sicherheits- und Scale-out-Funktionen:
 
 * `copy` Befehlsbeispiel:

@@ -43,7 +43,7 @@ Mit dieser Anmeldefunktion können Sie XCP-Dateianalysen auf einem bestimmten Re
 
 +
 
-NOTE: Die SSO-Anmeldung ist optional und kann dauerhaft konfiguriert und aktiviert werden. Informationen zum Einrichten von SSO-basierten SSO-Anmeldedaten für die Security Assertion Markup Language (SAML) finden Sie unter  SSO credentials.
+NOTE: Die SSO-Anmeldung ist optional und kann dauerhaft konfiguriert und aktiviert werden. Informationen zum Einrichten von SSO-basierten SSO-Anmeldedaten für die Security Assertion Markup Language (SAML) finden Sie unter <<Konfigurieren Sie SSO-Anmeldedaten>>.
 
 
 

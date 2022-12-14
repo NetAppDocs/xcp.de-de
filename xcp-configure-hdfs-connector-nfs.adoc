@@ -11,13 +11,16 @@ summary: Über den HDFS-Connector kann XCP auf alle HDFS-Filesysteme zugreifen, 
 [role="lead"]
 Für XCP-NFS bietet XCP über den Hadoop Distributed File System (HDFS)-Connector (hdfs://) Zugriff auf alle HDFS-Filesysteme, die bei unterschiedlichen Anbietern erhältlich sind.
 
+.Unterstützte Funktionen
 Der `copy` Für HDFS-Konnektoren wird der Befehlsvorgang von HDFS zu NFS unterstützt.
 
+.Pfadsyntax
 Die Pfadsyntax für einen HDFS-Connector lautet `hdfs://[user@host:port]/full-path`.
 
 
 NOTE: Wenn Sie keinen Benutzer, keinen Host und keinen Port angeben, rufen XCP-Anrufe an `hdfsConnect` Wenn der Host auf festgelegt ist `default` Und der Port ist auf festgelegt `0`.
 
+.Richten Sie einen HDFS-Connector ein
 Um HDFS auszuführen `copy` Der HDFS-Client muss auf dem Linux-System festgelegt werden. Der Hadoop-Anbieter folgt dann der Setup-Konfiguration, die im Internet verfügbar ist. Sie können beispielsweise den Client mit für ein MapR Cluster festlegen `https://docs.datafabric.hpe.com/60/AdvancedInstallation/SettingUptheClient-redhat.html`.
 
 Nachdem Sie das HFDS-Client-Setup abgeschlossen haben, müssen Sie die Konfiguration auf dem Client abschließen. Um die HDFS-Pfade mit XCP-Befehlen zu verwenden, müssen Sie die folgenden Umgebungsvariablen verwenden:
