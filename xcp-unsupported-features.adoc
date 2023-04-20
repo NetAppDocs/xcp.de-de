@@ -46,6 +46,9 @@ Die folgenden Funktionen werden von XCP NFS nicht unterstützt:
 
 
 | Linux | XCP wird nicht mehr auf früheren Linux-Distributionen unterstützt, die von XCP 1.6.3 unterstützt wurden. 
+
+
+| Unterstützung von aktiver Quelle | XCP unterstützt nicht die Kombination von Basis- oder inkrementellen Snapshot Kopiervorgängen mit Live-Quellmigrationen. 
 |===
 Die folgenden Funktionen werden von XCP SMB nicht unterstützt:
 
@@ -69,7 +72,7 @@ Die folgenden Funktionen werden von XCP SMB nicht unterstützt:
 | XCP-Filter | Die Option XCP SMB exclude schließt momentan Verzeichnisse aus, die auf ihrem Muster im Filter basieren, und durchquert das Dateisystem dieser Verzeichnisse. 
 
 
-| Unterstützung von aktiver Quelle | XCP unterstützt keine Basis- oder inkrementelle Snapshot-Kopie, gefolgt von einer Live-Quellmigration für eine inkrementelle Synchronisierung. 
+| Live-Quellmigration | XCP unterstützt das Ändern von Daten auf dem Quell-Volume während der Migration nicht. 
 |===
 Die folgenden gemeinsamen Funktionen stehen für XCP NFS und SMB nicht zur Verfügung:
 
