@@ -22,7 +22,7 @@ XCP SMB verwendet Windows-Client-Host-Systeme zur Generierung paralleler I/O-Str
 
 XCP SMB-Übergänge und -Migrationen haben die folgenden Anforderungen an Benutzeranmeldedaten:
 
-* XCP-Hostsystem: Ein XCP-Hostbenutzer muss über Administratorrechte verfügen (der Benutzer muss Teil der Gruppe "BUILTIN\Administrators" auf dem XCP-SMB-Hostsystem sein).
+* XCP-Hostsystem: Ein XCP-Hostbenutzer muss über Administratorrechte verfügen (der Benutzer muss Teil der Gruppe „BUILTIN\Administrators“ auf dem Ziel-SMB-Server sein).
 * Fügen Sie den Migrations- oder XCP-Hostbenutzer zur Richtlinie für das Audit- und Sicherheitsprotokoll für Active Directory hinzu. Gehen Sie wie folgt vor, um die „Management Auditing and Security Log“-Richtlinie unter Windows 10 zu finden:
 +
 .Schritte
