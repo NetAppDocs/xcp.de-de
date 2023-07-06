@@ -81,4 +81,36 @@ Führen Sie erneut die Option Konfigurieren aus, und wählen Sie die Option Inst
 
 
 | Der gesamte Speicherplatz eines exportierten Filesystems auf einem bestimmten Dateiserver kann mehr Speicherplatz im Vergleich zum zugewiesenen physischen Speicher anzeigen. | Dies kann passieren, wenn es qtree-Ebene-Exporte innerhalb des Volumes gibt. Beispiel: Wenn die Volume-Größe, die als exportiert wird `/vol1` Ist 10 GB und es gibt einen qtree innerhalb des Volumes `/vol1/qtree1`, Dann der `xcp show` Mit dem Befehl wird das angezeigt `vol1` Größe als `10 GB` Und das `qtree1` Größe als `10 GB`. XCP-Dateianalysen fasst den Speicherplatz beider Exporte zusammen und gibt den gesamten Speicherplatz an, in diesem Fall `20 GB`. Das versteht es nicht `qtree1` Ist ein logischer Speicherplatz. 
+
+
+| Die Site kann nicht erreicht werden, oder die Benutzeranmeldung ist nach einer erfolgreichen Installation fehlgeschlagen.  a| 
+. Prüfen Sie, ob XCP-Dienste ausgeführt werden:
+`service xcp status`
+. Starten Sie den XCP-Abhörvorgang und bestätigen Sie, dass keine Fehler vorliegen:
++
+`xcp –listen`
+
+. Wenn der folgende Fehler angezeigt wird, installieren Sie die CodeReady-Pakete mit yum, z. B. `yum install codeready-builder-for-rhel-8-x86_64-rpms`:
+
+
+[listing]
+----
+Error:
+-------
+Traceback (most recent call last):
+  File "xcp.py", line 1146, in <module>
+  File "xcp.py", line 1074, in main
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller/loader/pyimod03_importers.py", line 495, in exec_module
+  File "rest/routes.py", line 61, in <module>
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller/loader/pyimod03_importers.py", line 495, in exec_module
+  File "onelogin/saml2/auth.py", line 14, in <module>
+xmlsec.Error: (1, 'cannot load crypto library for xmlsec.')
+[23891] Failed to execute script 'xcp' due to unhandled exception!
+----
 |===

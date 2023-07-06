@@ -14,9 +14,10 @@ sidebar:
   - title: Versionshinweise
     url: "/releasenotes.html"
   - title: Erste Schritte mit XCP
-    url: "/index.html"
     type: solutions
     entries:
+    - title: Weitere Informationen zu XCP
+      url: "/index.html"
     - title: XCP-NFS-Zusatzfunktionen
       url: "/xcp-nfs-add-ons.html"
     - title: Nicht unterstützte Funktionen
@@ -26,8 +27,9 @@ sidebar:
     - title: Von XCP verwendete Ports
       url: "/xcp-ports-used.html"
   - title: Installieren Sie XCP
-    url: "/xcp-install-xcp.html"
     entries:
+    - title: Vorbereiten der XCP-Installation
+      url: "/xcp-install-xcp.html"
     - title: Linux für XCP NFS vorbereiten
       url: "/xcp-prepare-linux-for-xcp-nfs.html"
     - title: Windows für XCP SMB vorbereiten
@@ -56,6 +58,8 @@ sidebar:
       url: "/xcp-configure-hdfs-connector-nfs.html"
     - title: Konfiguration für horizontale Skalierung mit mehreren Nodes
       url: "/xcp-configure-multinode-scaleout-nfs.html"
+    - title: Konfigurieren Sie den S3-Anschluss
+      url: "/xcp-configure-s3-connector-nfs.html"
   - title: Planen Sie eine Datenmigration
     url: "/xcp-plan-data-migration.html"
     entries:
@@ -63,6 +67,8 @@ sidebar:
       url: "/xcp-plan-nfs-data-migration.html"
     - title: Planen Sie die SMB-Datenmigration
       url: "/xcp-plan-smb-data-migration.html"
+    - title: Planung der HDFS-Datenmigration
+      url: "/xcp-plan-hdfs-data-migration.html"
     - title: Planen Sie die Verwendung von Dateianalysen
       url: "/xcp-using-file-analytics.html"
       entries:
@@ -79,9 +85,15 @@ sidebar:
   - title: Datenmigration
     entries:
     - title: NFS-Daten migrieren
-      url: "/xcp-migrate-nfs-data.html"
+      entries:
+      - title: Befehle zur Migration von NFS-Daten
+        url: "/xcp-migrate-nfs-data.html"
     - title: Migrieren von SMB-Daten
       url: "/xcp-migrate-smb-data.html"
+    - title: HDFS-Daten migrieren
+      url: "/xcp-migrate-hdfs-data.html"
+    - title: Mehrere XCP-Jobs auf demselben Host ausführen
+      url: "/xcp-run-multiple-jobs-on-same-host.html"
     - title: Zusätzliche NFS-Funktionen
       url: "/xcp-migrate-nfs-additional-features.html"
   - title: Fehlerbehebung

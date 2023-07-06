@@ -96,9 +96,7 @@
   <block id="f6e8987d5e2d203c406379ba9e8b8a47" category="admonition">Nach der Migration, wenn Sie die verwenden<block ref="8e4e6d56206e129a946c74a229466ac0" prefix=" " category="inline-code"></block> Oder<block ref="716250e90d47b998da81c282d2ae6c75" prefix=" " category="inline-code"></block> Umgebungsvariablen zum Überschreiben des Standardkonfigurationsorts oder des Protokollorts, der<block ref="0961eb7280be7fb803f1bdbb0c06e405" prefix=" " category="inline-code"></block> Der Befehl schlägt bei Verwendung mit einer alten Migration oder Job-ID fehl. Um dies zu vermeiden, verwenden Sie denselben Protokollpfad, bis die Migration abgeschlossen ist.</block>
   <block id="bb77d5af0a3f42f7c393fe3289f4a3a1" category="summary">NetApp XCP ermöglicht skalierbare und hochperformante Datenmigrationen</block>
   <block id="3bacc52d746ebb26cd58025acaa37785" category="doc">Erste Schritte mit XCP</block>
-  <block id="606f36e4b2f3e6b50928c25be780089f" category="paragraph">NetApp XCP ermöglicht skalierbare und hochperformante Datenmigrationen.</block>
   <block id="125d45c840d79c5bfc630e1ff6268152" category="section-title">Weitere Informationen zu XCP</block>
-  <block id="98c9ea7de2b6238a9b360c918efd30f4" category="paragraph">Bei NetApp XCP handelt es sich um eine Client-basierte Software für Datenmigration und Dateianalysen zwischen NetApp und NetApp zu NetApp. XCP wurde für Skalierung entwickelt und erzielt eine höhere Performance, da alle verfügbaren Systemressourcen zum Management von großen Datensätzen und hochperformanten Migrationen genutzt werden. XCP bietet Ihnen die Möglichkeit, Kundenberichte zu erstellen, um vollständige Einblicke in das Dateisystem zu erhalten. Dank der Matching- und Formatierungsfunktionen können Sie die Berichte an jeden Bedarf anpassen.</block>
   <block id="6f1f152483ea52658f15cd3a0974f0a0" category="paragraph">Verwenden Sie XCP für NFS- oder SMB-Systeme als eine der folgenden Lösungen:</block>
   <block id="3ef32fc3b6780a4fdf91e306a592d1cc" category="list-text">Migrationslösung</block>
   <block id="94249fa72ae331c87efdfcc0d0a58301" category="list-text">Dateianalyselösung</block>
@@ -185,7 +183,6 @@
   <block id="ca2e34fd1c2de7fa4ca5bb236706760b" category="cell">Die Option XCP SMB exclude schließt momentan Verzeichnisse aus, die auf ihrem Muster im Filter basieren, und durchquert das Dateisystem dieser Verzeichnisse.</block>
   <block id="76e35710ec65c5c13523e53f9290946d" category="cell">Unterstützung von aktiver Quelle</block>
   <block id="abef06ad7d7930b60b54d21ecda87d96" category="paragraph">Die folgenden gemeinsamen Funktionen stehen für XCP NFS und SMB nicht zur Verfügung:</block>
-  <block id="67563b580602624cbe59ec4a7939e8fe" category="list-text">*XCP mehrere Instanzen auf demselben Host*: Wenn mehrere Instanzen von XCP auf demselben Host ausgeführt werden, kann es zu unvorhersehbaren Ergebnissen kommen.</block>
   <block id="163e080f44afc4f1a3717f3330b0859b" category="list-text">*Zeit bis zur Durchführung der Migration*: XCP im Vorfeld bietet weder den Zeitaufwand für die Durchführung der Migration noch den Zeitpunkt, um jeden für die Migration verwendeten Befehl abzuschließen. Wenn Sie die letzte Umstellung durchführen, bestätigen Sie, dass die Datenabwanderung auf dem Quell-Volume gering ist.</block>
   <block id="da95bf9af8410657106b7dea7919e7af" category="list-text">*Erneute Ausführung der Kopie auf einem nicht bereinigten Ziel*: XCP-Basiskopie schlägt fehl, wenn Teildaten auf dem Zielziel vorhanden sind. Für eine erfolgreiche XCP-Basiskopie und eine XCP-Überprüfung muss das Ziel sauber sein.</block>
   <block id="b0875a764dddba8272cc3d6199016dd1" category="list-text">*Live-Ziel*: XCP unterstützt das Ändern von Daten auf dem Zielvolume während einer Migration oder während einer inkrementellen Synchronisierung nicht.</block>
@@ -235,7 +232,6 @@
   <block id="d31b586de007038e5023c216e62f86b1" category="cell">Unterstützte Protokollversion</block>
   <block id="4ada655f00526d6808f8340ab758c575" category="cell">Alle SMB-Protokollversionen</block>
   <block id="817c6a5be8297c117096d41d202aff2e" category="cell">Unterstützter Browser (nur Dateianalyse)</block>
-  <block id="21c1caf58e7317ab4fa37a9c0510fcd1" category="cell">XCP-Dateianalysen unterstützt Google Chrome Version 76 und höher. In der IMT-Matrix finden Sie alle unterstützten Versionen des Browsers</block>
   <block id="8c7843878f3c9b0f5e771772d6db2dea" category="section-title">XCP SMB Microsoft VC++ Redistributable Installation</block>
   <block id="c54e109937f5c638f4600d450eedcd55" category="paragraph">Befolgen Sie diese Schritte für die weiterverteilbare VC+-Installation.</block>
   <block id="c4af91562832ae25fbae11e89da4b667" category="inline-link-macro">VC++ 2017 weiterverteilbar</block>
@@ -295,7 +291,6 @@
   <block id="5a750f86ef41f22f852c43351e3ff383" category="section-title">Verifizieren</block>
   <block id="53ab8108c26b577654ebb4cf27404e03" category="paragraph">Der<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> Der Befehl liest Quell- und Zielfreigaben und vergleicht sie, indem er Informationen zu den verschiedenen Freigaben bereitstellt. Sie können den Befehl für jede Quelle und jedes Ziel verwenden, unabhängig vom Tool, das zum Durchführen der Kopie oder des Synchronisierungstools verwendet wird.</block>
   <block id="7e4d5419d4fcf4ceade27ffac84d4e92" category="list-text">Während der Überprüfung können Sie das verwenden<block ref="8befe248db6248a8e352cf6213add2b7" prefix=" " category="inline-code"></block> Flagge mit dem<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> Befehl zum Bewahren der Zugriffszeit an der Quelle.</block>
-  <block id="0e97e9bc1c0f6d8ea9bc140cab258f9a" category="list-text">Während der Überprüfung können Sie das verwenden<block ref="c4191a361b065ce47010c278dc94711e" prefix=" " category="inline-code"></block> Flagge mit dem<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> Befehl zum Ausschließen von Unterschieden bei der Zugriffszeit.</block>
   <block id="8bcf9c6b645253521b5145414a80aecc" category="paragraph">Siehe<block ref="7aaf8f3c0f52b0fd5a97d37fbe81d5c5" prefix=" " category="inline-code"></block> Entnehmen.</block>
   <block id="7f9cccf134351e9df9c324fb764603f3" category="summary">Willkommen bei der XCP Informationsbibliothek, enthält Links zu früheren Versionen.</block>
   <block id="fdbdc0e84f617d7346b90d43e65e3e78" category="doc">XCP v1.9-Dokumentation</block>
@@ -388,7 +383,6 @@
   <block id="d9a94aeb05c2b97954eebdc3732fc715" category="summary">NFS-Daten migrieren</block>
   <block id="fc7af6e6e28187c4a6802a620fab64b4" category="paragraph">Der<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> Befehl scannt und kopiert die gesamte Quellverzeichnis-Struktur zu einem Ziel-NFSv3-Export. Der<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> Befehl erfordert, dass Quell- und Zielpfade als Variablen sind. Die gescannten und kopierten Dateien, die Durchsätze/die Geschwindigkeit und die verstrichene Zeit werden am Ende des Kopiervorgangs angezeigt.</block>
   <block id="b2afea67c58251abc9cea9e00c6f6195" category="paragraph">*POSIX-Pfad Beispiel:*</block>
-  <block id="29d2ad021e95ccea21b050eea89967f1" category="paragraph">*HDFS-Pfad Beispiel:*</block>
   <block id="f1cefec9e2196c672a622347f1fbc325" category="section-title">Fortsetzen</block>
   <block id="8ca572f19659e7e1feff3c8dd1401ce1" category="paragraph">Der<block ref="69f2afc2390cec954f7c208b07212d39" prefix=" " category="inline-code"></block> Befehl startet einen zuvor unterbrochenen Kopiervorgang durch Angabe des Katalogindizes oder der Nummer neu. Der Katalogindex-Name oder die Nummer des vorherigen Kopiervorgangs wird auf dem gespeichert<block ref="cbd55302f2990d9880a35e0bd8c4b3e9" prefix=" " category="inline-code"></block> Verzeichnis.</block>
   <block id="12c832a1abd774cf0f4601d95c913d20" category="paragraph">Siehe<block ref="dc7a0e5e50a6e16de630993f68e9061c" prefix=" " category="inline-code"></block> Entnehmen.</block>
@@ -420,7 +414,6 @@
   <block id="cfca5f031a4e11845916d10e6d53c91e" category="cell">Netzwerkkonnektivität und Zugriff auf Root-Ebene auf Quell- und Ziel-NFSv3-Exporte Keine anderen aktiven Anwendungen</block>
   <block id="306495a7669e8035296030fc21339366" category="cell">20 MB Festplattenspeicher für die XCP-Binärdatei und mindestens 50 MB Festplattenspeicher für die Protokolle, die im Verzeichnis /opt/NetApp/Xfiles/xcp/ gespeichert sind</block>
   <block id="4265a6359621296a6a62e358a36f0c38" category="cell">NFSv3 und NFSv4 (POSIX und ACL)</block>
-  <block id="ff7e3293a738a8b6a195e9c65ce9974b" category="cell">XCP-Dateianalysen unterstützt Google Chrome Version 76 und höher. Siehe <block ref="277e95e57632f1d20d4cd8ea672c1493" category="inline-link-macro-rx"></block> Matrix für alle unterstützten Versionen des Browsers</block>
   <block id="1594a72c4334114af4250e4a70d6e8c9" category="admonition">Die empfohlene Konfiguration für die Live-Source-Migration ist 8 Cores und 64 GB RAM.</block>
   <block id="3265face5242872b3514e6079e373c91" category="section-title">Installieren Sie XCP NFS für einen Root-Benutzer</block>
   <block id="547e5edf6a67d692e789acab4a7f3586" category="paragraph">Sie können das folgende Verfahren verwenden, um XCP für einen Root-Benutzer zu installieren.</block>
@@ -570,7 +563,6 @@
   <block id="ca3c0ce4cd4cbb196cc438fa98d8e563" category="list-text">NHDFS_LIBJVM_PATH</block>
   <block id="b696e4d6e09540fbab1d75e6c341d9e9" category="paragraph">In den folgenden Beispielen funktionieren die Einstellungen mit MapR und java-1.8.0-openjdk-devel auf CentOS:</block>
   <block id="95b2f11d1aece0b4ddfc5cba00384742" category="summary">Installieren Sie XCP</block>
-  <block id="14244e05c3dfba3b36a8f2640bf36a3c" category="paragraph">Installieren Sie XCP.</block>
   <block id="5157096b4994925e784b5ccc913a425c" category="section-title">Workflow installieren und konfigurieren</block>
   <block id="dda26d898eec39eecd399e188771288e" category="paragraph">Dieses Dokument bietet einen einfachen Workflow für die Installation und Einrichtung von XCP auf NFS- und SMB-Systemen.</block>
   <block id="341d84aa26cb4521474864e04ea2a63b" category="inline-image-macro">Fehler: Fehlendes Grafikbild</block>
@@ -682,11 +674,8 @@
   <block id="6a5ff98f1029ddc23bd3537c5e16785f" category="summary">Planen Sie NFS-Datenmigrationen</block>
   <block id="963344c97166a9491696af9417e60eed" category="doc">Planen Sie NFS-Datenmigration</block>
   <block id="2d3f0225db2a5974e9dd3efa2510ede8" category="paragraph">Planen Sie Ihre NFS-Datenmigrationen.</block>
-  <block id="2af7eb2d79f03b1c5451390ff7784e40" category="paragraph">Der<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> Der Befehl fragt die RPC-Dienste und NFS-Exporte von einem oder mehreren Speicherservern ab. Der Befehl listet die verfügbaren Dienste und Exporte mit der verwendeten und freien Kapazität jedes Exports auf, gefolgt von den Stammattributen jedes Exports. Beispiel:</block>
   <block id="36b1ac7befb0a4a2aafb2840c1654f80" category="list-text"><block ref="d4fbc7037c8410a5bdd673986b2ebd98" prefix="" category="inline-code"></block></block>
   <block id="4ee7ac9a872eadb3d1f7347270bbfad7" category="list-text"><block ref="f9f4cd568d428421d880936207c1f831" prefix="" category="inline-code"></block></block>
-  <block id="260f1bdc770baf06a9e28946677d8ade" category="paragraph">Der<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block> Befehl scannt rekursiv die gesamten von der Quelle exportierten NFSv3-Pfade und druckt die Statistiken der Dateistruktur am Ende des Scans. NetApp empfiehlt, während des Scan-Vorgangs die Quell-NFS-Export-Mounts in den schreibgeschützten Modus zu versetzen. Beispiel:</block>
-  <block id="06e36d0d8916c19245d82112295e2676" category="list-text"><block ref="a358a7268c8dc92d27b2f43d1a261940" prefix="" category="inline-code"></block></block>
   <block id="aef9e741ab939722d78e05debc0530f8" category="list-text"><block ref="8db7f09b0eb91f6367d90b1a298fae46" prefix="" category="inline-code"></block></block>
   <block id="d0b08bb1d5a232daa12efa61e334bd33" category="list-text"><block ref="903b46235ff9890425f268cef628d42a" prefix="" category="inline-code"></block></block>
   <block id="95e9d579b96f02c13ed81480b282135b" category="list-text"><block ref="65c61ca88b9da65e4d9c8741ec6fb8c1" prefix="" category="inline-code"></block></block>
@@ -741,9 +730,6 @@
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="sidebar">Fehlerbehebung</block>
   <block id="bfccbf3e891050373f71f1230130222b" category="cell"><block ref="ad3b549c4b03e0598dee96d17d3ccc66" prefix="" category="inline-code"></block>: Stapel vergleichen: Inkompatible Indexdatei. Verwenden Sie bitte nur die Indexdatei, die mit der aktuellen Version von XCP erstellt wurde. Alternativ können Sie eine ältere XCP-Binärdatei von xcp.netapp.com herunterladen.</block>
   <block id="481da41cf08734ac99d07aca58644781" category="cell"><block ref="6d7d8e19dacf4142870d92b873503ded" prefix="" category="inline-code"></block></block>
-  <block id="2dc9d74fea656209a3e6734b2bd09c40" category="cell">Wenn im Dateipfad ein Doppelpunkt (:) vorhanden ist, verwenden Sie stattdessen drei Doppelpunkte (::).</block>
-  <block id="e9bef9a5a04a193f8f77a5867e82c24b" category="doc">Versionshinweise zu XCP v1.9.1</block>
-  <block id="a76dc4faed369cb6713d049dbc0ca400" category="paragraph">Der <block ref="5a4a1c694a80c57bbface50f0a4d4a69" category="inline-link-macro-rx"></block> Beschreiben Sie neue Funktionen, Upgrade-Hinweise, feste Probleme, bekannte Einschränkungen und bekannte Probleme.</block>
   <block id="410bc026d79ee8d7b9f82dd6b03feb98" category="list-text">Melden Sie sich in der GUI für Dateianalysen an.</block>
   <block id="fce3933747223b348680fa7fa109330b" category="paragraph">Es gibt zwei Möglichkeiten, sich bei der GUI für Dateianalysen anzumelden:</block>
   <block id="f54b0f1d442f1ec5a7de065a3541d957" category="list-text">Verwenden Sie den Benutzernamen „admin“ und das Passwort, das Sie während der Konfiguration festgelegt haben.</block>
@@ -784,4 +770,122 @@
   <block id="dbef0b1dd5263aa13674ecebca1b7756" category="cell">Live-Quellmigration</block>
   <block id="93571d5812c4c39edcca3e27487acbe9" category="cell">XCP unterstützt das Ändern von Daten auf dem Quell-Volume während der Migration nicht.</block>
   <block id="61355ec3f68ee20926a222027dcb3d7b" category="list-text">XCP-Hostsystem: Ein XCP-Hostbenutzer muss über Administratorrechte verfügen (der Benutzer muss Teil der Gruppe „BUILTIN\Administrators“ auf dem Ziel-SMB-Server sein).</block>
+  <block id="7cde6d7e5e7b73d42bf2ff05514668fe" category="cell">Die Site kann nicht erreicht werden, oder die Benutzeranmeldung ist nach einer erfolgreichen Installation fehlgeschlagen.</block>
+  <block id="7e8faa040a3429cd75dbc9dfed43bac0" category="list-text">Prüfen Sie, ob XCP-Dienste ausgeführt werden:<block ref="47541872bcdb6b08aeadea6f58c6ebd3" prefix=" " category="inline-code"></block></block>
+  <block id="d311ee2390d292b3694c8f669889041c" category="list-text">Starten Sie den XCP-Abhörvorgang und bestätigen Sie, dass keine Fehler vorliegen:</block>
+  <block id="a819ba1b3efc04fee9100a7ab0ee93ca" category="paragraph"><block ref="a73ccca27c22e20f2b42c66b62244db5" prefix="" category="inline-code"></block></block>
+  <block id="6f59af5df257d27f8f7f83e150cb44c7" category="list-text">Wenn der folgende Fehler angezeigt wird, installieren Sie die CodeReady-Pakete mit yum, z. B.<block ref="195584d46184f28385e2ae5bd9f0af62" prefix=" " category="inline-code"></block>:</block>
+  <block id="b326b5062b2f0e69046810717534cb09" category="cell">Richtig</block>
+  <block id="a660b358e105189a720dbb4a9176decf" category="paragraph">NetApp XCP ist eine clientbasierte Software, die skalierbare und hochperformante Datenmigrationen für Datenmigration zwischen NetApp und NetApp sowie Dateianalysen ermöglicht. XCP wurde für Skalierung entwickelt und erzielt eine höhere Performance, da alle verfügbaren Systemressourcen zum Management von großen Datensätzen und hochperformanten Migrationen genutzt werden. XCP bietet Ihnen die Möglichkeit, Kundenberichte zu erstellen, um vollständige Einblicke in das Dateisystem zu erhalten. Dank der Matching- und Formatierungsfunktionen können Sie die Berichte an jeden Bedarf anpassen.</block>
+  <block id="f11ba2ba1e8e44e293e56351fbc05edf" category="doc">Mehrere XCP-Jobs auf demselben XCP-Host ausführen</block>
+  <block id="328be41686da6fdb0454cdc13b57cf2d" category="paragraph">Ab XCP 1.9.2 können Sie die Funktion "-minmem" verwenden, um mehrere XCP-Jobs oder -Befehle auf einem einzelnen XCP-Host auszuführen, vorausgesetzt, der Host verfügt über ausreichende Ressourcen für jeden Job. Wenn Sie einen Befehl ausführen, der die Funktion „-minmem“ unterstützt, verwendet XCP zur Fertigstellung des Jobs nur minimalen Hostspeicher, wodurch die Kapazität für die Ausführung zusätzlicher Jobs auf derselben Hostkonfiguration entsteht.</block>
+  <block id="d9647e192eec469f5ef0ff6b04e9a7f0" category="section-title">Mindestsystemanforderungen</block>
+  <block id="9901879377c5f3682a62b2348ecc14ad" category="paragraph">Für jeden XCP-Job sollten Sie bis zu 64 GB Hostspeicher und acht Kerne für mittelgroße bis große Migrationen zulassen.</block>
+  <block id="b1db961ef892611c930b306acf2b45c9" category="admonition">Für die SMB-Datenmigration wird die Funktion „-Minmem“ nicht unterstützt.</block>
+  <block id="8db7df66ab1d7ab5f1dc947acdb5fae4" category="section-title">Protokollierung</block>
+  <block id="6c5503e1799fc9bf884095cb4a7486c7" category="paragraph">Standardmäßig wird jeder XCP-Job in einer separaten Protokolldatei protokolliert, die für die Job-ID eindeutig ist. Dieser Protokollierungsmechanismus funktioniert gut, wenn mehrere Jobs auf demselben individuellen Host ausgeführt werden. NetApp empfiehlt keine Änderung des<block ref="1f0167cf593b01d4e8c31f9bea306a0d" prefix=" " category="inline-code"></block> Datei, um eine einzelne zu verwenden<block ref="4bfa73c989008743279ae857adc50faf" prefix=" " category="inline-code"></block> Datei zum Protokollieren mehrerer XCP-Jobs, die parallel auf demselben Host ausgeführt werden.</block>
+  <block id="26807eaed63a31814a5e1753d72676d8" category="section-title">Unterstützte Befehle</block>
+  <block id="f0ca056f216466d7830147a4008903a4" category="paragraph">Die Funktion „-minmem“ wird von den folgenden XCP-Befehlen unterstützt:</block>
+  <block id="644834e9d0415e057f1d7c2c00cdd281" category="list-text"><block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix="" category="inline-code"></block></block>
+  <block id="cf1b3b1776d0d05e295618646490b382" category="list-text"><block ref="12cba3ee81cf4a793796a51b6327c678" prefix="" category="inline-code"></block></block>
+  <block id="d64d8a3c311a3e34d98c5d12b0de2deb" category="list-text"><block ref="69f2afc2390cec954f7c208b07212d39" prefix="" category="inline-code"></block></block>
+  <block id="39c754f7316412b5101d1266f8f9b259" category="list-text"><block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix="" category="inline-code"></block></block>
+  <block id="0ac5b3cfaad7fc2ecd24fa0fc221ea9d" category="list-text"><block ref="a3e4a767ccc698fa80ecaf42af64deea" prefix="" category="inline-code"></block></block>
+  <block id="456a5abc7727a436e67e4a218e2a4508" category="list-text"><block ref="417e248f80c35ca0d471575a5fb951f5" prefix="" category="inline-code"></block></block>
+  <block id="7bfde840c21e45a59701f55f5c18ef2c" category="list-text"><block ref="4de53f769603f8e4542ee3267c08dd50" prefix="" category="inline-code"></block></block>
+  <block id="3649b15e31d22a1e2210f014d843b9fa" category="list-text"><block ref="099af53f601532dbd31e0ea99ffdeb64" prefix="" category="inline-code"></block></block>
+  <block id="777dd634078a1b960c79f15d2522db38" category="section-title">Nicht unterstützte Befehle</block>
+  <block id="d2e4f5ed82446cf3023ccba7b5646092" category="paragraph">Die Funktion „-minmem“ wird vom nicht unterstützt<block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix=" " category="inline-code"></block> Befehl.</block>
+  <block id="32ae6defbd536645e75bc85121b5564b" category="section-title">Befehlsbeispiele</block>
+  <block id="64e1323e5982bf7736f58f196316da1f" category="paragraph">Um die Funktion „-minmem“ verwenden zu können, müssen Sie die Option „-minmem“ in den XCP-Befehl einfügen, wie in den folgenden Beispielen gezeigt:</block>
+  <block id="36126c9a86541e7281b955ee81970a5f" category="list-text"><block ref="31a74c4f1c865e5c03256362a477c425" prefix="" category="inline-code"></block></block>
+  <block id="9cd9bbf0e790392cca7a73545353ed80" category="list-text"><block ref="4a4341530f7d16d6f7a7c281a83f9473" prefix="" category="inline-code"></block></block>
+  <block id="daaf865ea062be33e32fee7ce6361bf2" category="list-text"><block ref="2227f4f3166de257df2d86054647a1df" prefix="" category="inline-code"></block></block>
+  <block id="4200a251b90a3e6f4a8f03a96790e241" category="paragraph">*HDFS-Pfadbeispiele*:</block>
+  <block id="6d2258e0ac0187b32c49ef3d86153890" category="list-text"><block ref="3d4bfec43ba02eadffa6b680f5d2ff90" prefix="" category="inline-code"></block></block>
+  <block id="108808871f93d8eb5fadba5e5396e0b1" category="list-text"><block ref="d0ff481491922a2d0b61842bfc7e1e56" prefix="" category="inline-code"></block></block>
+  <block id="5b89894d695356bcaecabb4c87252ae5" category="list-text"><block ref="354e4935785b48c4def1303908b72905" prefix="" category="inline-code"></block></block>
+  <block id="1e84e83ba1d6a6831654831e04a6e7aa" category="paragraph">*POSIX-Pfadbeispiele*:</block>
+  <block id="97fb7d435610adf703b3ea0785c309d6" category="list-text"><block ref="638d56e1e6406263b5111d968a0e1f1d" prefix="" category="inline-code"></block></block>
+  <block id="b7e41451ca91ae23c0a331e9b88f3663" category="list-text"><block ref="a0910009e4d60445309dd8426ef78ded" prefix="" category="inline-code"></block></block>
+  <block id="bdf61b3ecae5f29d6c6b402c1adf2536" category="section-title">XCP-Schätzung</block>
+  <block id="e151d1ab502d96991c424c6cbefae2f7" category="paragraph">Die XCP-Schätzfunktion schätzt die Zeit für die Fertigstellung einer Baseline<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> Vorgang von der Quelle zum Ziel. Es berechnet die geschätzte Zeit bis zum Abschluss einer Baseline<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> Betrieb unter Verwendung aller derzeit verfügbaren Systemressourcen wie CPU, RAM, Netzwerk oder anderer Parameter. Wenn Sie das verwenden<block ref="a02d29476c13ce0a516e16bcfe4535b6" prefix=" " category="inline-code"></block> Option führt XCP einen Kopiervorgang aus, um die Schätzzeit zu ermitteln.</block>
+  <block id="f943fe60d92b33d799a2c02de9061e3b" category="summary">Mithilfe des S3-Connectors kann XCP Daten von einem NFS- oder HDFS-Filesystem auf den S3-Objekt-Storage migrieren</block>
+  <block id="92095cc1ef432ed93af95b88d3e3b625" category="doc">Konfigurieren Sie den S3-Anschluss</block>
+  <block id="16933dfe56aff83cb6998c3667c2f0cf" category="paragraph">Ab XCP 1.9.2 erweitert der S3 Connector (Simple Storage Service) den Umfang der XCP Datenmigration und ermöglicht die Datenmigration von Hadoop Distributed File System (HDFS) Filesystemen zu S3-Objekt-Storage.</block>
+  <block id="677857bd3ebd1f41c85f70280b227d8f" category="paragraph-title">Unterstützte Anwendungsfälle für die Migration</block>
+  <block id="ed0f619faede22039440d1fe21bcb0e9" category="paragraph">Die folgenden Migrationsnutzungsfälle werden für die S3-Konnektoren unterstützt:</block>
+  <block id="2268dc053f46fc24ae89f30faa812246" category="list-text">Migration von HDFS oder NFS zu NetApp StorageGRID</block>
+  <block id="f10c40e18ecc26639294205a739fbd18" category="list-text">Migration von HDFS oder NFS zu Amazon S3</block>
+  <block id="d3457be5101b05e590b80f8f7107b022" category="list-text">Migration von HDFS oder NFS zu NetApp ONTAP S3</block>
+  <block id="9caa7c5b602fa58bf008c08a7e479da6" category="admonition">Derzeit ist MapR nur für HDFS qualifiziert und unterstützt.</block>
+  <block id="d006b10e4564e8049b786f2138530862" category="paragraph">Unterstützung der<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block>,<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block>,<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block>,<block ref="69f2afc2390cec954f7c208b07212d39" prefix=" " category="inline-code"></block> Und<block ref="099af53f601532dbd31e0ea99ffdeb64" prefix=" " category="inline-code"></block> Befehle sind für die S3-Konnektoren verfügbar.</block>
+  <block id="c29d1e0e67cc2410608faeefbb62dcb8" category="paragraph-title">Nicht Unterstützte Funktionen</block>
+  <block id="9627eb5a42d84d5c63b7319f5d296ebc" category="paragraph">Unterstützung der<block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix=" " category="inline-code"></block> Der Befehl ist für die S3-Anschlüsse nicht verfügbar.</block>
+  <block id="472fe12a7f2ae7888f36faddba8e5e65" category="paragraph">Die Pfadsyntax für den S3-Connector lautet<block ref="aa0fb791d7b6f79654dd107dbd476a65" prefix=" " category="inline-code"></block>.</block>
+  <block id="68549dc967c92035106a77e7439be9ba" category="list-text">Sie können mithilfe der ein bestimmtes S3-Profil für die XCP-Befehle bereitstellen<block ref="4000828b83c0a87531b7ca1caac052b3" prefix=" " category="inline-code"></block> Option.</block>
+  <block id="41088e7d7bed6fb65fd0ce680e35aff1" category="list-text">Sie können das verwenden<block ref="9dd62310fbf791aca68053dbd7c2e4d8" prefix=" " category="inline-code"></block> Option zum Ändern des Endpunktwerts für die Kommunikation mit S3</block>
+  <block id="d7442f0f9efd2ca279443c52c914b251" category="admonition">Die Verwendung von Endpunkten ist für StorageGRID und ONTAP S3 obligatorisch.</block>
+  <block id="0237d634875999d360d9efab9c63589c" category="section-title">Richten Sie einen S3-Connector ein</block>
+  <block id="f30387763ef5dc8495245b22c3826788" category="list-text">Um den XCP-Befehl mit dem S3-Connector auszuführen, erstellen Sie einen Bucket in S3. Gehen Sie dazu wie in der Online-Dokumentation für die jeweiligen Plattformen beschrieben vor:</block>
+  <block id="5fdb600d07b3f6deb635e013a137473b" category="inline-link-macro">ONTAP S3 Objekt-Storage-Management</block>
+  <block id="649ef27cf067f5fae3e9c0657c2a071f" category="list-text"><block ref="649ef27cf067f5fae3e9c0657c2a071f" category="inline-link-macro-rx"></block></block>
+  <block id="f16122d47aa9bddb63b76f4f73a13587" category="inline-link-macro">StorageGRID: Übersicht über ein Mandantenkonto verwenden</block>
+  <block id="59a9d1ab7b45926d308d68d7e6f49a67" category="list-text"><block ref="59a9d1ab7b45926d308d68d7e6f49a67" category="inline-link-macro-rx"></block></block>
+  <block id="ea10e86fc2f564a6f297ea6c75c8f92e" category="admonition">Bevor Sie fortfahren, müssen Sie über die verfügen<block ref="c005759b4dfbaa83c83b8fdc155c3493" prefix=" " category="inline-code"></block>,<block ref="a7656fafe94dae72b1e1487670148412" prefix=" " category="inline-code"></block>, Zertifikatspaket der Zertifizierungsstelle (CA), und<block ref="975877452f21015e24a0ec58b6b66541" prefix=" " category="inline-code"></block> Informationsdaten. XCP identifiziert den S3-Bucket und stellt eine Verbindung mit diesen Parametern her, bevor ein Vorgang gestartet wird.</block>
+  <block id="55de7793cb50b93dbda01a2a32ec9f46" category="list-text">Installieren Sie die Amazon Web Services (AWS) CLI-Pakete und führen Sie die AWS CLI-Befehle aus, um die Schlüssel und SSL-Zertifikate (Secure Sockets Layer) für S3-Konten zu konfigurieren:</block>
+  <block id="bf3e5f3e0a2a1a0a56fe8915d5125419" category="inline-link-macro">Installieren oder Aktualisieren der neuesten Version der AWS CLI</block>
+  <block id="47f387d5114be0a75243893de72ede38" category="list-text">Siehe <block ref="7d6aab052f74c1d885fa43336d7be563" category="inline-link-macro-rx"></block> Um die AWS-Pakete zu installieren.</block>
+  <block id="38d05d307b3ed600922427e3a1dd49a9" category="inline-link-macro">AWS CLI-Befehlsreferenz</block>
+  <block id="b707c05877e41f501e5064a02f164115" category="list-text">Siehe <block ref="ad30b84b7cb0e002f342b12435baea56" category="inline-link-macro-rx"></block> Finden Sie weitere Informationen.</block>
+  <block id="7f690876f3db4f29ba95620b570b48c2" category="list-text">Verwenden Sie die<block ref="329dfd38b6589b9bc6d49cf9e785f35b" prefix=" " category="inline-code"></block> Befehl zum Konfigurieren der Datei mit den Anmeldeinformationen. Standardmäßig ist der Speicherort der Datei<block ref="40f203cedcd08f7589920d1a469a96d9" prefix=" " category="inline-code"></block>. Die Datei mit den Anmeldeinformationen sollte den Zugriffsschlüssel und den geheimen Zugriffsschlüssel angeben.</block>
+  <block id="382e42ce21e494705ff831f135606bde" category="list-text">Verwenden Sie die<block ref="42579c91711a0d7831c6aec42c478881" prefix=" " category="inline-code"></block> Befehl zum Angeben eines CA-Zertifikatbündels, das eine Datei mit dem ist<block ref="bdf46f9562b038d0163af0feba0b1dfa" prefix=" " category="inline-code"></block> Erweiterung, die bei der Überprüfung von SSL-Zertifikaten verwendet wird. Standardmäßig ist der Speicherort der Datei<block ref="5f5f86503ef335bfb468ac44a0e77d00" prefix=" " category="inline-code"></block>.</block>
+  <block id="228242e9d19fdb954d00a277118e2f18" category="list-text">Vergewissern Sie sich nach Abschluss der erforderlichen Setup-Konfiguration, dass die AWS CLI-Befehle über den Linux-Client auf die S3-Buckets zugreifen können, bevor Sie die XCP-Befehle ausführen:<block ref="0b3502a40565c7026d8c433e11ba15b9" prefix=" " category="inline-code"></block></block>
+  <block id="6e457e419b169c5c14b03b5e07a2f21b" category="paragraph"><block ref="0d53497a4b61eeaa925b42c377a42eae" prefix="" category="inline-code"></block></block>
+  <block id="d406f518749cb0808f4c4f13d1b7ab92" category="cell">Wenn im Namen des NFS-Servers ein oder mehrere Doppelpunkte vorhanden sind, verwenden Sie einen Doppelpunkt (:) anstelle eines Doppelpunkts (:), um den Pfad der NFS-Server-IP und NFS-Server-Freigabe zu trennen.</block>
+  <block id="ec95d5f1b4ea1a01d2a072ab802d2e2e" category="cell">Das SnapLock Volume behält die WORM-Dateien nach einem nicht mehr bei<block ref="e64df9c2f5a72d0adb1dbea21a609c16" prefix=" " category="inline-code"></block> Betrieb.</block>
+  <block id="b939754165d55d04968e3d8581c06ff3" category="paragraph">XCP kopiert die WORM-Dateien erfolgreich auf das Volume, die Dateien werden jedoch nicht vom SnapLock Volume aufbewahrt.</block>
+  <block id="1723c364ac2943db169228e83d339a34" category="list-text">Führen Sie die aus<block ref="e64df9c2f5a72d0adb1dbea21a609c16" prefix=" " category="inline-code"></block> Vorgang vom Quell- zum Ziel-Volume:<block ref="958bd1007a36c3c49dc7ee93fd734a4c" prefix=" " category="inline-code"></block></block>
+  <block id="0ec0ae00838a2eee9dcb4e55279286f7" category="list-text">Verwenden Sie die<block ref="80cd6575aba36d362f140cdde0c55e70" prefix=" " category="inline-code"></block> Befehl zum Ändern der Dateiberechtigungen auf dem Zielvolume auf *readonly*:<block ref="ed04d0d005c97df67ef52b0ad8aa0517" prefix=" " category="inline-code"></block></block>
+  <block id="83522b3c501a3f48b27f9b264cae4599" category="paragraph">Wenn die oben genannten Schritte abgeschlossen sind, beginnt das SnapLock-Volume, die kopierten Dateien beizubehalten.</block>
+  <block id="72400cb7d5b84ae782642ca107c294fc" category="inline-link-macro">Aufbewahrungszeit einstellen</block>
+  <block id="d6ac9450dbf2c0861efd5a5ef5115f7e" category="admonition">Die Aufbewahrungszeit eines SnapLock Volumes richtet sich nach der Standardaufbewahrungsrichtlinie des Volumes. Überprüfen Sie vor Beginn der Migration die Einstellungen für die Volume-Aufbewahrung: <block ref="fd0c10595d24f7804e14135a6730866f" category="inline-link-macro-rx"></block></block>
+  <block id="d3153df9c554c9b6a863ef3e5a6b6e13" category="doc">Vorbereiten der XCP-Installation</block>
+  <block id="4d41b0dcb8b6747f8cec345d418abd0b" category="paragraph">Zur Vorbereitung der Installation laden Sie XCP herunter, erwerben eine Lizenz und bereiten Ihr System vor.</block>
+  <block id="0a009b2626b03b4c70bb4dcb73832482" category="doc">Befehle zur Migration von NFS-Daten</block>
+  <block id="322df0ac50172a48935aaba57e5dee70" category="cell">Siehe <block ref="277e95e57632f1d20d4cd8ea672c1493" category="inline-link-macro-rx"></block> Matrix für alle unterstützten Browser-Versionen für XCP File Analytics.</block>
+  <block id="8ba09dc2aec500b8eabed3efd8eb8bc9" category="summary">HDFS-Daten migrieren</block>
+  <block id="f30e2bc9de919d5c6249cea25c2f9a74" category="paragraph">Nach der Planung der Migration mit dem<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block> Befehl können Sie Daten migrieren.</block>
+  <block id="ea6a8ab5a9e8b23dc8df0571125234f4" category="paragraph">Der<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> Befehl scannt und kopiert die gesamten HDFS-Quelldaten (Hadoop Distributed File System) in einen NFS- oder S3-Bucket (Simple Storage Service). Der<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> Befehl erfordert, dass Quell- und Zielpfade als Variablen sind. Die gescannten und kopierten Dateien, der Durchsatz, die Geschwindigkeit und die verstrichene Zeit werden am Ende des Kopiervorgangs angezeigt.</block>
+  <block id="beea424f6b4dbe034f0047f1f1a1cd57" category="paragraph">*NFS-Pfad Beispiel:*</block>
+  <block id="02880d02dff3a15e38a0afe75b110262" category="paragraph">*S3 Pfad Beispiel:*</block>
+  <block id="3f2c3abdeca240c2063183e75fa45805" category="paragraph">Der<block ref="69f2afc2390cec954f7c208b07212d39" prefix=" " category="inline-code"></block> Befehl startet einen zuvor unterbrochenen Kopiervorgang durch Angabe des Katalogindizes oder der Nummer neu. Der Name oder die Nummer des Katalogindex des vorherigen Kopiervorgangs wird im gespeichert<block ref="cbd55302f2990d9880a35e0bd8c4b3e9" prefix=" " category="inline-code"></block> Verzeichnis.</block>
+  <block id="8c81ddc94b60eaab22662db017644a72" category="admonition">Standardmäßig ist der XCP<block ref="69f2afc2390cec954f7c208b07212d39" prefix=" " category="inline-code"></block> Der Befehl verwendet den S3-Endpunkt und das S3-Profil aus dem Kopierindex, der während des verwendet wurde<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> Befehl. Jedoch, wenn neu<block ref="35a45c3d02a8bdde44197b27cf839c10" prefix=" " category="inline-code"></block> Und<block ref="4000828b83c0a87531b7ca1caac052b3" prefix=" " category="inline-code"></block> Die Werte werden mit dem angegeben<block ref="69f2afc2390cec954f7c208b07212d39" prefix=" " category="inline-code"></block> Werden die neuen Werte für die Optionen und die Werte verwendet, die mit der Kopie verwendet werden<block ref="1dccadfed7bcbb036c56a4afb97e906f" prefix=" " category="inline-code"></block> Werden überschrieben.</block>
+  <block id="bea3d8136ac916a4d71a0db1cd54135f" category="paragraph">Der<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> Befehl verwendet nach dem Kopiervorgang einen vollständigen Byte-für-Byte-Vergleich der Daten zwischen Quell- und Zielverzeichnissen ohne die Verwendung einer Katalogindiziennummer. Der Befehl liest die Dateien auf beiden Seiten und vergleicht die Daten.</block>
+  <block id="e3a7bb54039414508e91e2b8caab6243" category="paragraph">Der<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> Der Befehl fragt die RPC-Dienste und NFS-Exporte von einem oder mehreren Speicherservern ab. Der Befehl listet die verfügbaren Dienste und Exporte mit der verwendeten und freien Kapazität jedes Exports auf, gefolgt von den Stammattributen jedes Exports.</block>
+  <block id="0c8146ca9bdd9f9a3083cbeed24e27a5" category="paragraph">Der<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block> Befehl scannt rekursiv die gesamten von der Quelle exportierten NFSv3-Pfade und druckt die Statistiken der Dateistruktur am Ende des Scans. NetApp empfiehlt, während des Scan-Vorgangs die Quell-NFS-Export-Mounts in den schreibgeschützten Modus zu versetzen.</block>
+  <block id="6a95fc6c0382de222dd433886d475460" category="list-text"><block ref="48ac1e589150949f3ebe6a2bb7730a73" prefix="" category="inline-code"></block></block>
+  <block id="af1d56f5c43bf1720e9a92f5de20bb23" category="doc">Planung der HDFS-Datenmigration</block>
+  <block id="7d79a1639a9506966de268ebe5ea7da7" category="paragraph">Planen Sie Ihre HDFS-Datenmigrationen.</block>
+  <block id="3943abc3700d0fc7d672d7c1e82fcb26" category="paragraph">Der<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block> Befehl scannt rekursiv die gesamten Quellpfade und druckt die Statistiken für die Dateistruktur am Ende des Scans.</block>
+  <block id="dd0cd3eb63043850b57e374170b7dfe2" category="list-text"><block ref="1be5ff729f9dfef8516c12abbd49a5a9" prefix="" category="inline-code"></block></block>
+  <block id="fd72c03485ab8cb65dd065e28ac144b3" category="list-text"><block ref="e79e3cc99b073c66e94d8ad89bc3ba4e" prefix="" category="inline-code"></block></block>
+  <block id="74e963cc1be7bd9eb54760a83863926c" category="list-text"><block ref="31aabc9596cc7a7ef0c9a62732d77a5a" prefix="" category="inline-code"></block></block>
+  <block id="bb0399f427aed863042c042b142bd6cb" category="cell">NFS-zu-S3-Migration</block>
+  <block id="240cf8fae0436b28ece1e12030b38e4e" category="cell">XCP unterstützt keine Migration von NFS zu S3.</block>
+  <block id="fe55abf5fae19db6a828fd5ca392b6b7" category="cell">Mehrere Instanzen von XCP auf demselben Host</block>
+  <block id="8b967b2a58b58d36b79d41009ec9f64b" category="cell">Wenn Sie mehrere Instanzen von XCP auf demselben Host ausführen, können unvorhersehbare Ergebnisse erzielt werden.</block>
+  <block id="6e17cc1c2c681736d2ceb6e979223245" category="paragraph">Folgende Funktionen sind für Hadoop Distributed File System (HDFS)-Konnektoren nicht verfügbar:</block>
+  <block id="f540f493fb0a9e9093687015a52af134" category="cell">Unterstützung der<block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix=" " category="inline-code"></block> Befehl</block>
+  <block id="04047e38150b589ef73f2cf1a47dcbfa" category="cell">Der HDFS-Anschluss unterstützt das nicht<block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix=" " category="inline-code"></block> Befehl.</block>
+  <block id="2cfceda72756239fb550ad6bf9cb21a3" category="cell">Unterstützung für symbolischen Link (Symlink) und Hard Link</block>
+  <block id="9913e624c49a17211b2bfade4f81e5a6" category="cell">Das HDFS-Dateisystem unterstützt keine Symlinks, Hardlinks oder Sonderdateien.</block>
+  <block id="e094f0017c23fc66e41a73d4c778d988" category="cell">HDFS-Live-Quell-Migration</block>
+  <block id="f3b812b32fdce09d7d06a9a0759b8546" category="cell">XCP unterstützt das Ändern von Daten im HDFS-Dateisystem an der Quelle während der Migration nicht</block>
+  <block id="e8a90b649b22fddc82d6ee4cc9429807" category="paragraph">Die folgenden Funktionen sind für S3-Anschlüsse (Simple Storage Service) nicht verfügbar:</block>
+  <block id="84b02ee2d0524eb08de32d9354ade34b" category="list-text">*Migration mit S3-Bucket als Quelle*: XCP unterstützt keine Migration mit einem S3-Bucket als Quelle.</block>
+  <block id="a8a17edcb9880059a216d63c9e0c2a18" category="doc">XCP v1.9.2 Versionshinweise</block>
+  <block id="27ce933e59d1bd3bfff8d6118fb7a35e" category="paragraph">Der <block ref="b98ddb4c6025a76df69bcccfdb0bd760" category="inline-link-macro-rx"></block> Beschreiben Sie neue Funktionen, Upgrade-Hinweise, feste Probleme, bekannte Einschränkungen und bekannte Probleme.</block>
+  <block id="b179bbcf6f57100cffb18d2558916e9d" category="cell">64-Bit Intel- oder AMD-Server, mindestens 8 Kerne und 64 GB RAM</block>
+  <block id="11db15a14a5186a893fe15b0e03f3213" category="sidebar">Mehrere XCP-Jobs auf demselben Host ausführen</block>
 </blocks>

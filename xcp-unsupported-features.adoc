@@ -46,6 +46,9 @@ Die folgenden Funktionen werden von XCP NFS nicht unterstützt:
 
 
 | Unterstützung von aktiver Quelle | XCP unterstützt nicht die Kombination von Basis- oder inkrementellen Snapshot Kopiervorgängen mit Live-Quellmigrationen. 
+
+
+| NFS-zu-S3-Migration | XCP unterstützt keine Migration von NFS zu S3. 
 |===
 Die folgenden Funktionen werden von XCP SMB nicht unterstützt:
 
@@ -70,12 +73,34 @@ Die folgenden Funktionen werden von XCP SMB nicht unterstützt:
 
 
 | Live-Quellmigration | XCP unterstützt das Ändern von Daten auf dem Quell-Volume während der Migration nicht. 
+
+
+| Mehrere Instanzen von XCP auf demselben Host | Wenn Sie mehrere Instanzen von XCP auf demselben Host ausführen, können unvorhersehbare Ergebnisse erzielt werden. 
 |===
 Die folgenden gemeinsamen Funktionen stehen für XCP NFS und SMB nicht zur Verfügung:
 
-* *XCP mehrere Instanzen auf demselben Host*: Wenn mehrere Instanzen von XCP auf demselben Host ausgeführt werden, kann es zu unvorhersehbaren Ergebnissen kommen.
 * *Zeit bis zur Durchführung der Migration*: XCP im Vorfeld bietet weder den Zeitaufwand für die Durchführung der Migration noch den Zeitpunkt, um jeden für die Migration verwendeten Befehl abzuschließen. Wenn Sie die letzte Umstellung durchführen, bestätigen Sie, dass die Datenabwanderung auf dem Quell-Volume gering ist.
 * *Erneute Ausführung der Kopie auf einem nicht bereinigten Ziel*: XCP-Basiskopie schlägt fehl, wenn Teildaten auf dem Zielziel vorhanden sind. Für eine erfolgreiche XCP-Basiskopie und eine XCP-Überprüfung muss das Ziel sauber sein.
 * *Live-Ziel*: XCP unterstützt das Ändern von Daten auf dem Zielvolume während einer Migration oder während einer inkrementellen Synchronisierung nicht.
 * *Nicht-Root-Benutzer für die Dateianalyse*: XCP unterstützt keine Installationen und Konfigurationen, die von einem nicht-Root-Benutzer oder einem Sudo-Benutzer durchgeführt werden.
+
+
+Folgende Funktionen sind für Hadoop Distributed File System (HDFS)-Konnektoren nicht verfügbar:
+
+[cols="2*"]
+|===
+| Funktionsname | Beschreibung 
+
+
+| Unterstützung der `sync` Befehl | Der HDFS-Anschluss unterstützt das nicht `sync` Befehl. 
+
+
+| Unterstützung für symbolischen Link (Symlink) und Hard Link | Das HDFS-Dateisystem unterstützt keine Symlinks, Hardlinks oder Sonderdateien. 
+
+
+| HDFS-Live-Quell-Migration | XCP unterstützt das Ändern von Daten im HDFS-Dateisystem an der Quelle während der Migration nicht 
+|===
+Die folgenden Funktionen sind für S3-Anschlüsse (Simple Storage Service) nicht verfügbar:
+
+* *Migration mit S3-Bucket als Quelle*: XCP unterstützt keine Migration mit einem S3-Bucket als Quelle.
 

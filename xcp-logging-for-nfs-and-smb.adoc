@@ -56,7 +56,7 @@ Bei den Optionen der JSON-Konfigurationsdatei wird zwischen Groß- und Kleinschr
 | Eventlog |  |  | Option zum Konfigurieren der Ereignisprotokollmeldung. 
 
 
-| „Isenabled“ | Boolesch | Falsch | Diese boolesche Option wird zum Aktivieren der Ereignisnachrichten verwendet. Einstellen auf `false` Werden keine Ereignismeldungen generiert, und es werden keine Ereignisprotokolle in der Ereignis-Log-Datei veröffentlicht. 
+| „Isenabled“ | Boolesch | Richtig | Diese boolesche Option wird zum Aktivieren der Ereignisnachrichten verwendet. Einstellen auf `false` Werden keine Ereignismeldungen generiert, und es werden keine Ereignisprotokolle in der Ereignis-Log-Datei veröffentlicht. 
 
 
 | „Ebene“ | Zeichenfolge | INFO | Filterebene für Ereignismeldung: Schweregrad Event Messaging unterstützt fünf Schweregrade in der Reihenfolge des abnehmenden Schweregrads: KRITISCH, FEHLER, WARNUNG, INFO, DEBUG 

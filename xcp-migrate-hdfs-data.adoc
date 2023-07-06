@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: xcp-migrate-hdfs-data.html 
+keywords: netapp, xcp, migrate, data, nfs, hdfs, smb, copy, resume, verify, posix 
+summary: HDFS-Daten migrieren 
+---
+= HDFS-Daten migrieren
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nach der Planung der Migration mit dem `scan` Befehl können Sie Daten migrieren.
+
+
+
+== Kopieren
+
+Der `copy` Befehl scannt und kopiert die gesamten HDFS-Quelldaten (Hadoop Distributed File System) in einen NFS- oder S3-Bucket (Simple Storage Service). Der `copy` Befehl erfordert, dass Quell- und Zielpfade als Variablen sind. Die gescannten und kopierten Dateien, der Durchsatz, die Geschwindigkeit und die verstrichene Zeit werden am Ende des Kopiervorgangs angezeigt.
+
+*NFS-Pfad Beispiel:*
+
+[listing]
+----
+xcp copy -newid <id> hdfs:///demo/user dst_server:/dst_export
+----
+*POSIX-Pfad Beispiel:*
+
+[listing]
+----
+xcp copy -newid <id> hdfs:///demo/user file:///mnt/dest
+----
+*S3 Pfad Beispiel:*
+
+[listing]
+----
+xcp copy -newid <id> hdfs:///demo/user s3://my-bucket
+xcp copy -newid <id> -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> hdfs:///demo/user s3://my-bucket
+----
+Siehe `xcp help copy` Entnehmen.
+
+
+
+== Fortsetzen
+
+Der `resume` Befehl startet einen zuvor unterbrochenen Kopiervorgang durch Angabe des Katalogindizes oder der Nummer neu. Der Name oder die Nummer des Katalogindex des vorherigen Kopiervorgangs wird im gespeichert `<catalog path>:/catalog/indexes` Verzeichnis.
+
+*Beispiel:*
+
+[listing]
+----
+xcp resume [options] -id <id used for copy>
+xcp resume [options] -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> -id <id used for copy>
+----
+
+NOTE: Standardmäßig ist der XCP `resume` Der Befehl verwendet den S3-Endpunkt und das S3-Profil aus dem Kopierindex, der während des verwendet wurde `copy` Befehl. Jedoch, wenn neu `-s3.endpoint` Und `-s3.profile` Die Werte werden mit dem angegeben `resume` Werden die neuen Werte für die Optionen und die Werte verwendet, die mit der Kopie verwendet werden `command` Werden überschrieben.
+
+Siehe `xcp help resume` Entnehmen.
+
+
+
+== Verifizieren
+
+Der `verify` Befehl verwendet nach dem Kopiervorgang einen vollständigen Byte-für-Byte-Vergleich der Daten zwischen Quell- und Zielverzeichnissen ohne die Verwendung einer Katalogindiziennummer. Der Befehl liest die Dateien auf beiden Seiten und vergleicht die Daten.
+
+*Beispiel:*
+
+[listing]
+----
+xcp verify hdfs:///demo/user dst_server:/dst_export
+----
+*POSIX-Pfad Beispiel:*
+
+[listing]
+----
+xcp verify hdfs:///user/demo1/data file:///user/demo1/dest
+----
+*S3 Pfad Beispiel:*
+
+[listing]
+----
+xcp verify hdfs:///user/demo1/data s3://my-bucket
+xcp verify -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> hdfs:///demo/user s3://my-bucket
+----
+Siehe `xcp help verify` Entnehmen.

@@ -114,7 +114,23 @@ Lesen Sie die Lösungen zur Fehlerbehebung durch.
 | `xcp: ERROR: batch 2: child process failed (exit code -6): recv <type 'exceptions.EOFError'>:` | Erhöhen Sie den Systemspeicher, und führen Sie den Test erneut aus. 
 
 
-| `xcp:ERROR: invalid path 'IP:/users009/user1/2022-07-01_04:36:52_1489367` | Wenn im Dateipfad ein Doppelpunkt (:) vorhanden ist, verwenden Sie stattdessen drei Doppelpunkte (::). 
+| `xcp:ERROR: invalid path 'IP:/users009/user1/2022-07-01_04:36:52_1489367` | Wenn im Namen des NFS-Servers ein oder mehrere Doppelpunkte vorhanden sind, verwenden Sie einen Doppelpunkt (:) anstelle eines Doppelpunkts (:), um den Pfad der NFS-Server-IP und NFS-Server-Freigabe zu trennen. 
+
+
+| Das SnapLock Volume behält die WORM-Dateien nach einem nicht mehr bei `xcp copy` Betrieb.  a| 
+XCP kopiert die WORM-Dateien erfolgreich auf das Volume, die Dateien werden jedoch nicht vom SnapLock Volume aufbewahrt.
+
+. Führen Sie die aus `xcp copy` Vorgang vom Quell- zum Ziel-Volume:
+`xcp copy src_server:/src_export dst_server:/dst_export`
+. Verwenden Sie die `xcp chmod` Befehl zum Ändern der Dateiberechtigungen auf dem Zielvolume auf *readonly*:
+`xcp chmod -mode  a-w  dst_server:/dst_export`
+
+
+Wenn die oben genannten Schritte abgeschlossen sind, beginnt das SnapLock-Volume, die kopierten Dateien beizubehalten.
+
+
+NOTE: Die Aufbewahrungszeit eines SnapLock Volumes richtet sich nach der Standardaufbewahrungsrichtlinie des Volumes. Überprüfen Sie vor Beginn der Migration die Einstellungen für die Volume-Aufbewahrung: link:https://docs.netapp.com/us-en/ontap/snaplock/set-retention-period-task.html["Aufbewahrungszeit einstellen"^]
+
 |===
 
 

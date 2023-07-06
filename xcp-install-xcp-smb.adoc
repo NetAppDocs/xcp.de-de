@@ -40,7 +40,7 @@ NOTE: Es besteht keine Möglichkeit zum Aktualisieren. Installieren Sie XCP neu,
 | Unterstützte Protokollversion | Alle SMB-Protokollversionen 
 
 
-| Unterstützter Browser (nur Dateianalyse) | XCP-Dateianalysen unterstützt Google Chrome Version 76 und höher. In der IMT-Matrix finden Sie alle unterstützten Versionen des Browsers 
+| Unterstützter Browser (nur Dateianalyse) | Siehe link:https://mysupport.netapp.com/matrix/["IMT"^] Matrix für alle unterstützten Browser-Versionen für XCP File Analytics. 
 |===
 
 

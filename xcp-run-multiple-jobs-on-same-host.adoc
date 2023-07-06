@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: xcp-run-multiple-jobs-on-same-host.html 
+keywords: xcp, configure, nfs, posix, connector 
+summary: Der POSIX-Anschluss ermöglicht XCP den Zugriff auf alle Linux-gemounteten Filesysteme, z. B. NFSv4, XFS und Veritas. 
+---
+= Mehrere XCP-Jobs auf demselben XCP-Host ausführen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Ab XCP 1.9.2 können Sie die Funktion "-minmem" verwenden, um mehrere XCP-Jobs oder -Befehle auf einem einzelnen XCP-Host auszuführen, vorausgesetzt, der Host verfügt über ausreichende Ressourcen für jeden Job. Wenn Sie einen Befehl ausführen, der die Funktion „-minmem“ unterstützt, verwendet XCP zur Fertigstellung des Jobs nur minimalen Hostspeicher, wodurch die Kapazität für die Ausführung zusätzlicher Jobs auf derselben Hostkonfiguration entsteht.
+
+
+
+== Mindestsystemanforderungen
+
+Für jeden XCP-Job sollten Sie bis zu 64 GB Hostspeicher und acht Kerne für mittelgroße bis große Migrationen zulassen.
+
+
+NOTE: Für die SMB-Datenmigration wird die Funktion „-Minmem“ nicht unterstützt.
+
+
+
+== Protokollierung
+
+Standardmäßig wird jeder XCP-Job in einer separaten Protokolldatei protokolliert, die für die Job-ID eindeutig ist. Dieser Protokollierungsmechanismus funktioniert gut, wenn mehrere Jobs auf demselben individuellen Host ausgeführt werden. NetApp empfiehlt keine Änderung des `xcpLogConfig.Json` Datei, um eine einzelne zu verwenden `xcp.log` Datei zum Protokollieren mehrerer XCP-Jobs, die parallel auf demselben Host ausgeführt werden.
+
+
+
+== Unterstützte Befehle
+
+Die Funktion „-minmem“ wird von den folgenden XCP-Befehlen unterstützt:
+
+* `scan`
+* `copy`
+* `resume`
+* `verify`
+* `isync`
+* `chmod`
+* `chown`
+* `delete`
+
+
+
+
+== Nicht unterstützte Befehle
+
+Die Funktion „-minmem“ wird vom nicht unterstützt `sync` Befehl.
+
+
+
+== Befehlsbeispiele
+
+Um die Funktion „-minmem“ verwenden zu können, müssen Sie die Option „-minmem“ in den XCP-Befehl einfügen, wie in den folgenden Beispielen gezeigt:
+
+* `xcp copy -newid _new ID_ *-minmem* src_server:/src_export dst_server:/dst_export`
+* `xcp resume [options] -id *-minmem* _copy ID_`
+* `xcp verify *-minmem* src_server:/src_export dst_server:/dst_export`
+
+
+*HDFS-Pfadbeispiele*:
+
+* `xcp copy *-minmem* hdfs:///user/demo1/data \file:///user/demo1/dest`
+* `xcp verify *-minmem* hdfs:///user/demo1/data \file:///user/demo1/dest`
+* `xcp copy -minmem hdfs:///user/demo1/data s3://bucket1`
+
+
+*POSIX-Pfadbeispiele*:
+
+* `xcp copy *-minmem* -newid _new ID_ \file:///mnt/source \file:///mnt/dest`
+* `xcp verify *-minmem* \file:///mnt/source \file:///mnt/dest`
+

@@ -4,7 +4,7 @@ permalink: index.html
 keywords: netapp, xcp, about, migration, file analytics, nfs, smb 
 summary: NetApp XCP ermöglicht skalierbare und hochperformante Datenmigrationen 
 ---
-= Erste Schritte mit XCP
+= Weitere Informationen zu XCP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,7 @@ summary: NetApp XCP ermöglicht skalierbare und hochperformante Datenmigrationen
 
 
 [role="lead"]
-NetApp XCP ermöglicht skalierbare und hochperformante Datenmigrationen.
-
-
-
-== Weitere Informationen zu XCP
-
-Bei NetApp XCP handelt es sich um eine Client-basierte Software für Datenmigration und Dateianalysen zwischen NetApp und NetApp zu NetApp. XCP wurde für Skalierung entwickelt und erzielt eine höhere Performance, da alle verfügbaren Systemressourcen zum Management von großen Datensätzen und hochperformanten Migrationen genutzt werden. XCP bietet Ihnen die Möglichkeit, Kundenberichte zu erstellen, um vollständige Einblicke in das Dateisystem zu erhalten. Dank der Matching- und Formatierungsfunktionen können Sie die Berichte an jeden Bedarf anpassen.
+NetApp XCP ist eine clientbasierte Software, die skalierbare und hochperformante Datenmigrationen für Datenmigration zwischen NetApp und NetApp sowie Dateianalysen ermöglicht. XCP wurde für Skalierung entwickelt und erzielt eine höhere Performance, da alle verfügbaren Systemressourcen zum Management von großen Datensätzen und hochperformanten Migrationen genutzt werden. XCP bietet Ihnen die Möglichkeit, Kundenberichte zu erstellen, um vollständige Einblicke in das Dateisystem zu erhalten. Dank der Matching- und Formatierungsfunktionen können Sie die Berichte an jeden Bedarf anpassen.
 
 Verwenden Sie XCP für NFS- oder SMB-Systeme als eine der folgenden Lösungen:
 

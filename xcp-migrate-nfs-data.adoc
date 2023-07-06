@@ -4,7 +4,7 @@ permalink: xcp-migrate-nfs-data.html
 keywords: netapp, xcp, migrate, data, nfs, smb, copy, resume, sync, verify 
 summary: NFS-Daten migrieren 
 ---
-= NFS-Daten migrieren
+= Befehle zur Migration von NFS-Daten
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -33,12 +33,6 @@ xcp copy -newid <id> src_server:/src_export dst_server:/dst_export
 [listing]
 ----
 xcp copy -newid <id> file:///mnt/source file:///mnt/dest
-----
-*HDFS-Pfad Beispiel:*
-
-[listing]
-----
-xcp copy -newid <id> hdfs:///demo/user file:///mnt/dest
 ----
 Siehe `xcp help copy` Entnehmen.
 
@@ -87,11 +81,5 @@ xcp verify src_server:/src_export dst_server:/dst_export
 [listing]
 ----
 xcp verify file:///mnt/source file:///mnt/dest
-----
-*HDFS-Pfad Beispiel:*
-
-[listing]
-----
-xcp verify hdfs:///user/demo1/data file:///user/demo1/dest
 ----
 Siehe `xcp help verify` Entnehmen.

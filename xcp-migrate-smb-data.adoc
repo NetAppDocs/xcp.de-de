@@ -60,9 +60,7 @@ Der `verify` Der Befehl liest Quell- und Zielfreigaben und vergleicht sie, indem
 
 [NOTE]
 ====
-* Während der Überprüfung können Sie das verwenden `-preserve-atime` Flagge mit dem `verify` Befehl zum Bewahren der Zugriffszeit an der Quelle.
-* Während der Überprüfung können Sie das verwenden `-noatime` Flagge mit dem `verify` Befehl zum Ausschließen von Unterschieden bei der Zugriffszeit.
-
+Während der Überprüfung können Sie das verwenden `-preserve-atime` Flagge mit dem `verify` Befehl zum Bewahren der Zugriffszeit an der Quelle.
 
 ====
 *Beispiel:*
