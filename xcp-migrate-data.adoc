@@ -13,3 +13,73 @@ summary: Datenmigration
 :imagesdir: ./media/
 
 
+[role="lead"]
+Nach der Planung der Migration mit dem `show` Und `scan` Befehle, Sie können Daten migrieren.
+
+
+
+== Kopieren
+
+Der `copy` Befehl scannt und kopiert die gesamte Quellverzeichnis-Struktur zu einem Ziel-NFSv3-Export. Der `copy` Befehl erfordert, dass Quell- und Zielpfade als Variablen sind. Die gescannten und kopierten Dateien, die Durchsätze/die Geschwindigkeit und die verstrichene Zeit werden am Ende des Kopiervorgangs angezeigt.
+
+*Beispiel:*
+
+[listing]
+----
+xcp copy -newid <id> src_server:/src_export dst_server:/dst_export
+----
+*POSIX-Pfad Beispiel:*
+
+[listing]
+----
+xcp copy -newid <id> file:///mnt/source file:///mnt/dest
+----
+Siehe `xcp help copy` Entnehmen.
+
+
+
+== Fortsetzen
+
+Der `resume` Befehl startet einen zuvor unterbrochenen Kopiervorgang durch Angabe des Katalogindizes oder der Nummer neu. Der Katalogindex-Name oder die Nummer des vorherigen Kopiervorgangs wird auf dem gespeichert `<catalog path>:/catalog/indexes` Verzeichnis.
+
+*Beispiel:*
+
+[listing]
+----
+xcp resume [options] -id <id used for copy>
+----
+Siehe `xcp help resume` Entnehmen.
+
+
+
+== Synchron
+
+Der `sync` Befehl scannt nach Änderungen und Änderungen, die an einem NFS-Quellverzeichnis mithilfe eines Katalogindex-Tag-Namens oder der Anzahl eines vorherigen Kopiervorgangs durchgeführt wurden. Inkrementelle Änderungen an der Quelle werden kopiert und auf das Zielverzeichnis angewendet. Die alten Katalogindex-Nummern werden nach dem Synchronisierungsvorgang## durch eine neue ersetzt [.underline].
+
+*Beispiel:*
+
+[listing]
+----
+xcp sync [options] -id <id used for copy>
+----
+Siehe `xcp help sync` Entnehmen.
+
+
+
+== Verifizieren
+
+Der `verify` Befehl verwendet nach dem Kopiervorgang einen vollständigen Byte-für-Byte-Vergleich der Daten zwischen Quell- und Zielverzeichnissen ohne die Verwendung einer Katalogindiziennummer. Der Befehl überprüft auf Änderungszeiten und andere Datei- oder Verzeichnisattribute, einschließlich Berechtigungen. Der Befehl liest auch die Dateien auf beiden Seiten und vergleicht die Daten.
+
+*Beispiel:*
+
+[listing]
+----
+xcp verify src_server:/src_export dst_server:/dst_export
+----
+*POSIX-Pfad Beispiel:*
+
+[listing]
+----
+xcp verify file:///mnt/source file:///mnt/dest
+----
+Siehe `xcp help verify` Entnehmen.

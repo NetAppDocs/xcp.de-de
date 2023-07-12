@@ -293,8 +293,6 @@
   <block id="7e4d5419d4fcf4ceade27ffac84d4e92" category="list-text">Während der Überprüfung können Sie das verwenden<block ref="8befe248db6248a8e352cf6213add2b7" prefix=" " category="inline-code"></block> Flagge mit dem<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> Befehl zum Bewahren der Zugriffszeit an der Quelle.</block>
   <block id="8bcf9c6b645253521b5145414a80aecc" category="paragraph">Siehe<block ref="7aaf8f3c0f52b0fd5a97d37fbe81d5c5" prefix=" " category="inline-code"></block> Entnehmen.</block>
   <block id="7f9cccf134351e9df9c324fb764603f3" category="summary">Willkommen bei der XCP Informationsbibliothek, enthält Links zu früheren Versionen.</block>
-  <block id="fdbdc0e84f617d7346b90d43e65e3e78" category="doc">XCP v1.9-Dokumentation</block>
-  <block id="acca97deb653a678580117072b78b763" category="paragraph">Willkommen bei der XCP Informationsbibliothek. Hier finden Sie die Dokumentation zur XCP v1.9-Software, einschließlich Installation, Konfiguration und Verwendung von XCP.</block>
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link-macro">NetApp Support Website</block>
   <block id="76c8844b91693e12fac2abf6d423c3f5" category="paragraph">Die Dokumentation für frühere XCP-Versionen finden Sie auf der <block ref="a4ccf985ba56b702a384be031a3cd5f9" category="inline-link-macro-rx"></block>.</block>
   <block id="26bddf6d4b393b265322f78d679e9266" category="summary">Planen Sie eine Datenmigration</block>
@@ -572,7 +570,6 @@
   <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link-macro">NetApp Support Website</block>
   <block id="110444d197d67f7d16c29fa0e2022b7f" category="paragraph">Sie können XCP von der herunterladen <block ref="ff34957a5613d93a82e79914bce07df2" category="inline-link-macro-rx"></block>.</block>
   <block id="5d813edbc38ed8b3a73ab3c485aa5daf" category="section-title">Lizenz-XCP</block>
-  <block id="a6ed02e973991972186d8dbd4bd0e16e" category="paragraph">NetApp bietet eine kostenlose XCP 90-Tage-Lizenz. Sie können die Lizenzdatei vom beziehen <block ref="f33ccbb3083b14f48de92a286ba83724" category="inline-link-macro-rx"></block>. Das Lizenzportal bietet verschiedene Lizenzoptionen. Nach 90 Tagen können Sie die Lizenz über dasselbe Portal für weitere 90 Tage verlängern.</block>
   <block id="0f217d96dd705618a7386cd8e0f4a5e4" category="paragraph">Die XCP-Lizenz ist als Offline- oder Online-Lizenz verfügbar. Wenn Sie Migrationsstatistiken senden möchten, verwenden Sie eine Online-Lizenz. Die Online-Lizenz erfordert eine Internetverbindung. Die Offline-Lizenz erfordert keine Internetverbindung.</block>
   <block id="b4c8d461cf544f3b1324e87e550416e1" category="section-title">Bereiten Sie Ihr System vor</block>
   <block id="e20233267adbb44f966c8c601a37ab48" category="inline-link-macro">XCP-NFS auf einem Linux-System</block>
@@ -888,4 +885,7 @@
   <block id="27ce933e59d1bd3bfff8d6118fb7a35e" category="paragraph">Der <block ref="b98ddb4c6025a76df69bcccfdb0bd760" category="inline-link-macro-rx"></block> Beschreiben Sie neue Funktionen, Upgrade-Hinweise, feste Probleme, bekannte Einschränkungen und bekannte Probleme.</block>
   <block id="b179bbcf6f57100cffb18d2558916e9d" category="cell">64-Bit Intel- oder AMD-Server, mindestens 8 Kerne und 64 GB RAM</block>
   <block id="11db15a14a5186a893fe15b0e03f3213" category="sidebar">Mehrere XCP-Jobs auf demselben Host ausführen</block>
+  <block id="bd843a39d27307ca3a4420e90c5e228f" category="doc">XCP v1.9.2 Dokumentation</block>
+  <block id="84f3449f04bbc191eb611f160d99dcfc" category="paragraph">Willkommen in der NetApp XCP Informationsbibliothek. Hier finden Sie die Dokumentation zur XCP v1.9.2-Software, einschließlich der Installation, Konfiguration und Verwendung von XCP.</block>
+  <block id="ac1b0e3122e91e04b7f9d9e2eea0accb" category="paragraph">NetApp bietet eine kostenlose XCP-Lizenz für ein Jahr. Sie können die Lizenzdatei vom beziehen <block ref="f33ccbb3083b14f48de92a286ba83724" category="inline-link-macro-rx"></block>. Das Lizenzportal bietet verschiedene Lizenzoptionen. Nach einem Jahr können Sie die Lizenz über dasselbe Portal um ein weiteres Jahr verlängern.</block>
 </blocks>
