@@ -14,9 +14,9 @@ Ab XCP 1.9.2 erweitert der S3 Connector (Simple Storage Service) den Umfang der 
 .Unterstützte Anwendungsfälle für die Migration
 Die folgenden Migrationsnutzungsfälle werden für die S3-Konnektoren unterstützt:
 
-* Migration von HDFS oder NFS zu NetApp StorageGRID
-* Migration von HDFS oder NFS zu Amazon S3
-* Migration von HDFS oder NFS zu NetApp ONTAP S3
+* Migration von HDFS zu NetApp StorageGRID
+* Migration von HDFS zu Amazon S3
+* Migration von HDFS zu NetApp ONTAP S3
 
 
 
