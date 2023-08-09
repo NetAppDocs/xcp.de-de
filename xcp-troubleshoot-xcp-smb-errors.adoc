@@ -20,6 +20,19 @@ Lesen Sie die Lösungen zur Fehlerbehebung durch.
 | Problem | Nutzen 
 
 
+ a| 
+Ein Traceback-Fehler kann auftreten, wenn die Quelle, das Ziel oder beides eine Verbindung ohne Verzeichnisse ist und eine Online-Lizenz für die Migration verwendet wird. In diesem Fall lautet der Status des XCP-Befehls `PASSED` Aber der folgende Fehler wird am Ende der Konsolenausgabe zurückgegeben:
+
+[listing]
+----
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "xcp\stats.py", line 214, in call_home
+  File "xcp\histograms.py", line 387, in calculate_averages
+ZeroDivisionError: division by zero
+----| Verwenden Sie anstelle einer Online-Lizenz eine Offline-Lizenz. 
+
+
 | `xcp: ERROR`: Diese Lizenz ist abgelaufen | Verlängern oder beziehen Sie die neue XCP-Lizenz vom link:https://xcp.netapp.com/["XCP-Standort"^]. 
 
 
@@ -48,6 +61,10 @@ Lesen Sie die Lösungen zur Fehlerbehebung durch.
 `pywintypes.error: (87, 'LookupAccountName', 'The parameter is incorrect.')` | Falscher Parameter für die Option Fallback-Benutzer/Gruppe. Führen Sie den Befehl mit der richtigen Syntax für Fallback-Benutzer/Gruppen-Optionen erneut aus 
 
 
-| `xcp copy` Bei acl Migration Fehlermeldung in xcp.log-Datei angemeldet:
-`pywintypes.error`: `(1314, 'GetNamedSecurityInfo', 'A required privilege is not held by the client.')` | Ein Benutzer hat ein Problem mit Sicherheitsdeskriptoren, weil XCP mit den Berechtigungen, die der Benutzer für Migrationen besitzt, nur Eigentümer, Gruppe und DACL abrufen kann, keine SACL abrufen kann. Fügen Sie Ihren Migrationsbenutzer zur Richtlinie „Audit and Security Log“ in Ihrem Active Directory hinzu. Referenz: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953%28v%3Dws.11%29["Management von Audits und Sicherheitsprotokolls"^] 
+| `xcp copy` Mit ACL-Migration
+
+In xcp.log-Datei protokollierte Fehlermeldung:
+`pywintypes.error`: `(1314, 'GetNamedSecurityInfo', 'A required privilege is not held by the client.')` | Ein Problem mit Sicherheitsdeskriptoren, da das Migrationskonto nur die erforderlichen Berechtigungen für XCP besitzt, um den Eigentümer, die Gruppe und die DACL abzurufen. SACL kann nicht abgerufen werden.
+Fügen Sie Ihr Migrationskonto zur Richtlinie „Audit- und Sicherheitsprotokoll verwalten“ in Ihrem Active Directory hinzu.
+Referenz: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953%28v%3Dws.11%29["Management von Audits und Sicherheitsprotokolls"^] 
 |===

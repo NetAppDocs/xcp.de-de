@@ -402,8 +402,6 @@
   <block id="0ab4127ba4947453135e709735a6fc6c" category="cell">Der Fallback-Benutzer/die Fallback-Gruppe ist im Zielsystem (Zielfeld) oder im aktiven Verzeichnis nicht vorhanden. Führen Sie den Befehl mit den richtigen Fallback-Benutzer/Gruppen-Optionen erneut aus</block>
   <block id="4be936fd7e612c47d18eaec68c3932c3" category="cell"><block ref="9b3f5c2df0df1db5d50455680ef19138" prefix="" category="inline-code"></block> Fehler beim Abrufen von Fallback-Sicherheitprincipal (Post Adding Destination box Entry in the Hosts-Dateien) Fehler in der in xcp.log-Datei protokollierten Datei:<block ref="22a156c55e75c3835a304532e00c9cb2" prefix=" " category="inline-code"></block></block>
   <block id="2e4e559c9f6001c3134b8795d8e47e81" category="cell">Falscher Parameter für die Option Fallback-Benutzer/Gruppe. Führen Sie den Befehl mit der richtigen Syntax für Fallback-Benutzer/Gruppen-Optionen erneut aus</block>
-  <block id="20f0f3784e710ced2f992c9e868a329f" category="cell"><block ref="e64df9c2f5a72d0adb1dbea21a609c16" prefix="" category="inline-code"></block> Bei acl Migration Fehlermeldung in xcp.log-Datei angemeldet:<block ref="e2ac862df70b5c80b24bb2eb2b39bb13" prefix=" " category="inline-code"></block>:<block ref="da1b6bcd0d8118b98426d3a306332234" prefix=" " category="inline-code"></block></block>
-  <block id="ec548dc7e9c4428d0af475d94ed8628f" category="cell">Ein Benutzer hat ein Problem mit Sicherheitsdeskriptoren, weil XCP mit den Berechtigungen, die der Benutzer für Migrationen besitzt, nur Eigentümer, Gruppe und DACL abrufen kann, keine SACL abrufen kann. Fügen Sie Ihren Migrationsbenutzer zur Richtlinie „Audit and Security Log“ in Ihrem Active Directory hinzu. Referenz: <block ref="47c554f6b2ce744e50a1b2318fbe4ec3" category="inline-link-macro-rx"></block></block>
   <block id="63debe27683f1f8c225ad14c415dffcc" category="summary">Datenmigration</block>
   <block id="dfdcc7639b3e014792b21c9f7d5c85c0" category="summary">Installieren von XCP NFS</block>
   <block id="4e5b1a9c903c0437af920974c6501bd6" category="paragraph">Wenn Sie XCP aktualisieren möchten, löschen Sie die aktuelle Installation, und ersetzen Sie sie durch eine neue Installation der neuesten Version. In diesem Abschnitt werden die Systemanforderungen und die Verfahren für die Ersteinrichtung von XCP auf einem Linux-Client sowie die INI-Dateikonfiguration beschrieben.</block>
@@ -888,4 +886,12 @@
   <block id="9351e261865c10b81be01c7298324b0f" category="list-text">Migration von HDFS zu NetApp StorageGRID</block>
   <block id="c19152294b5e6dfeaa6ca9c77e0f12e1" category="list-text">Migration von HDFS zu Amazon S3</block>
   <block id="3df8a75d6363358c9c30a90e1f018d65" category="list-text">Migration von HDFS zu NetApp ONTAP S3</block>
+  <block id="392f97fdb8ea70faba5877ca90ad7c42" category="paragraph">Ein Traceback-Fehler kann auftreten, wenn die Quelle, das Ziel oder beides eine Verbindung ohne Verzeichnisse ist und eine Online-Lizenz für die Migration verwendet wird. In diesem Fall lautet der Status des XCP-Befehls<block ref="269f3d1562cbd15624e7d2c4b10122e3" prefix=" " category="inline-code"></block> Aber der folgende Fehler wird am Ende der Konsolenausgabe zurückgegeben:</block>
+  <block id="c1397a1836478812e944515ecd5ff969" category="cell">Verwenden Sie anstelle einer Online-Lizenz eine Offline-Lizenz.</block>
+  <block id="747dd4d48798d325d388dd4ba57db561" category="cell"><block ref="e64df9c2f5a72d0adb1dbea21a609c16" prefix="" category="inline-code"></block> Mit ACL-Migration
+
+In xcp.log-Datei protokollierte Fehlermeldung:<block ref="e2ac862df70b5c80b24bb2eb2b39bb13" prefix=" " category="inline-code"></block>:<block ref="da1b6bcd0d8118b98426d3a306332234" prefix=" " category="inline-code"></block></block>
+  <block id="5b68f649e30aa676e6765ad7d93ced85" category="cell">Ein Problem mit Sicherheitsdeskriptoren, da das Migrationskonto nur die erforderlichen Berechtigungen für XCP besitzt, um den Eigentümer, die Gruppe und die DACL abzurufen. SACL kann nicht abgerufen werden.
+Fügen Sie Ihr Migrationskonto zur Richtlinie „Audit- und Sicherheitsprotokoll verwalten“ in Ihrem Active Directory hinzu.
+Referenz: <block ref="47c554f6b2ce744e50a1b2318fbe4ec3" category="inline-link-macro-rx"></block></block>
 </blocks>
