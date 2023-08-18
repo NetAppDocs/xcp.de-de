@@ -215,7 +215,6 @@
   <block id="ccdcaa8e5fef5673db21a65af6bc516b" category="paragraph">Siehe <block ref="86f0b7d75368fee2dcdb28d15e03688c" category="inline-link-macro-rx"></block> Finden Sie weitere Informationen.</block>
   <block id="899cb0fc6e09b056f086b2106c805708" category="summary">Installieren von XCP SMB</block>
   <block id="4501bedf7a80968ef55dd21ff51af4a3" category="doc">Installieren Sie XCP SMB</block>
-  <block id="83eac0335f97fa6241e10b9487c974e1" category="paragraph">In diesem Abschnitt werden die Systemanforderungen und das Verfahren für die weiterverteilbare VC+-Installation sowie die Ersteinrichtung von XCP auf einem Windows-Client erläutert.</block>
   <block id="8f753e7a8965c7ae386ee6fa22a4b1bf" category="admonition">Es besteht keine Möglichkeit zum Aktualisieren. Installieren Sie XCP neu, um vorhandene Versionen zu ersetzen.</block>
   <block id="b9982e4a219c9f069ec01b724fff8274" category="paragraph">*Systemanforderungen*</block>
   <block id="7d74f3b92b19da5e606d737d339a9679" category="cell">Element</block>
@@ -292,9 +291,6 @@
   <block id="53ab8108c26b577654ebb4cf27404e03" category="paragraph">Der<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> Der Befehl liest Quell- und Zielfreigaben und vergleicht sie, indem er Informationen zu den verschiedenen Freigaben bereitstellt. Sie können den Befehl für jede Quelle und jedes Ziel verwenden, unabhängig vom Tool, das zum Durchführen der Kopie oder des Synchronisierungstools verwendet wird.</block>
   <block id="7e4d5419d4fcf4ceade27ffac84d4e92" category="list-text">Während der Überprüfung können Sie das verwenden<block ref="8befe248db6248a8e352cf6213add2b7" prefix=" " category="inline-code"></block> Flagge mit dem<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> Befehl zum Bewahren der Zugriffszeit an der Quelle.</block>
   <block id="8bcf9c6b645253521b5145414a80aecc" category="paragraph">Siehe<block ref="7aaf8f3c0f52b0fd5a97d37fbe81d5c5" prefix=" " category="inline-code"></block> Entnehmen.</block>
-  <block id="7f9cccf134351e9df9c324fb764603f3" category="summary">Willkommen bei der XCP Informationsbibliothek, enthält Links zu früheren Versionen.</block>
-  <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link-macro">NetApp Support Website</block>
-  <block id="76c8844b91693e12fac2abf6d423c3f5" category="paragraph">Die Dokumentation für frühere XCP-Versionen finden Sie auf der <block ref="a4ccf985ba56b702a384be031a3cd5f9" category="inline-link-macro-rx"></block>.</block>
   <block id="26bddf6d4b393b265322f78d679e9266" category="summary">Planen Sie eine Datenmigration</block>
   <block id="a045552c7614c121b614d5387d1d7e15" category="paragraph">Die Migration kann über die Befehlszeilenschnittstelle oder die GUI von Dateianalysen geplant werden.</block>
   <block id="8e20ba8fac66fab3c2a4d90a2d702810" category="paragraph">Planen Sie die Migration mit folgenden Befehlen:</block>
@@ -404,7 +400,6 @@
   <block id="2e4e559c9f6001c3134b8795d8e47e81" category="cell">Falscher Parameter für die Option Fallback-Benutzer/Gruppe. Führen Sie den Befehl mit der richtigen Syntax für Fallback-Benutzer/Gruppen-Optionen erneut aus</block>
   <block id="63debe27683f1f8c225ad14c415dffcc" category="summary">Datenmigration</block>
   <block id="dfdcc7639b3e014792b21c9f7d5c85c0" category="summary">Installieren von XCP NFS</block>
-  <block id="4e5b1a9c903c0437af920974c6501bd6" category="paragraph">Wenn Sie XCP aktualisieren möchten, löschen Sie die aktuelle Installation, und ersetzen Sie sie durch eine neue Installation der neuesten Version. In diesem Abschnitt werden die Systemanforderungen und die Verfahren für die Ersteinrichtung von XCP auf einem Linux-Client sowie die INI-Dateikonfiguration beschrieben.</block>
   <block id="c5dcd35af16918a17ee9c3a5c153f0af" category="inline-link-macro">IMT</block>
   <block id="b7b4f4d0374211895e3064e560d36b51" category="cell">RHEL8. Siehe <block ref="277e95e57632f1d20d4cd8ea672c1493" category="inline-link-macro-rx"></block> Für unterstützte Betriebssysteme</block>
   <block id="cfca5f031a4e11845916d10e6d53c91e" category="cell">Netzwerkkonnektivität und Zugriff auf Root-Ebene auf Quell- und Ziel-NFSv3-Exporte Keine anderen aktiven Anwendungen</block>
@@ -449,19 +444,6 @@
   <block id="30f1813985f65c01bf2b9b92879bc38d" category="paragraph">XCP unterstützt die Migration von Daten von einem Hadoop Distributed File System (HDFS) Filesystem zu einem NetApp Filesystem und umgekehrt. In einer Hadoop Umgebung mit aktivierter Sicherheit kann ein Benutzer ohne Root-Benutzer in einem Hadoop Cluster die Migration auf ein von NetApp NFSv4 exportiertes Filesystem durchführen. Der HDFS-Connector (hdfs://) bietet XCP die Möglichkeit, auf jedes HDFS-Dateisystem zuzugreifen, das bei verschiedenen Anbietern zur Verfügung steht. Ein nicht-Root-Benutzer kann XCP verwenden, um Migrationen mithilfe von HDFS- oder POSIX-Konnektoren durchzuführen.</block>
   <block id="296424663e8e3bf16ffbb2dffed95868" category="paragraph">Sie können HDFS-Cluster in eine XCP-Scale-out-Konfiguration integrieren, da sie mehrere High-End-Linux-Rechner verwenden. Auf diese Weise sind weniger zusätzliche XCP-Worker-Nodes erforderlich. Für die Datenmigration können die HDFS-Cluster-Nodes wiederverwendet oder separate Hosts verwendet werden.</block>
   <block id="df6c0aff915e6eb3864841ff85b7cd84" category="admonition">HDFS-Connector werden für MapR und Cloudera Cluster qualifiziert und unterstützt, können aber nur eine Baseline ausführen<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> Betrieb.</block>
-  <block id="15a72e0b175cfb652e426660fba4bc3c" category="summary">Weitere Informationen</block>
-  <block id="bf07f432276ee2fe7e55f9ea12c2ba5a" category="doc">Weitere Informationen</block>
-  <block id="b2869ebd73bb749c2a70fb53b7fb839a" category="paragraph">Hier erhalten Sie Hilfe und weitere Informationen über verschiedene Ressourcen, Dokumentationen und Foren.</block>
-  <block id="739cff85d11488640d8e5cd96fd20651" category="inline-link-macro">XCP-Dokumentation</block>
-  <block id="0eb64b88f402ba59777a9da3b39eb229" category="list-text"><block ref="1b5583f400587c5923833df145f2aa29" category="inline-link-macro-rx"></block> – Einschließlich Versionshinweise und Referenzmaterialien für diese Version und frühere Versionen</block>
-  <block id="7c5a354d83d8ccdcea8502404b2e4326" category="inline-link-macro">NetApp TechCommTV</block>
-  <block id="2b97e6564e79d94d38203d366b354ed0" category="list-text"><block ref="ac9c1e071b76d74223d967c993054c22" category="inline-link-macro-rx"></block>– NetApp XCP Videos</block>
-  <block id="6efa8f47d1a76af77ce311b436e4dca9" category="inline-link-macro">NetApp XCP</block>
-  <block id="3a9dc4d356f0267053bacfcd1d12f2a0" category="list-text"><block ref="8eb894646a418e33ca3d088f11e4914c" category="inline-link-macro-rx"></block> – Einschließlich Links zu einer Lizenz zu erhalten</block>
-  <block id="ed08ca4078374e76c6df3f1999af7274" category="inline-link-macro">NetApp Ressourcen</block>
-  <block id="8a05209ac1af42c76c9bfccbe981b710" category="list-text"><block ref="51a0489d16489f7754f2ce96a32b3156" category="inline-link-macro-rx"></block> Für XCP – einschließlich Links zu technischen Berichten und Knowledgebase-Artikeln</block>
-  <block id="dd490b81914dd945601e442a41cb4222" category="inline-link-macro">NetApp Community</block>
-  <block id="5069a642e7e1b77c303271d4c51a31be" category="list-text"><block ref="a6159e77c91be3ab1d481e4c7c939636" category="inline-link-macro-rx"></block> – Foren</block>
   <block id="0971884c69570e8ddf0c0cfb79e7a993" category="summary">Sie können überprüfen, ob Sie die richtigen Ports für die XCP-Migration verwenden.</block>
   <block id="fc197bf3689c7c56e57771c38b2b98a6" category="paragraph">Die folgenden Ports werden von XCP verwendet.</block>
   <block id="c2ba7e785c49050f48da9aacc45c2b85" category="cell">Service</block>
@@ -545,8 +527,6 @@
   <block id="0b857c6e7bf19abf29c47f989b4715dc" category="list-text">Bereitstellung von XCP-Dateianalyselösungen für NFS-Dateisysteme:</block>
   <block id="365fed029c9130511d651745702873b6" category="list-text">Sie können die GUI, die Datenbank und den XCP-Service für Dateianalysen auf demselben Linux-Host bereitstellen.</block>
   <block id="958e2b400bf30068195bfa78570cd469" category="list-text">Bereitstellen von XCP-Dateianalyselösungen für SMB-Dateisysteme: Sie müssen die GUI und die Datenbank der Dateianalyse auf einem Linux-Host bereitstellen und den XCP-Dienst auf einem Windows-Host bereitstellen.</block>
-  <block id="00fc0d4b3a5e71116d21a80782c5bdd5" category="summary">Schritte zum Konfigurieren von XCP</block>
-  <block id="bbea4d9be7e41369b354c0a01cc56390" category="doc">Konfigurieren Sie XCP NFS</block>
   <block id="8ecf08ca07c6d4a3f11a8ecd76bdfb54" category="summary">Über den HDFS-Connector kann XCP auf alle HDFS-Filesysteme zugreifen, die bei verschiedenen Anbietern verfügbar sind.</block>
   <block id="1b3dde5d541467088a5fb667cc14f2ea" category="doc">Konfigurieren Sie den HDFS-Connector</block>
   <block id="7a737a0106671114c37e3d7033cdffd5" category="paragraph">Für XCP-NFS bietet XCP über den Hadoop Distributed File System (HDFS)-Connector (hdfs://) Zugriff auf alle HDFS-Filesysteme, die bei unterschiedlichen Anbietern erhältlich sind.</block>
@@ -718,7 +698,6 @@
   <block id="15b9d4023566740949c10a9a9533c35c" category="list-text">Überprüfen Sie, ob die Einträge für die XCP Linux-Client-Host-Konfigurationsdatei des Katalogs geändert wurden:</block>
   <block id="4c82d2eef29d76c200ed39d04be95fc0" category="section-title">Konfigurieren Sie die INI-Datei für einen nicht-Root-Benutzer</block>
   <block id="c9beec711f96849f59fc8b461a17c844" category="paragraph">Als nicht-Root-Benutzer haben Sie keine Berechtigung, das NFS-Dateisystem zu mounten. Ein Root-Benutzer ist erforderlich, um zunächst das Katalogvolumen zu mounten und dann als nicht-Root-Benutzer, der XCP ausführt, wenn Sie über Lese-/Schreibberechtigungen für das Katalogvolumen verfügen, können Sie über einen POSIX-Konnektor auf das gemountete Katalogvolumen zugreifen. Nachdem das Volume angehängt ist, können Sie den Pfad des Katalogs hinzufügen:</block>
-  <block id="8cf04a9734132302f96da8e113e80ce5" category="sidebar">Zu Hause</block>
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">Versionshinweise</block>
   <block id="ef8cdecd9388166741c6ddeb9e648a30" category="sidebar">XCP konfigurieren</block>
   <block id="43f3f6a392074dfc63604c7b136e457f" category="sidebar">Konfigurieren Sie die INI-Datei für XCP NFS</block>
@@ -771,7 +750,6 @@
   <block id="a819ba1b3efc04fee9100a7ab0ee93ca" category="paragraph"><block ref="a73ccca27c22e20f2b42c66b62244db5" prefix="" category="inline-code"></block></block>
   <block id="6f59af5df257d27f8f7f83e150cb44c7" category="list-text">Wenn der folgende Fehler angezeigt wird, installieren Sie die CodeReady-Pakete mit yum, z. B.<block ref="195584d46184f28385e2ae5bd9f0af62" prefix=" " category="inline-code"></block>:</block>
   <block id="b326b5062b2f0e69046810717534cb09" category="cell">Richtig</block>
-  <block id="a660b358e105189a720dbb4a9176decf" category="paragraph">NetApp XCP ist eine clientbasierte Software, die skalierbare und hochperformante Datenmigrationen für Datenmigration zwischen NetApp und NetApp sowie Dateianalysen ermöglicht. XCP wurde für Skalierung entwickelt und erzielt eine höhere Performance, da alle verfügbaren Systemressourcen zum Management von großen Datensätzen und hochperformanten Migrationen genutzt werden. XCP bietet Ihnen die Möglichkeit, Kundenberichte zu erstellen, um vollständige Einblicke in das Dateisystem zu erhalten. Dank der Matching- und Formatierungsfunktionen können Sie die Berichte an jeden Bedarf anpassen.</block>
   <block id="f11ba2ba1e8e44e293e56351fbc05edf" category="doc">Mehrere XCP-Jobs auf demselben XCP-Host ausführen</block>
   <block id="328be41686da6fdb0454cdc13b57cf2d" category="paragraph">Ab XCP 1.9.2 können Sie die Funktion "-minmem" verwenden, um mehrere XCP-Jobs oder -Befehle auf einem einzelnen XCP-Host auszuführen, vorausgesetzt, der Host verfügt über ausreichende Ressourcen für jeden Job. Wenn Sie einen Befehl ausführen, der die Funktion „-minmem“ unterstützt, verwendet XCP zur Fertigstellung des Jobs nur minimalen Hostspeicher, wodurch die Kapazität für die Ausführung zusätzlicher Jobs auf derselben Hostkonfiguration entsteht.</block>
   <block id="d9647e192eec469f5ef0ff6b04e9a7f0" category="section-title">Mindestsystemanforderungen</block>
@@ -880,8 +858,6 @@
   <block id="27ce933e59d1bd3bfff8d6118fb7a35e" category="paragraph">Der <block ref="b98ddb4c6025a76df69bcccfdb0bd760" category="inline-link-macro-rx"></block> Beschreiben Sie neue Funktionen, Upgrade-Hinweise, feste Probleme, bekannte Einschränkungen und bekannte Probleme.</block>
   <block id="b179bbcf6f57100cffb18d2558916e9d" category="cell">64-Bit Intel- oder AMD-Server, mindestens 8 Kerne und 64 GB RAM</block>
   <block id="11db15a14a5186a893fe15b0e03f3213" category="sidebar">Mehrere XCP-Jobs auf demselben Host ausführen</block>
-  <block id="bd843a39d27307ca3a4420e90c5e228f" category="doc">XCP v1.9.2 Dokumentation</block>
-  <block id="84f3449f04bbc191eb611f160d99dcfc" category="paragraph">Willkommen in der NetApp XCP Informationsbibliothek. Hier finden Sie die Dokumentation zur XCP v1.9.2-Software, einschließlich der Installation, Konfiguration und Verwendung von XCP.</block>
   <block id="ac1b0e3122e91e04b7f9d9e2eea0accb" category="paragraph">NetApp bietet eine kostenlose XCP-Lizenz für ein Jahr. Sie können die Lizenzdatei vom beziehen <block ref="f33ccbb3083b14f48de92a286ba83724" category="inline-link-macro-rx"></block>. Das Lizenzportal bietet verschiedene Lizenzoptionen. Nach einem Jahr können Sie die Lizenz über dasselbe Portal um ein weiteres Jahr verlängern.</block>
   <block id="9351e261865c10b81be01c7298324b0f" category="list-text">Migration von HDFS zu NetApp StorageGRID</block>
   <block id="c19152294b5e6dfeaa6ca9c77e0f12e1" category="list-text">Migration von HDFS zu Amazon S3</block>
@@ -894,4 +870,52 @@ In xcp.log-Datei protokollierte Fehlermeldung:<block ref="e2ac862df70b5c80b24bb2
   <block id="5b68f649e30aa676e6765ad7d93ced85" category="cell">Ein Problem mit Sicherheitsdeskriptoren, da das Migrationskonto nur die erforderlichen Berechtigungen für XCP besitzt, um den Eigentümer, die Gruppe und die DACL abzurufen. SACL kann nicht abgerufen werden.
 Fügen Sie Ihr Migrationskonto zur Richtlinie „Audit- und Sicherheitsprotokoll verwalten“ in Ihrem Active Directory hinzu.
 Referenz: <block ref="47c554f6b2ce744e50a1b2318fbe4ec3" category="inline-link-macro-rx"></block></block>
+  <block id="b26aa33242c67db906e87e2438c94d27" category="paragraph">NetApp XCP wurde für Skalierung und höhere Performance konzipiert, indem alle verfügbaren Systemressourcen für das Management von umfangreichen Datensätzen und hochperformanten Datenmigrationen genutzt werden. XCP bietet Ihnen die Möglichkeit, Kundenberichte zu erstellen, um vollständige Einblicke in das Dateisystem zu erhalten. Dank der Matching- und Formatierungsfunktionen können Sie die Berichte an jeden Bedarf anpassen.</block>
+  <block id="60f3d88855f39291216e88879e7016bd" category="paragraph">In diesem Abschnitt werden die Systemanforderungen und die Verfahren für die Ersteinrichtung von XCP auf einem Linux-Client sowie die INI-Dateikonfiguration beschrieben.</block>
+  <block id="8f9dd51720e75b125d13cc0941d2cb30" category="summary">NetApp XCP ist eine clientbasierte Software, die skalierbare und hochperformante Datenmigrationen für Datenmigration zwischen NetApp und NetApp sowie Dateianalysen ermöglicht.</block>
+  <block id="bb3aa4713d330863980f0c63bf214969" category="doc">NetApp XCP-Dokumentation</block>
+  <block id="a3f155c6d354f670674d0fefc33ab908" category="doc">Planen Sie Ihre Datenmigration</block>
+  <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Rechtliche Hinweise</block>
+  <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Rechtliche Hinweise ermöglichen den Zugriff auf Copyright-Erklärungen, Marken, Patente und mehr.</block>
+  <block id="6016a2b341113bf496b719905398ecd2" category="section-title">Urheberrecht</block>
+  <block id="52009bb7ee17227f566cd26a02caee56" category="inline-link-macro"><block ref="52009bb7ee17227f566cd26a02caee56" category="inline-link-rx"></block></block>
+  <block id="a1a9afcf552a769c282769271829889a" category="paragraph"><block ref="a1a9afcf552a769c282769271829889a" category="inline-link-macro-rx"></block></block>
+  <block id="126a02652da6de02962cf1b654fd6376" category="section-title">Marken</block>
+  <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NetApp, das NETAPP Logo und die auf der NetApp Markenseite aufgeführten Marken sind Marken von NetApp Inc. Andere Firmen- und Produktnamen können Marken der jeweiligen Eigentümer sein.</block>
+  <block id="f99aa604031e5049799e73b5c3748a98" category="inline-link-macro"><block ref="f99aa604031e5049799e73b5c3748a98" category="inline-link-rx"></block></block>
+  <block id="5d545fe5152641e2ebe654e336e520e5" category="paragraph"><block ref="5d545fe5152641e2ebe654e336e520e5" category="inline-link-macro-rx"></block></block>
+  <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">Patente</block>
+  <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">Eine aktuelle Liste der NetApp Patente finden Sie unter:</block>
+  <block id="88e5eabd3917048b6927c42496b98f86" category="inline-link-macro"><block ref="88e5eabd3917048b6927c42496b98f86" category="inline-link-rx"></block></block>
+  <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
+  <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">Datenschutzrichtlinie</block>
+  <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
+  <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">Open Source</block>
+  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">In den Benachrichtigungsdateien finden Sie Informationen zu Urheberrechten und Lizenzen von Drittanbietern, die in der NetApp Software verwendet werden.</block>
+  <block id="c2b224ab0d31234f6b60612f6540c534" category="inline-link-macro">Hinweis für NetApp XCP 1.9.2</block>
+  <block id="bb59aef0c9f5d2c9cdbd6a4f2f57242b" category="list-text"><block ref="bb59aef0c9f5d2c9cdbd6a4f2f57242b" category="inline-link-macro-rx"></block></block>
+  <block id="2b83916321c793aeb5bffce5ddd49d3d" category="inline-link-macro">Hinweis für NetApp XCP 1.9.1</block>
+  <block id="dbc8e8be00730d6953956c8b0aa305cb" category="list-text"><block ref="dbc8e8be00730d6953956c8b0aa305cb" category="inline-link-macro-rx"></block></block>
+  <block id="92e978f51b6854f19cb102afb6e7c7f9" category="inline-link-macro">Hinweis für NetApp XCP 1.9</block>
+  <block id="3503fc6ddb1aa6f7c157ac78bac45cbc" category="list-text"><block ref="3503fc6ddb1aa6f7c157ac78bac45cbc" category="inline-link-macro-rx"></block></block>
+  <block id="ee797c259878f2839455105abb65106c" category="inline-link-macro">Hinweis für NetApp XCP 1.8.1</block>
+  <block id="d010dc762575a62b4743cdf67aaca20a" category="list-text"><block ref="d010dc762575a62b4743cdf67aaca20a" category="inline-link-macro-rx"></block></block>
+  <block id="bb56f67a148cc2f2b0fefdf3ad31d862" category="inline-link-macro">Hinweis für NetApp XCP 1.8</block>
+  <block id="947d36e55b7e5eaafa3b9365e2c2f048" category="list-text"><block ref="947d36e55b7e5eaafa3b9365e2c2f048" category="inline-link-macro-rx"></block></block>
+  <block id="8460555eb240926a8ff0bb9963c60097" category="sidebar">NetApp XCP ist eine clientbasierte Software, die skalierbare und hochperformante Datenmigrationen für Datenmigration zwischen NetApp und NetApp sowie Dateianalysen ermöglicht. Hier finden Sie die Dokumentation zur XCP 1.9.2-Software, einschließlich der Installation, Konfiguration und Verwendung von XCP. Die Dokumentation für frühere Versionen von XCP ist auf der NetApp Support-Website verfügbar.</block>
+  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Los geht's</block>
+  <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">Versionshinweise</block>
+  <block id="93168a8084b3e838d2932c4734bd234e" category="sidebar">Frühere Versionen</block>
+  <block id="bb94e7367791f982596ac461b54c7eab" category="sidebar">NetApp XCP 1.9.1</block>
+  <block id="1314b92278223dc2ab46c6dd8b3bf655" category="sidebar">NetApp XCP 1.9</block>
+  <block id="0b883cd31dc0a70033ec3260cc84cde2" category="sidebar">NetApp XCP 1.8.1</block>
+  <block id="c2349270a2c5b206946456729c613d88" category="sidebar">NetApp XCP 1.8</block>
+  <block id="a6ec16db3258e39e9ea07a28c8bc6f0c" category="sidebar">NetApp XCP 1.7 und früher</block>
+  <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">Mehr Ressourcen</block>
+  <block id="b5ebef46ca4c7353a47405db847d5f8d" category="sidebar">XCP-Dokumentation (einschließlich Referenzmaterialien)</block>
+  <block id="d00f838899e1bae3eeafc63b8e4a4be2" category="sidebar">NetApp TechCommTV (Videos zu NetApp XCP)</block>
+  <block id="e0805d6bd6649b148eb00741ca006a8d" category="sidebar">NetApp XCP (einschließlich Links zum Erwerb einer Lizenz)</block>
+  <block id="69325177d6c1169f9e91f28d3c39250a" category="sidebar">NetApp-Ressourcen für XCP</block>
+  <block id="05d2f8b110a50afd169a5d85f77bf23c" category="sidebar">NetApp-Community (Foren)</block>
 </blocks>
