@@ -14,7 +14,7 @@ summary: HDFS-Daten migrieren
 
 
 [role="lead"]
-Nach der Planung der Migration mit dem `scan` Befehl können Sie Daten migrieren.
+Nach der Planung der Migration mit dem `scan` Können Sie die HDFS-Daten migrieren.
 
 
 

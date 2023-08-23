@@ -14,7 +14,7 @@ summary: Migrieren von SMB-Daten
 
 
 [role="lead"]
-Nach der Planung der Migration mit dem `show` Und `scan` Befehle, Sie können Daten migrieren.
+Nach der Planung der Migration mit dem `show` Und `scan` Befehle können Sie die SMB-Daten migrieren.
 
 
 
