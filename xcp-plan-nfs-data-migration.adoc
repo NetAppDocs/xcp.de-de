@@ -36,6 +36,9 @@ Laufen `xcp help show` Entnehmen.
 
 Der `scan` Befehl scannt rekursiv die gesamten von der Quelle exportierten NFSv3-Pfade und druckt die Statistiken der Dateistruktur am Ende des Scans. NetApp empfiehlt, während des Scan-Vorgangs die Quell-NFS-Export-Mounts in den schreibgeschützten Modus zu versetzen.
 
+
+NOTE: Wenn ein Datei- oder Verzeichnisname nicht-UTF-8-Zeichen enthält, werden diese Zeichen in das UTF-8-Format konvertiert und beim Ausführen des angezeigt `xcp-scan` Befehl. Abhängig von der Übersetzung von der Quellcodierung nach UTF-8 werden die Zeichen möglicherweise nicht wie erwartet angezeigt.
+
 *Beispiel:*
 
 * `xcp scan NFS [server:/export path | file:// ]`

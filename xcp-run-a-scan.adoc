@@ -101,18 +101,41 @@ Das Diagramm „von Benutzern belegter Speicherplatz“ zeigt den von Benutzern 
 
 image:xcp_image13.png["Dateien, Auf Die Zugegriffen Wurde/Geändert/Erstellt Wurde"]
 
-Das Diagramm Dateien, auf die zugegriffen wurde/geändert/erstellt wurde, zeigt die Anzahl der Dateien an, die Überstunden geändert haben. Die X-Achse stellt den Zeitraum dar, in dem Änderungen vorgenommen wurden, und die y-Achse repräsentiert die Anzahl der geänderten Dateien.
+Im Diagramm Dateien abgerufen/geändert/erstellt wird die Anzahl der im Laufe der Zeit geänderten Dateien angezeigt. Die X-Achse repräsentiert den Zeitraum, in dem Änderungen vorgenommen wurden, und die Y-Achse repräsentiert die Anzahl der geänderten Dateien.
 
 
 NOTE: Um das Diagramm für die Zugriffszeit (Atime) in SMB-Scans anzuzeigen, aktivieren Sie das Kontrollkästchen, um vor dem Ausführen eines Scans eine Zeitdauer zu erhalten.
 
 
 
-=== Dateiverteilung durch Extension Graphic
+=== Diagramm „Dateigröße Zugegriffen/Geändert/Erstellt“
+
+image:xcp-filesize-amc.png[""]
+
+Das Diagramm „Dateigröße zugegriffen/geändert/erstellt“ zeigt die Größe der Dateien an, die im Laufe der Zeit geändert wurden. Die X-Achse repräsentiert den Zeitraum, innerhalb dessen Änderungen vorgenommen wurden, und die Y-Achse repräsentiert die Größe der geänderten Dateien.
+
+
+NOTE: Um das Diagramm für die Zugriffszeit (Atime) in SMB-Scans anzuzeigen, aktivieren Sie das Kontrollkästchen, um vor dem Ausführen eines Scans eine Zeitdauer zu erhalten.
+
+
+
+=== Dateiverteilung nach Erweiterung Graph
 
 image:xcp_image14.png["Dateiverteilung durch Extension Graphic"]
 
 Das Diagramm Dateiverteilung nach Erweiterung stellt die Anzahl der verschiedenen Dateierweiterungen in einer Dateifreigabe dar. Die Größe der Divisionen, die die Erweiterungen darstellen, basiert auf der Anzahl der Dateien mit jeder Erweiterung.
+
+Darüber hinaus können Sie bei SMB-Freigaben die Anzahl der alternativen Datenströme (ADS)-Dateien für jede Dateierweiterung abrufen, indem Sie das Kontrollkästchen für ADS aktivieren, bevor Sie einen Scan ausführen.
+
+image:xcp-file-distribution-ads.png[""]
+
+
+
+=== Dateigrößenverteilung nach Erweiterung Graph
+
+image:xcp-filesize-dist-ex.png[""]
+
+Das Diagramm Dateigrößenverteilung nach Erweiterung stellt die kumulative Größe der verschiedenen Dateierweiterungen in einer Dateifreigabe dar. Die Größe der Divisionen, die die Erweiterungen darstellen, basiert auf der Größe der Dateien mit jeder Erweiterung.
 
 
 
@@ -128,3 +151,7 @@ Das Diagramm Verteilung nach Typ stellt die Anzahl der folgenden Dateitypen dar:
 * DIR: Dateien mit Verzeichnissen
 * Verbindung: Nur in SMB verfügbar
 
+
+Darüber hinaus können Sie bei SMB-Freigaben die Anzahl der alternativen Datenströme (ADS)-Dateien für verschiedene Typen abrufen, indem Sie das Kontrollkästchen für ANZEIGEN aktivieren, bevor Sie einen Scan ausführen.
+
+image:xcp-file-distribution-type.png[""]

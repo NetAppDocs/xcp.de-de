@@ -16,7 +16,11 @@ summary: Die Dateianalyse bietet eine grafische Ansicht der Scanergebnisse
 [role="lead"]
 Die Dateianalyse bietet eine grafische Ansicht der Scanergebnisse.
 
-Die XCP-Dateianalyse-GUI bietet ein Dashboard mit Diagrammen zur Visualisierung von Dateianalysen. Die XCP-Dateianalyse-GUI ist aktiviert, wenn Sie XCP auf einem Linux-Rechner konfigurieren.
+
+
+== Melden Sie sich bei der GUI von File Analytics an
+
+Die GUI von XCP File Analytics bietet ein Dashboard mit Diagrammen zur Visualisierung von Dateianalysen. Die XCP-Dateianalyse-GUI ist aktiviert, wenn Sie XCP auf einem Linux-Rechner konfigurieren.
 
 
 NOTE: Informationen zum Überprüfen der unterstützten Browser für den Zugriff auf Dateianalyse finden Sie im link:https://mysupport.netapp.com/matrix/["NetApp IMT"^].
@@ -24,8 +28,8 @@ NOTE: Informationen zum Überprüfen der unterstützten Browser für den Zugriff
 .Schritte
 . Verwenden Sie den Link `\https://<IP address of linux machine>/xcp` Um auf die GUI zur Dateianalyse zuzugreifen. Akzeptieren Sie bei entsprechender Aufforderung das Sicherheitszertifikat:
 +
-.. Wählen Sie unter der Datenschutzerklärung „Erweitert“ aus.
-.. Wählen Sie Weiter mit `<IP address of linux machine>` Verlinken:
+.. Wählen Sie unter der Datenschutzerklärung *Erweitert* aus.
+.. Wählen Sie *Weiter mit `<IP address of linux machine>`* Link.
 
 
 . Melden Sie sich in der GUI für Dateianalysen an.
@@ -33,21 +37,37 @@ NOTE: Informationen zum Überprüfen der unterstützten Browser für den Zugriff
 Es gibt zwei Möglichkeiten, sich bei der GUI für Dateianalysen anzumelden:
 
 +
-.. Verwenden Sie den Benutzernamen „admin“ und das Passwort, das Sie während der Konfiguration festgelegt haben.
+[role="tabbed-block"]
+====
+.Melden Sie sich mit den Benutzeranmeldeinformationen an
+--
+.. Melden Sie sich bei der GUI mit den Benutzeranmeldeinformationen an, die Sie bei der Installation von File Analytics erhalten haben.
 +
 image:xcp_image2.png["XCP-Datei-Analyse-Anmeldebildschirm"]
 
-.. Konfiguration und Aktivierung der SSO-Funktionalität (Single Sign On) für den gesamten Unternehmen
+.. Ändern Sie optional das Passwort in Ihr eigenes Passwort.
 +
-Mit dieser Anmeldefunktion können Sie XCP-Dateianalysen auf einem bestimmten Rechner einrichten und die Web-UI-URL unternehmensweit freigeben, sodass sich Benutzer mit ihren SSO-Anmeldedaten an der UI anmelden können.
+Wenn Sie das bei der Installation erhaltene Passwort in Ihr eigenes Passwort ändern möchten, wählen Sie das Benutzersymbol und dann *Passwort ändern*.
 
 +
+Ihr neues Passwort muss mindestens acht Zeichen lang sein und mindestens eine Zahl, einen Großbuchstaben, einen Kleinbuchstaben und ein Sonderzeichen (! @ # € % ^ & * - _).
+
+
+
+
+NOTE: Nach dem Ändern des Passworts werden Sie automatisch von der GUI abgemeldet und müssen sich mit dem von Ihnen erstellten neuen Passwort erneut anmelden.
+
+--
+.Konfigurieren und Aktivieren der SSO-Funktion
+--
+Mit dieser Anmeldefunktion können Sie XCP-Dateianalysen auf einem bestimmten Computer einrichten und die Web-UI-URL unternehmensweit freigeben, sodass sich Benutzer mit ihren SSO-Anmeldeinformationen (Single Sign-On) bei der Benutzeroberfläche anmelden können.
+
 
 NOTE: Die SSO-Anmeldung ist optional und kann dauerhaft konfiguriert und aktiviert werden. Informationen zum Einrichten von SSO-basierten SSO-Anmeldedaten für die Security Assertion Markup Language (SAML) finden Sie unter <<Konfigurieren Sie SSO-Anmeldedaten>>.
 
-
-
-. Nach der Anmeldung sehen Sie, dass der NFS-Agent. Ein grünes Häkchen zeigt die minimale Systemkonfiguration des Linux-Systems und XCP-Version an.
+--
+====
+. Nach der Anmeldung sehen Sie den NFS-Agent; ein grünes Häkchen zeigt die minimale Systemkonfiguration des Linux-Systems und der XCP-Version an.
 . Wenn Sie einen SMB-Agent konfiguriert haben, wird der SMB-Agent, der in derselben Agent-Karte hinzugefügt wurde, angezeigt.
 
 
@@ -72,13 +92,13 @@ Im Folgenden sind die obligatorischen Angaben aufgeführt, die Sie für die Regi
 Sie können diese Details auch überprüfen, indem Sie sich in der Benutzeroberfläche für Dateianalysen anmelden:
 
 +
-... Melden Sie sich bei der UI mit dem Benutzernamen „admin“ und dem Passwort an, das während der Installation eingerichtet wurde.
+... Melden Sie sich mithilfe der unter beschriebenen Schritte bei der GUI an <<Melden Sie sich bei der GUI von File Analytics an>>.
 ... Wählen Sie oben rechts auf der Seite das Symbol *Benutzer* und dann *SAML-Einstellungen* aus.
 +
 Wählen Sie im angezeigten Dropdown-Menü die Option *Service Provider-Einstellungen* aus.
 
 +
-image:xcp_image18.png["Beispiel für SAML-Einstellungen"]
+image:xcp-saml-settings.png["Beispiel für SAML-Einstellungen"]
 
 +
 Nach der Registrierung erhalten Sie die IdP-Endpunktangaben für Ihr Unternehmen. Sie müssen die Metadaten des IdP-Endpunktes für die Dateianalyse-UI bereitstellen.

@@ -21,7 +21,14 @@ Lesen Sie die Lösungen zur Fehlerbehebung durch.
 
 
  a| 
-Ein Traceback-Fehler kann auftreten, wenn die Quelle, das Ziel oder beides eine Verbindung ohne Verzeichnisse ist und eine Online-Lizenz für die Migration verwendet wird. In diesem Fall lautet der Status des XCP-Befehls `PASSED` Aber der folgende Fehler wird am Ende der Konsolenausgabe zurückgegeben:
+XCP-Befehle zeigen nicht die erwarteten Ergebnisse an, wenn ein Verbindungspfad in der Quelle oder dem Ziel verwendet wird.
+ a| 
+Verwenden Sie beim Ausführen von XCP-Befehlen einen SMB-Freigabepfad anstelle eines Verbindungspfad.
+
+
+
+ a| 
+Ein Traceback-Fehler kann auftreten, wenn die Quelle, das Ziel oder beides eine Verbindung ohne Verzeichnisse ist und eine Online-Lizenz für die Migration verwendet wird. In diesem Fall lautet der XCP-Befehlsstatus `PASSED` Aber der folgende Fehler wird am Ende der Konsolenausgabe zurückgegeben:
 
 [listing]
 ----

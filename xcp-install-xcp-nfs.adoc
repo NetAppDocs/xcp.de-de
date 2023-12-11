@@ -31,7 +31,7 @@ In diesem Abschnitt werden die Systemanforderungen und die Verfahren für die Er
 | System | 64-Bit Intel- oder AMD-Server, mindestens 8 Kerne und 64 GB RAM 
 
 
-| Betriebssystem Und Software | RHEL8. Siehe link:https://mysupport.netapp.com/matrix/["IMT"^] Für unterstützte Betriebssysteme 
+| Betriebssystem Und Software | Siehe link:https://mysupport.netapp.com/matrix/["IMT"^] Für unterstützte Betriebssysteme 
 
 
 | Besondere Anforderungen | Netzwerkkonnektivität und Zugriff auf Root-Ebene auf Quell- und Ziel-NFSv3-Exporte Keine anderen aktiven Anwendungen 

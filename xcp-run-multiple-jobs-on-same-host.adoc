@@ -14,7 +14,7 @@ summary: Der POSIX-Anschluss ermöglicht XCP den Zugriff auf alle Linux-gemounte
 
 
 [role="lead"]
-Ab XCP 1.9.2 können Sie die Funktion "-minmem" verwenden, um mehrere XCP-Jobs oder -Befehle auf einem einzelnen XCP-Host auszuführen, vorausgesetzt, der Host verfügt über ausreichende Ressourcen für jeden Job. Wenn Sie einen Befehl ausführen, der die Funktion „-minmem“ unterstützt, verwendet XCP zur Fertigstellung des Jobs nur minimalen Hostspeicher, wodurch die Kapazität für die Ausführung zusätzlicher Jobs auf derselben Hostkonfiguration entsteht.
+Ab XCP 1.9.2 können Sie mehrere XCP-Jobs oder -Befehle auf einem einzelnen XCP-Host ausführen, vorausgesetzt, der Host verfügt über ausreichende Ressourcen für jeden Job. Wenn Sie einen Befehl ausführen, der mehrere Jobs unterstützt, verwendet XCP minimalen Hostspeicher, um den Job abzuschließen, wodurch die Kapazität für die Ausführung zusätzlicher Jobs auf derselben Hostkonfiguration entsteht.
 
 
 
@@ -23,7 +23,7 @@ Ab XCP 1.9.2 können Sie die Funktion "-minmem" verwenden, um mehrere XCP-Jobs o
 Für jeden XCP-Job sollten Sie bis zu 64 GB Hostspeicher und acht Kerne für mittelgroße bis große Migrationen zulassen.
 
 
-NOTE: Für die SMB-Datenmigration wird die Funktion „-Minmem“ nicht unterstützt.
+NOTE: Das Ausführen mehrerer XCP-Jobs auf demselben Host wird für die SMB-Datenmigration nicht unterstützt.
 
 
 
@@ -35,7 +35,7 @@ Standardmäßig wird jeder XCP-Job in einer separaten Protokolldatei protokollie
 
 == Unterstützte Befehle
 
-Die Funktion „-minmem“ wird von den folgenden XCP-Befehlen unterstützt:
+Das Ausführen mehrerer XCP-Jobs auf demselben Host wird durch die folgenden XCP-Befehle unterstützt:
 
 * `scan`
 * `copy`
@@ -51,28 +51,4 @@ Die Funktion „-minmem“ wird von den folgenden XCP-Befehlen unterstützt:
 
 == Nicht unterstützte Befehle
 
-Die Funktion „-minmem“ wird vom nicht unterstützt `sync` Befehl.
-
-
-
-== Befehlsbeispiele
-
-Um die Funktion „-minmem“ verwenden zu können, müssen Sie die Option „-minmem“ in den XCP-Befehl einfügen, wie in den folgenden Beispielen gezeigt:
-
-* `xcp copy -newid _new ID_ *-minmem* src_server:/src_export dst_server:/dst_export`
-* `xcp resume [options] -id *-minmem* _copy ID_`
-* `xcp verify *-minmem* src_server:/src_export dst_server:/dst_export`
-
-
-*HDFS-Pfadbeispiele*:
-
-* `xcp copy *-minmem* hdfs:///user/demo1/data \file:///user/demo1/dest`
-* `xcp verify *-minmem* hdfs:///user/demo1/data \file:///user/demo1/dest`
-* `xcp copy -minmem hdfs:///user/demo1/data s3://bucket1`
-
-
-*POSIX-Pfadbeispiele*:
-
-* `xcp copy *-minmem* -newid _new ID_ \file:///mnt/source \file:///mnt/dest`
-* `xcp verify *-minmem* \file:///mnt/source \file:///mnt/dest`
-
+Das Ausführen mehrerer XCP-Jobs auf demselben Host wird von nicht unterstützt `sync` Befehl.

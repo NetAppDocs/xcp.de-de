@@ -41,7 +41,7 @@ xcp copy -newid <id> hdfs:///demo/user file:///mnt/dest
 xcp copy -newid <id> hdfs:///demo/user s3://my-bucket
 xcp copy -newid <id> -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> hdfs:///demo/user s3://my-bucket
 ----
-Siehe `xcp help copy` Entnehmen.
+Laufen `xcp help copy` Entnehmen.
 
 
 
@@ -59,7 +59,7 @@ xcp resume [options] -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> -
 
 NOTE: Standardmäßig ist der XCP `resume` Der Befehl verwendet den S3-Endpunkt und das S3-Profil aus dem Kopierindex, der während des verwendet wurde `copy` Befehl. Jedoch, wenn neu `-s3.endpoint` Und `-s3.profile` Die Werte werden mit dem angegeben `resume` Werden die neuen Werte für die Optionen und die Werte verwendet, die mit der Kopie verwendet werden `command` Werden überschrieben.
 
-Siehe `xcp help resume` Entnehmen.
+Laufen `xcp help resume` Entnehmen.
 
 
 
@@ -86,4 +86,4 @@ xcp verify hdfs:///user/demo1/data file:///user/demo1/dest
 xcp verify hdfs:///user/demo1/data s3://my-bucket
 xcp verify -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> hdfs:///demo/user s3://my-bucket
 ----
-Siehe `xcp help verify` Entnehmen.
+Laufen `xcp help verify` Entnehmen.

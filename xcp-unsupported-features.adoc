@@ -58,9 +58,6 @@ Die folgenden Funktionen werden von XCP SMB nicht unterstützt:
 | IPv6 | Unterstützt IP-Version 6 (IPv6) nicht 
 
 
-| NTFS Alternative Datenströme | XCP unterstützt derzeit keine alternativen Datenströme 
-
-
 | XCP-Filter | Die Option XCP SMB exclude schließt momentan Verzeichnisse aus, die auf ihrem Muster im Filter basieren, und durchquert das Dateisystem dieser Verzeichnisse. 
 
 

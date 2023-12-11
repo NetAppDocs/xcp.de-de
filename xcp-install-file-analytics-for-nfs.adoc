@@ -16,26 +16,63 @@ summary: Installation oder Upgrade der Dateianalyse für NFS
 [role="lead"]
 Installation oder Upgrade der Dateianalyse für NFS
 
-Die Systemanforderungen für NFS finden Sie unter link:xcp-install-xcp-nfs.html["Installieren Sie XCP NFS"]. Der `configure.sh` Skript installiert und ermöglicht die Standardkonfigurationen VON HTTPD und PostgreSQL, die für Linux Server verfügbar sind. Sie können je nach Bedarf eine aktuellere Version ändern oder aktualisieren und die Sicherheitsrichtlinien einhalten.
+.Über diese Aufgabe
+Informationen zu den Systemanforderungen für NFS finden Sie unter link:xcp-install-xcp-nfs.html["Installieren Sie XCP NFS"].
+
+Der `configure.sh` Script installiert XCP File Analytics auf einem Red hat Enterprise Linux (RHEL)-Hostcomputer. Im Rahmen der Installation installiert das Skript Postgres Database, Apache HTTPD Server und andere erforderliche Pakete auf dem Host-Linux-Rechner. Informationen zu bestimmten unterstützten RHEL-Versionen finden Sie im link:https://mysupport.netapp.com/matrix/["IMT"^]. Sie können je nach Bedarf eine aktuellere Version ändern oder aktualisieren und die Sicherheitsrichtlinien einhalten. Um mehr über die zu erfahren `configure.sh` Skript, Ausführen `./configure.sh -h` In der Kommandozeile.
 
 .Bevor Sie beginnen
-* Sie können die XCP-Anwendung und den XCP-Dienst nicht gleichzeitig auf demselben Host ausführen. Wenn XCP-Vorgänge ausgeführt werden, führen Sie die Vorgänge aus, bevor Sie mit der Konfiguration beginnen.
+* Wenn XCP-Vorgänge ausgeführt werden, empfiehlt NetApp, die Vorgänge vor dem Start der Konfiguration abzuschließen.
 * Ihr Linux-Rechner muss mit dem Yum-Repository-Server oder dem Internet verbunden sein.
-* Wenn eine Firewall auf dem Linux-Rechner konfiguriert ist, müssen Sie die Firewall-Einstellungen ändern, um die von XCP, dem XCP-Dienst und den von XCP-Dateianalysen verwendeten Ports zu aktivieren. Weitere Informationen finden Sie unter xref:xcp-ports-used.html[Von XCP verwendete Ports].
+* Wenn auf dem Linux-Rechner eine Firewall konfiguriert ist, müssen Sie die Firewall-Einstellungen so ändern, dass Port 5030 aktiviert wird, der vom XCP-Dienst verwendet wird.
 
 
 .Schritte
-. Gehen Sie zu Ihrem XCP-Ordner, und führen Sie den aus `./configure.sh` Skript: Das Skript dauert drei bis zehn Minuten, um die Linux-Maschine zu konfigurieren und die folgenden Aufgaben auszuführen:
+. Installation oder Upgrade der Dateianalyse für NFS
 +
-.. PostgreSQL-Pakete herunterladen
-.. Installieren Sie den PostgreSQL-Server
-.. DEN HTTPD einbauen
-.. Verwenden Sie das offene SSL, um ein selbstsigniertes Zertifikat zu erstellen (`server.key and server.crt`)
-.. Erstellen Sie die XCP-Dateianalyse-Datenbank
+[role="tabbed-block"]
+====
+.Installieren Sie File Analytics
+--
+.. Navigieren Sie zum `xcp` Und führen Sie die aus `./configure.sh` Skript:
++
+Wenn die Installation erfolgreich war, wird die folgende Meldung angezeigt:
+
++
+[listing]
+----
+You can now access XCP file analytics using (<username>:<password>)
+https://<ip_address>/xcp
+----
++
+
+NOTE: Sie können diesen Benutzernamen und dieses Kennwort verwenden, um sich bei der GUI von File Analytics anzumelden.
 
 
-. Wählen Sie `option 1 Configure client system` Über das XCP-Konfigurationsmenü.
-. Aktualisieren Sie bei einer neuen Installation das Kennwort für den Administrator und die Datenbankbenutzer. Für ein Upgrade werden Sie aufgefordert, den XCP-Dienst zu beenden. Wenn Sie fertig sind, wählen Sie `option 0`.
-. Starten Sie den XCP-Dienst. Überprüfen Sie mit dem folgenden Befehl, ob der XCP-Dienst ausgeführt wird: Service xcp-Status
-. Starten Sie die Dateianalyse im Browser: *\https://<ip Adresse von linux>/xcp*.
+
+--
+.Aktualisieren Sie Dateianalyse
+--
+.. Navigieren Sie zum `xcp` Ordner und Ausführen `./configure.sh -f`.
+.. Geben Sie an der Eingabeaufforderung ein `y` Um das System zu bereinigen und neu zu konfigurieren.
++
+Nachdem das Skript genehmigt wurde, bereinigt es die vorhandene Konfiguration und konfiguriert das System neu.
+
++
+Wenn erfolgreich, wird die folgende Meldung angezeigt:
+
++
+[listing]
+----
+You can now access XCP file analytics using (<username>:<password>)
+https://<ip_address>/xcp
+----
+
+
+--
+====
+. Starten Sie die Dateianalyse in einem unterstützten Browser: *\https://<ip-Adresse von linux>/xcp*.
++
+Siehe link:xcp-install-xcp-nfs.html["Installieren Sie XCP NFS"] Für Informationen zu unterstützten Browsern.
+
 
