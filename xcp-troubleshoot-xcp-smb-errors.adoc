@@ -4,7 +4,7 @@ permalink: xcp-troubleshoot-xcp-smb-errors.html
 keywords: netapp, xcp, troubleshoot, troubleshooting, smb, 
 summary: Fehlerbehebung bei XCP SMB-Fehlern 
 ---
-= Fehler bei XCP SMB beheben
+= Fehlerbehebung bei XCP SMB-Fehlern
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
