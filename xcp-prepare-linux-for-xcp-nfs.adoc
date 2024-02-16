@@ -65,7 +65,7 @@ Ein Root-Benutzer auf einer Linux-Maschine verfügt über die Berechtigungen zum
 
 == Nicht-Root-Benutzer
 
-Ein nicht-Root-Benutzer verfügt über die folgenden Berechtigungen auf einem gemounteten Volume:
+Ein nicht-root-Benutzer muss auf einem gemounteten Volume über die folgenden Berechtigungen verfügen:
 
 * Lesezugriff auf das Quell-Volume
 * Lese-/Schreibzugriff auf das gemountete Ziel-Volume
