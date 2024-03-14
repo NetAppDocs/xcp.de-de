@@ -66,7 +66,7 @@ Führen Sie die folgenden Schritte aus, um die Ersteinrichtung von XCP SMB durch
 .Schritte
 . Laden Sie die Lizenz und die XCP SMB-Binärdatei herunter `NETAPP_XCP_<version>.tgz` Auf einem Windows-Client.
 . Extrahieren Sie die `NETAPP_XCP_<version>.tgz` Datei:
-. Kopieren Sie die `xcp.exe` Datei zu Ihrem Windows C: Laufwerk, diese Binärdatei ist im Inneren verfügbar `NETAPP_XCP_1.8\NETAPP_XCP_1.8\xcp\windows` Nach dem Extrahieren der `tgz` Datei:
+. Kopieren Sie die `xcp.exe` Datei zu Ihrem Windows C: Laufwerk, diese Binärdatei ist im Inneren verfügbar `NETAPP_XCP_<version>\xcp\windows` Nach dem Extrahieren der `tgz` Datei:
 . Überprüfen Sie das `C:\NetApp\XCP` Pfad ist auf dem System aus einer früheren Version von XCP verfügbar. Wenn `C:\NetApp\XCP` Ist verfügbar, aktivieren Sie XCP mit dem `xcp.exe activate` Führen Sie einen Befehl aus, und fahren Sie mit der Datenmigration fort.
 +
 Wenn `C:\NetApp\XCP` Ist nicht verfügbar, erstellt das System das XCP-Host-Konfigurationsverzeichnis und Dateien es unter `C:\NetApp\XCP` Wenn Sie den ausführen `xcp.exe activate` Befehl zum ersten Mal. Der `xcp.exe activate` Befehl schlägt fehl und erzeugt eine Fehlermeldung, in der Sie nach einer neuen Lizenz fragen.
