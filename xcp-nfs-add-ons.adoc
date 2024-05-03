@@ -28,7 +28,7 @@ Wenn Sie NFSv4 nur auf Quell-, Ziel- und Katalog-Volumes im Datacenter aktiviere
 
 == POSIX-Anschlüsse
 
-XCP 1.8 unterstützt die Verwendung von POSIX-Konnektoren, um Quell-, Ziel- und Katalogpfade für die Datenmigration bereitzustellen. Der POSIX-Anschluss (Datei://) ermöglicht XCP den Zugriff auf alle Linux-gemounteten Filesysteme, z. B. NFSv4, XFS und Veritas. Für nicht-Root-Benutzer kann der Systemadministrator das Dateisystem mounten und jedem nicht-Root-Benutzer die Möglichkeit geben, auf das Dateisystem zuzugreifen, indem er einen POSIX-Konnektor mit der Datei:// Präfix verwendet.
+XCP unterstützt die Verwendung von POSIX-Konnektoren zur Bereitstellung von Quell-, Ziel- und Katalogpfaden für die Datenmigration. Über den POSIX-Konnektor (File://) kann XCP auf jedes Linux-gemountete Filesystem zugreifen, beispielsweise NFSv4, XFS und Veritas. Für Benutzer ohne Root kann der Systemadministrator das Dateisystem mounten, um nicht-Root-Benutzern den Zugriff auf das Dateisystem über einen POSIX-Konnektor mit der Datei://-Präfix zu ermöglichen.
 
 Sie können POSIX-Anschlüsse verwenden, wenn Sie nicht über ausreichende Berechtigungen zum Mounten der Datei verfügen oder wenn die Unterstützung in den Rechenzentren auf NFSv4 beschränkt ist. In diesen Fällen kann jeder Root-Benutzer die Quelle und das Ziel mounten und dann über einen POSIX-Connector auf den Pfad zugreifen. Wenn Sie POSIX-Anschlüsse verwenden, können Sie nur die ausführen `xcp copy` Betrieb.
 
