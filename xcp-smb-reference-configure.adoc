@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-configure.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: XCP SMB „configure“-Befehlsreferenz 
+---
+= Konfigurieren
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Der `configure` Befehl konfiguriert das SMB-System und stellt eine Verbindung zu dem System her, auf dem die PostgreSQL-Datenbank ausgeführt wird.
+
+.Syntax
+[source, cli]
+----
+xcp.exe configure
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+C:\NetApp\XCP>xcp.exe configure
+
+Please choose the menu you want to start:
+1. Configure xcp.ini file
+0. Quit
+----
+====

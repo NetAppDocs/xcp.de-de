@@ -125,7 +125,7 @@ image:xcp_image14.png["Dateiverteilung durch Extension Graphic"]
 
 Das Diagramm Dateiverteilung nach Erweiterung stellt die Anzahl der verschiedenen Dateierweiterungen in einer Dateifreigabe dar. Die Größe der Divisionen, die die Erweiterungen darstellen, basiert auf der Anzahl der Dateien mit jeder Erweiterung.
 
-Darüber hinaus können Sie bei SMB-Freigaben die Anzahl der alternativen Datenströme (ADS)-Dateien für jede Dateierweiterung abrufen, indem Sie das Kontrollkästchen für ADS aktivieren, bevor Sie einen Scan ausführen.
+Darüber hinaus können Sie bei SMB-Freigaben die Anzahl alternativer Datenströme für jede Dateiendung abfragen, indem Sie das Kontrollkästchen für alternative Datenströme aktivieren, bevor Sie einen Scan durchführen.
 
 image:xcp-file-distribution-ads.png[""]
 
@@ -152,6 +152,6 @@ Das Diagramm Verteilung nach Typ stellt die Anzahl der folgenden Dateitypen dar:
 * Verbindung: Nur in SMB verfügbar
 
 
-Darüber hinaus können Sie bei SMB-Freigaben die Anzahl der alternativen Datenströme (ADS)-Dateien für verschiedene Typen abrufen, indem Sie das Kontrollkästchen für ANZEIGEN aktivieren, bevor Sie einen Scan ausführen.
+Außerdem können Sie bei SMB-Freigaben die Anzahl alternativer Datenströme für verschiedene Typen abfragen, indem Sie das Kontrollkästchen für alternative Datenströme aktivieren, bevor Sie einen Scan durchführen.
 
 image:xcp-file-distribution-type.png[""]

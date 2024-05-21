@@ -1,0 +1,302 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-reference-chown.html 
+keywords: netapp, xcp, reference, nfs, command, commands 
+summary: XCP NFS-Befehlsreferenz 
+---
+= Chown
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP-NFS `chown` Command scannt und ändert die Eigentumsrechte aller Dateien für die angegebene Verzeichnisstruktur. Der `chown` Für diesen Befehl ist eine NFS-Freigabe oder der POSIX-Pfad als Variable erforderlich. XCP chown verändert rekursiv die Eigentumsrechte für einen angegebenen Pfad. Der `chown` Befehl zeigt die geänderte Benutzer-ID (UID) für eine Datei an.
+
+.Syntax
+[source, cli]
+----
+xcp chown -user/-group <user-name/group-name> <source NFS export path>
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -user user2 -v 101.101.10.110:/s_v1/smaple_set/D1
+
+Sat Apr 2 23:06:05 2022
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1 from 1001:0 to 1004:0
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1/1.txt from 1001:0 to 1004:0
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1/softlink_1.img from 1001:0 to 1004:0
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1/1.img from 1001:0 to 1004:0
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1/hardlink_1.img from 1001:0 to 1004:0
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1/softlink_to_hardlink_1.img from 1001:0 to
+1004:0
+Xcp command : xcp chown -user user2 -v 101.101.10.110:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (1.82 KiB/s), 1.11 KiB out (923/s)
+Total Time : 1s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+In der folgenden Tabelle sind die aufgeführt `chown` Parameter und ihre Beschreibung.
+
+[cols="2*"]
+|===
+| Parameter | Beschreibung 
+
+
+| <<nfs_chown_exclude,Chown -exclude   >> | Schließt die Dateien und Verzeichnisse aus, die dem Filter entsprechen. 
+
+
+| <<nfs_chown_match,Chown -match   >> | Verarbeitet nur die Dateien und Verzeichnisse, die dem Filter entsprechen. 
+
+
+| <<nfs_chown_group,Chown -Group   >> | Legt die Linux-Gruppen-ID (GID) an der Quelle fest. 
+
+
+| <<nfs_chown_user,Chown -user  >> | Legt die Linux-UID an der Quelle fest. 
+
+
+| <<nfs_chown_user_from,Chown -user-from  >> | Ändert die UID. 
+
+
+| <<nfs_chown_group_from,Chown -Group-from   >> | Ändert die GID. 
+
+
+| <<nfs_chown_reference,Chown -reference  >> | Gibt die referenzierte Datei oder den Verzeichnispunkt an. 
+
+
+| <<nfs_chown_v,Chown -V >> | Meldet die Ausgabe für jedes bearbeitete Objekt. 
+|===
+
+
+== Chown: <filter> ausschließen
+
+Verwenden Sie die `-exclude <filter>` Parameter mit `chown` Befehl zum Ausschließen der Dateien und Verzeichnisse, die mit dem Filter übereinstimmen.
+
+.Syntax
+[source, cli]
+----
+xcp chown -exclude <filter> -user <user_name> <source NFS export path>
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -exclude "fnm('1.img')" -user user2 101.101.10.210:/s_v1/smaple_set/D1
+
+Excluded: 1 excluded, 0 did not match exclude criteria
+Xcp command : xcp chown -exclude fnm('1.img') -user user2101.101.10.210:/s_v1/smaple_set/D1
+Stats : 5 scanned, 1 excluded, 5 changed ownership
+Speed : 2.10 KiB in (1.75 KiB/s), 976 out (812/s)
+Total Time : 1s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown -match <filter>
+
+Verwenden Sie die `-match <filter>` Parameter mit `chown` Befehl, um nur die Dateien und Verzeichnisse zu verarbeiten, die mit dem Filter übereinstimmen.
+
+.Syntax
+[source, cli]
+----
+xcp chown -match <filter>  -user <user_name> <source NFS export path>
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -exclude "fnm('1.img')" -user user2 101.101.10.210:/s_v1/smaple_set/D1
+
+Excluded: 1 excluded, 0 did not match exclude criteria
+Xcp command : xcp chown -exclude fnm('1.img') -user user2101.101.10.210:/s_v1/smaple_set/D1
+Stats : 5 scanned, 1 excluded, 5 changed ownership
+Speed : 2.10 KiB in (1.75 KiB/s), 976 out (812/s)
+Total Time : 1s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown -Gruppe <group>
+
+Verwenden Sie die `-group <group>` Parameter mit `chown` Befehl zum Festlegen der Linux-GID an der Quelle.
+
+.Syntax
+[source, cli]
+----
+xcp chown -match <filter> -user <user_name> <source NFS export path>
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -group group1 101.101.10.210:/s_v1/smaple_set/D1
+
+Xcp command : xcp chown -group group1 101.101.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (1.92 KiB/s), 1.11 KiB out (974/s)
+Total Time : 1s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown -user <user>
+
+Verwenden Sie die `-user <user>` Parameter mit `chown` Befehl zum Festlegen der Linux-UID an der Quelle.
+
+.Syntax
+[source, cli]
+----
+xcp chown -user -user <user_name> <source NFS export path>
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -user user1 102.101.10.210:/s_v1/smaple_set/D1
+
+Xcp command : xcp chown -user user1 102.101.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (3.12 KiB/s), 1.11 KiB out (1.55 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown -user-from <user_from>
+
+Verwenden Sie die `-user-from <user_from>` Parameter mit `chown` Befehl zum Ändern der UID.
+
+.Syntax
+[source, cli]
+----
+xcp chown -user-from user1 -user <user_name> <source NFS export path>
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -user-from user1 -user user2
+101.101.10.210:/s_v1/smaple_set/D1
+
+Xcp command : xcp chown -user-from user1 -user user2 102.108.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (2.44 KiB/s), 1.11 KiB out (1.21 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown -Group-von <group_from>
+
+Verwenden Sie die `-group-from <group_from>` Parameter mit `chown` Befehl zum Ändern der GID.
+
+.Syntax
+[source, cli]
+----
+xcp chown -group-from <group_name> -group <group_name> <source NFS export path>
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -group-from group1 -group group2
+101.101.10.210:/s_v1/smaple_set/D1
+
+Xcp command : xcp chown -group-from group1 -group group2
+101.101.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (4.99 KiB/s), 1.11 KiB out (2.47 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown -Reference <reference>
+
+Verwenden Sie die `-reference <reference>` Parameter mit `chown` Befehl zur Angabe der referenzierten Datei oder des Verzeichnispunkts.
+
+.Syntax
+[source, cli]
+----
+xcp chown -reference <reference> <source NFS export path>
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -reference 101.101.10.210:/s_v1/smaple_set/D2/2.img 101.101.10.210:/s_v1/smaple_set/D1
+
+Xcp command : xcp chown -reference 101.101.10.210:/s_v1/smaple_set/D2/2.img
+101.101.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 3.11 KiB in (6.25 KiB/s), 2.01 KiB out (4.05 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown -V
+
+Verwenden Sie die `-v` Parameter mit `chown` Befehl, um die Ausgabe für jedes bearbeitete Objekt zu melden.
+
+.Syntax
+[source, cli]
+----
+xcp chown -user-from <user_name> -v -user <user_name> <source NFS export path>
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -user-from user2 -v -user user1
+101.101.10.210:/s_v1/smaple_set/D1
+
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1 from 1004:1003 to 1001:1003
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1/1.img from 1004:1003 to 1001:1003
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1/1.txt from 1004:1003 to 1001:1003
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1/softlink_1.img from 1004:1003 to
+1001:1003
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1/softlink_to_hardlink_1.img from
+1004:1003 to 1001:1003
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1/hardlink_1.img from 1004:1003 to
+1001:1003
+Xcp command : xcp chown -user-from user2 -v -user user1
+101.101.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (2.02 KiB/s), 1.11 KiB out (1.00 KiB/s)
+Total Time : 1s.
+
+STATUS : PASSED
+[root@user-1]
+----
+====

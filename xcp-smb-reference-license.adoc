@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-license.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: XCP SMB „Lizenz“-Befehlsreferenz 
+---
+= Lizenz
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Das SMB `license` Befehl zeigt XCP-Lizenzinformationen an.
+
+.Syntax
+[source, cli]
+----
+xcp license
+----
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
+----
+C:\Users\Administrator\Desktop\xcp>xcp license
+xcp license
+XCP <version>; (c) yyyy NetApp, Inc.; Licensed to XXX [NetApp Inc] until Mon Dec 31 00:00:00 yyyy
+License type: SANDBOX
+License status: ACTIVE
+Customer name: N/A
+Project number: N/A
+Offline Host: Yes
+Send statistics: No
+Host activation date: N/A
+License management URL: https://xcp.netapp.com
+----
+====

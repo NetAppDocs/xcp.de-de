@@ -4,11 +4,11 @@ sidebar: sidebar
 keywords: release, notes, new, features, fixed, issues, known, xcp 
 summary: Beschreibt neue Funktionen, Upgrade-Hinweise, feste Probleme, bekannte Einschränkungen und bekannte Probleme. 
 ---
-= XCP v1.9.3 Versionshinweise
+= XCP v1.9.4 Versionshinweise
 :allow-uri-read: 
 
 
 [role="lead"]
-Der link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2886695["XCP v1.9.3 Versionshinweise"^] Beschreiben Sie neue Funktionen, Upgrade-Hinweise, feste Probleme, bekannte Einschränkungen und bekannte Probleme.
+Der link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3317866["XCP v1.9.4 Versionshinweise"^] Beschreiben Sie neue Funktionen, Upgrade-Hinweise, feste Probleme, bekannte Einschränkungen und bekannte Probleme.
 
 Sie müssen sich auf der NetApp Support-Website anmelden, um auf die Versionshinweise zuzugreifen.

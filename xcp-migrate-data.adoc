@@ -26,7 +26,7 @@ Der `copy` Befehl scannt und kopiert die gesamte Quellverzeichnis-Struktur zu ei
 
 [listing]
 ----
-xcp copy -newid <id> src_server:/src_export dst_server:/dst_export
+xcp copy <source_nfs_export_path> <destination_nfs_export_path>
 ----
 *POSIX-Pfad Beispiel:*
 
@@ -46,7 +46,7 @@ Der `resume` Befehl startet einen zuvor unterbrochenen Kopiervorgang durch Angab
 
 [listing]
 ----
-xcp resume [options] -id <id used for copy>
+xcp resume -id <catalog_name>
 ----
 Laufen `xcp help resume` Entnehmen.
 
@@ -60,7 +60,7 @@ Der `sync` Befehl scannt nach Änderungen und Änderungen, die an einem NFS-Quel
 
 [listing]
 ----
-xcp sync [options] -id <id used for copy>
+xcp sync -id <catalog_name>
 ----
 Laufen `xcp help sync` Entnehmen.
 
@@ -74,7 +74,7 @@ Der `verify` Befehl verwendet nach dem Kopiervorgang einen vollständigen Byte-f
 
 [listing]
 ----
-xcp verify src_server:/src_export dst_server:/dst_export
+xcp verify <source_ip_address>:/source_vol <destination_ip_address>:/dest_vol
 ----
 *POSIX-Pfad Beispiel:*
 

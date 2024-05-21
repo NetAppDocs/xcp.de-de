@@ -29,7 +29,7 @@ NOTE: Während des Kopiervorgangs können Sie die verwenden `-preserve-atime` Fl
 
 [listing]
 ----
-C:\xcp>xcp copy \\<source SMB share> \\<destination SMB share>
+C:\xcp>xcp copy \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
 ----
 Laufen `xcp help copy` Entnehmen.
 
@@ -48,7 +48,7 @@ NOTE: Während der Synchronisierung können Sie das verwenden `-preserve-atime` 
 
 [listing]
 ----
-C:\xcp>xcp sync \\<source SMB share> \\<destination SMB share>
+C:\xcp>xcp sync \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
 ----
 Laufen `xcp help sync` Entnehmen.
 
@@ -67,6 +67,6 @@ Während der Überprüfung können Sie das verwenden `-preserve-atime` Flagge mi
 
 [listing]
 ----
-C:\xcp>xcp verify \\<source SMB share> \\<destination SMB share>
+C:\xcp>xcp verify \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
 ----
 Laufen `xcp help verify` Entnehmen.

@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: xcp-reference-logging-logconfig.html 
+keywords: netapp, xcp, reference, event, logging 
+summary: XCP-Protokollierung 
+---
+= Legen Sie die Option logConfig fest
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Erfahren Sie mehr über die Option logConfig im `xcpLogConfig.json` JSON-Konfigurationsdatei für XCP NFS und SMB.
+
+Das folgende Beispiel zeigt die JSON-Konfigurationsdatei mit der Option „logConfig“:
+
+*Beispiel*
+
+[listing]
+----
+{
+"level":"INFO",
+"maxBytes":"52428800",
+"name":"xcp.log"
+}
+----
+* Mit dieser Konfiguration können Sie Meldungen nach ihrem Schweregrad filtern, indem Sie einen gültigen Wert aus auswählen `CRITICAL`, `ERROR`, `WARNING`, `INFO`, und `Debug`.
+* Der `maxBytes` Mit dieser Einstellung können Sie die Dateigröße der rotierenden Protokolldateien ändern. Die Standardeinstellung ist 50 MB. Wenn Sie den Wert auf 0 setzen, wird die Rotation gestoppt, und für alle Protokolle wird eine einzelne Datei erstellt.
+* Der `name` Mit der Option wird der Name der Protokolldatei konfiguriert.
+* Wenn ein Schlüsselwertpaar fehlt, verwendet das System den Standardwert. Wenn Sie einen Fehler beim Festlegen des Namens eines vorhandenen Schlüssels machen, wird dieser als neuer Schlüssel behandelt, und der neue Schlüssel wirkt sich nicht auf die Funktionsweise des Systems oder der Systemfunktionalität aus.
+

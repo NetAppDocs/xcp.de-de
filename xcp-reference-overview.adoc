@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: xcp-reference-overview.html 
+keywords: netapp, xcp, reference, smb, nfs, logging, use case, commands 
+summary: XCP SMB-Befehlsreferenz 
+---
+= XCP-Befehlsreferenzübersicht
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Die XCP-Befehlsreferenz enthält Beispiele für die verfügbaren Befehle für XCP NFS und SMB. Jeder Befehl verfügt über zusätzliche Parameter, die Sie einzeln oder in Kombination verwenden können, je nach Bedarf. XCP unterstützt die Drehung von Protokolldateien und die Protokollfilterung auf Basis des Schweregrades.
