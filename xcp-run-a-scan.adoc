@@ -110,7 +110,7 @@ NOTE: Um das Diagramm für die Zugriffszeit (Atime) in SMB-Scans anzuzeigen, akt
 
 === Diagramm „Dateigröße Zugegriffen/Geändert/Erstellt“
 
-image:xcp-filesize-amc.png[""]
+image:xcp-filesize-amc.png["Ein Diagramm, das die Größe der im Laufe der Zeit geänderten Dateien anzeigt"]
 
 Das Diagramm „Dateigröße zugegriffen/geändert/erstellt“ zeigt die Größe der Dateien an, die im Laufe der Zeit geändert wurden. Die X-Achse repräsentiert den Zeitraum, innerhalb dessen Änderungen vorgenommen wurden, und die Y-Achse repräsentiert die Größe der geänderten Dateien.
 
@@ -127,13 +127,13 @@ Das Diagramm Dateiverteilung nach Erweiterung stellt die Anzahl der verschiedene
 
 Darüber hinaus können Sie bei SMB-Freigaben die Anzahl alternativer Datenströme für jede Dateiendung abfragen, indem Sie das Kontrollkästchen für alternative Datenströme aktivieren, bevor Sie einen Scan durchführen.
 
-image:xcp-file-distribution-ads.png[""]
+image:xcp-file-distribution-ads.png["Ein Diagramm, das zeigt, wie die Anzahl alternativer Datenstrom-Dateien für jede Dateierweiterung in XCP SMB abgerufen wird"]
 
 
 
 === Dateigrößenverteilung nach Erweiterung Graph
 
-image:xcp-filesize-dist-ex.png[""]
+image:xcp-filesize-dist-ex.png["Ein Diagramm, das die kumulative Größe der verschiedenen Dateierweiterungen in einer Dateifreigabe anzeigt."]
 
 Das Diagramm Dateigrößenverteilung nach Erweiterung stellt die kumulative Größe der verschiedenen Dateierweiterungen in einer Dateifreigabe dar. Die Größe der Divisionen, die die Erweiterungen darstellen, basiert auf der Größe der Dateien mit jeder Erweiterung.
 
@@ -154,4 +154,4 @@ Das Diagramm Verteilung nach Typ stellt die Anzahl der folgenden Dateitypen dar:
 
 Außerdem können Sie bei SMB-Freigaben die Anzahl alternativer Datenströme für verschiedene Typen abfragen, indem Sie das Kontrollkästchen für alternative Datenströme aktivieren, bevor Sie einen Scan durchführen.
 
-image:xcp-file-distribution-type.png[""]
+image:xcp-file-distribution-type.png["Ein Diagramm, das zeigt, wie die Anzahl der alternativen Datenstreamdateien für verschiedene Typen für XCP SMB abgerufen wird"]
