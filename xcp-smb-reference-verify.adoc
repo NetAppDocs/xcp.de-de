@@ -79,8 +79,7 @@ In der folgenden Tabelle sind die aufgeführt `verify` Parameter und ihre Beschr
 | <<Verifizieren -noOwnership>> | Überprüfen Sie die Eigentumsrechte nicht. 
 
 
-| <<Überprüfen Sie -ADS>> | Suchen Sie nach Änderungen und Änderungen an alternativen Datenströmen in der Quell- und Ziel-SMB-Freigabe. Wenn Änderungen vorgenommen werden, wird die Änderung auf das Ziel angewendet
-Vergewissern Sie sich, dass das Ziel mit der Quelle identisch ist. 
+| <<Überprüfen Sie -ADS>> | Der `verify` Befehl mit dem `-ads` Parameter überprüft alle alternativen Datenströme auf der Quelle und dem Ziel und zeigt jegliche Unterschiede an. 
 
 
 | <<Verify -noacls>> | ACLs nicht prüfen. 
@@ -110,10 +109,10 @@ Vergewissern Sie sich, dass das Ziel mit der Quelle identisch ist.
 | <<verify_smb_acl,Überprüfen -Fallback-Group  >> | Active Directory-Gruppe oder lokale (nicht-Domain-)Gruppe auf dem Zielcomputer, um die Berechtigungen lokaler (nicht-Domain-)Quellmaschinengruppen zu erhalten (Beispiel: Domain\Administratoren). 
 
 
-| <<smb_verify_root,Verify -root>> | ACLs für das Stammverzeichnis synchronisieren. 
+| <<smb_verify_root,Verify -root>> | Überprüfen Sie ACLs für das Stammverzeichnis. 
 
 
-| <<verify_smb_onlyacl,Überprüfen Sie -onlyacl>> | Kopieren Sie nur die Sicherheitsinformationen. 
+| <<verify_smb_onlyacl,Überprüfen Sie -onlyacl>> | Überprüfen Sie nur die Sicherheitsinformationen. 
 |===
 
 
@@ -477,7 +476,7 @@ STATUS : PASSED
 
 == Überprüfen Sie -ADS
 
-Wird Verwendet `-ads` Parameter mit `verify` Befehl zum Lesen, ob es alternative Datenströme auf der Quelle und dem Ziel gibt, und Anzeige von Unterschieden.
+Verwenden Sie den `-ads` Parameter mit dem `verify` Befehl, um zu überprüfen, ob sich auf der Quelle und dem Ziel alternative Datenströme befinden, und um Unterschiede anzuzeigen.
 
 .Syntax
 [source, cli]
@@ -774,7 +773,7 @@ xcp verify -noacls -fallback-user <fallback_user> -fallback-group <fallback_grou
 
 == Verify -root
 
-Verwenden Sie die `-root` Parameter mit `verify` Befehl zum Synchronisieren der ACLs für das Stammverzeichnis.
+Verwenden Sie den `-root` Parameter mit dem `verify` Befehl, um die ACLs für das Stammverzeichnis zu überprüfen.
 
 .Syntax
 [source, cli]
