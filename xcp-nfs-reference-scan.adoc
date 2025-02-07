@@ -199,9 +199,13 @@ STATUS : PASSED
 
 Verwenden Sie die `-stats`, `-csv`, und `-html` Parameter mit dem `scan` Befehl zum Auflisten von Dateien im Berichtsformat Baumstatistik.
 
+[NOTE]
+====
+* Die `-stats` Option druckt einen für den Benutzer lesbaren Bericht an die Konsole. Weitere Optionen für das Berichtsformat sind `-html` oder `-csv`. Das CSV-Format (Comma-Separated Values) weist genaue Werte auf. CSV- und HTML-Berichte werden automatisch im Katalog gespeichert, wenn ein Katalog vorhanden ist.
+* XCP-Berichte (.csv, .HTML) werden an dem in der Datei angegebenen Katalogspeicherort gespeichert `xcp.ini`. Die Dateien werden im Ordner gespeichert `<catalog path>/catalog/indexes/1/reports`. Sie können Beispielberichte im anzeigenlink:https://library.netapp.com/ecm/ecm_download_file/ECMLP2886872["NetApp XCP 1.9.3 Referenz"^].
 
-NOTE: XCP-Berichte (.csv, .HTML) werden an dem Katalogspeicherort gespeichert, der in angegeben ist `xcp.ini` Datei: Die Dateien werden im gespeichert `<catalog path>/catalog/indexes/1/reports` Ordner. Sie können Beispielberichte im Anhang anzeigen.
 
+====
 .Syntax
 [source, cli]
 ----

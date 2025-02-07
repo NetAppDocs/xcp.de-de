@@ -614,6 +614,9 @@ STATUS : PASSED
 
 Verwenden Sie die `-stats` Parameter mit `scan` Befehl zum Auflisten von Dateien in einem Berichtsformat für Baumstatistiken.
 
+
+NOTE: Mit der Option -stats wird ein vom Benutzer lesbarer Bericht an die Konsole gedruckt. Andere Berichtformate sind -HTML oder -csv. Das CSV-Format (Comma-Separated Values) weist genaue Werte auf. CSV- und HTML-Berichte werden automatisch im Katalog gespeichert, wenn ein Katalog vorhanden ist.
+
 .Syntax
 [source, cli]
 ----
